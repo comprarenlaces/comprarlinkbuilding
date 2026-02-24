@@ -11,10 +11,11 @@
 import { useState, useMemo } from "react";
 import {
   Search, ExternalLink, BookOpen, Layers, Calendar,
-  ChevronRight, Menu, X, Link2, TrendingUp, Shield,
+  ChevronRight, Menu, X, TrendingUp, Shield,
   Zap, Globe, AlertTriangle, BarChart2, Wrench, Tag,
   MapPin, ArrowRight
 } from "lucide-react";
+import { Logo } from "@/components/Logo";
 
 // ─── Fecha dinámica ──────────────────────────────────────────────────────────
 
@@ -215,14 +216,9 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded flex items-center justify-center" style={{ background: "#B5E853" }}>
-              <Link2 size={14} style={{ color: "#0D0D0D" }} strokeWidth={2.5} />
-            </div>
-            <span className="font-bold text-sm tracking-tight" style={{ color: "#E8E8E8" }}>
-              Comprar<span style={{ color: "#B5E853" }}>Backlinks</span>
-            </span>
-          </div>
+          <a href="/" style={{ textDecoration: "none" }}>
+            <Logo size="md" />
+          </a>
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-5">
@@ -858,14 +854,9 @@ function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-10">
           {/* Brand */}
           <div className="md:col-span-4">
-            <div className="flex items-center gap-2 mb-3">
-              <div className="w-6 h-6 rounded flex items-center justify-center" style={{ background: "#B5E853" }}>
-                <Link2 size={12} style={{ color: "#0D0D0D" }} strokeWidth={2.5} />
-              </div>
-              <span className="font-bold text-sm" style={{ color: "#E8E8E8" }}>
-                Comprar<span style={{ color: "#B5E853" }}>Backlinks</span>
-              </span>
-            </div>
+            <a href="/" style={{ textDecoration: "none" }}>
+              <Logo size="sm" />
+            </a>
             <p className="text-xs leading-relaxed max-w-xs mb-4" style={{ color: "#444" }}>
               Web informativa sobre link building, PR digital, reputación de marca y branding para profesionales del SEO.
             </p>
