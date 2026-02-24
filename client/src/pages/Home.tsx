@@ -3,185 +3,20 @@
  * - Fondo: #0D0D0D (negro profundo)
  * - Accent: #B5E853 (verde amarillento)
  * - Fuente: Open Sans
- * - Tarjetas con borde izquierdo de accent
- * - Modo oscuro forzado en toda la página pública
+ * - Web informativa sobre link building, PR, reputación y branding
+ * - Clústeres reales de comprarlinkbuilding.com
+ * - Sin sección de testimonios
  */
 
 import { useState, useMemo } from "react";
-import { Search, ExternalLink, BookOpen, Layers, Calendar, ChevronRight, Menu, X, Link2, TrendingUp, Shield, Zap, Globe, Star } from "lucide-react";
+import {
+  Search, ExternalLink, BookOpen, Layers, Calendar,
+  ChevronRight, Menu, X, Link2, TrendingUp, Shield,
+  Zap, Globe, AlertTriangle, BarChart2, Wrench, Tag,
+  MapPin, ArrowRight
+} from "lucide-react";
 
-// ─── Datos ─────────────────────────────────────────────────────────────────
-
-const CATEGORIES = [
-  {
-    id: 1,
-    name: "Tecnología",
-    cluster: "Tech & Software",
-    count: 1240,
-    da: "30–90",
-    description: "Blogs especializados en software, hardware, startups y tendencias digitales.",
-    tags: ["SaaS", "Startups", "Dev"],
-  },
-  {
-    id: 2,
-    name: "Marketing Digital",
-    cluster: "Marketing & SEO",
-    count: 980,
-    da: "25–85",
-    description: "Medios de marketing, SEO, publicidad online y growth hacking.",
-    tags: ["SEO", "PPC", "Social"],
-  },
-  {
-    id: 3,
-    name: "Finanzas",
-    cluster: "Finance & Crypto",
-    count: 760,
-    da: "35–88",
-    description: "Portales financieros, inversión, criptomonedas y economía personal.",
-    tags: ["Crypto", "Inversión", "Banca"],
-  },
-  {
-    id: 4,
-    name: "Salud & Bienestar",
-    cluster: "Health & Wellness",
-    count: 850,
-    da: "28–82",
-    description: "Blogs de salud, nutrición, fitness y medicina con alta autoridad.",
-    tags: ["Fitness", "Nutrición", "Medicina"],
-  },
-  {
-    id: 5,
-    name: "Viajes",
-    cluster: "Travel & Lifestyle",
-    count: 620,
-    da: "22–78",
-    description: "Revistas de viajes, guías de destinos y blogs de lifestyle.",
-    tags: ["Turismo", "Hoteles", "Aventura"],
-  },
-  {
-    id: 6,
-    name: "E-commerce",
-    cluster: "Retail & Shopping",
-    count: 540,
-    da: "30–80",
-    description: "Plataformas de reseñas, comparadores y blogs de compras online.",
-    tags: ["Retail", "Reviews", "Moda"],
-  },
-  {
-    id: 7,
-    name: "Inmobiliaria",
-    cluster: "Real Estate",
-    count: 430,
-    da: "28–75",
-    description: "Portales inmobiliarios, blogs de inversión en propiedades y arquitectura.",
-    tags: ["Propiedades", "Inversión", "Alquiler"],
-  },
-  {
-    id: 8,
-    name: "Educación",
-    cluster: "Education & eLearning",
-    count: 710,
-    da: "32–88",
-    description: "Plataformas educativas, blogs académicos y recursos de formación online.",
-    tags: ["eLearning", "Cursos", "Academia"],
-  },
-  {
-    id: 9,
-    name: "Legal",
-    cluster: "Law & Compliance",
-    count: 320,
-    da: "35–85",
-    description: "Despachos de abogados, blogs jurídicos y portales de compliance.",
-    tags: ["Derecho", "Compliance", "RGPD"],
-  },
-  {
-    id: 10,
-    name: "Gastronomía",
-    cluster: "Food & Beverage",
-    count: 490,
-    da: "20–72",
-    description: "Blogs culinarios, guías de restaurantes y revistas de gastronomía.",
-    tags: ["Recetas", "Restaurantes", "Vino"],
-  },
-  {
-    id: 11,
-    name: "Deporte",
-    cluster: "Sports & Fitness",
-    count: 580,
-    da: "25–80",
-    description: "Medios deportivos, blogs de entrenamiento y noticias de fútbol y más.",
-    tags: ["Fútbol", "Running", "Gym"],
-  },
-  {
-    id: 12,
-    name: "Automoción",
-    cluster: "Automotive",
-    count: 380,
-    da: "28–78",
-    description: "Revistas de coches, comparadores de vehículos y blogs de motor.",
-    tags: ["Coches", "Motos", "EV"],
-  },
-];
-
-const GUIDES = [
-  {
-    id: 1,
-    title: "¿Qué son los backlinks y por qué son cruciales para el SEO?",
-    description: "Guía completa sobre los enlaces entrantes, su importancia en el posicionamiento y cómo Google los evalúa.",
-    readTime: "8 min",
-    category: "Fundamentos",
-    icon: BookOpen,
-  },
-  {
-    id: 2,
-    title: "Cómo elegir los mejores backlinks para tu nicho",
-    description: "Criterios de selección: DA, DR, tráfico orgánico, relevancia temática y métricas de calidad.",
-    readTime: "12 min",
-    category: "Estrategia",
-    icon: TrendingUp,
-  },
-  {
-    id: 3,
-    title: "Backlinks dofollow vs nofollow: diferencias y cuándo usarlos",
-    description: "Análisis detallado de los atributos de enlace y su impacto real en la transferencia de autoridad.",
-    readTime: "6 min",
-    category: "Técnico",
-    icon: Link2,
-  },
-  {
-    id: 4,
-    title: "Cómo auditar tu perfil de backlinks paso a paso",
-    description: "Proceso completo para analizar, limpiar y fortalecer tu perfil de enlaces con herramientas profesionales.",
-    readTime: "15 min",
-    category: "Auditoría",
-    icon: Shield,
-  },
-  {
-    id: 5,
-    title: "Estrategias de link building para 2025",
-    description: "Las técnicas más efectivas y seguras para construir autoridad: guest posting, digital PR, HARO y más.",
-    readTime: "20 min",
-    category: "Estrategia",
-    icon: Zap,
-  },
-  {
-    id: 6,
-    title: "Backlinks internacionales: cómo posicionarte en múltiples países",
-    description: "Guía sobre link building multilingüe, hreflang y estrategias para mercados hispanohablantes.",
-    readTime: "10 min",
-    category: "Internacional",
-    icon: Globe,
-  },
-];
-
-const STATS = [
-  { value: "+7.500", label: "Medios disponibles" },
-  { value: "12", label: "Categorías principales" },
-  { value: "48h", label: "Tiempo medio de publicación" },
-  { value: "98%", label: "Tasa de satisfacción" },
-];
-
-// ─── Utilidades ─────────────────────────────────────────────────────────────
+// ─── Fecha dinámica ──────────────────────────────────────────────────────────
 
 function getCurrentMonthYear(): string {
   const now = new Date();
@@ -192,10 +27,188 @@ function getCurrentMonthYear(): string {
   return `${months[now.getMonth()]} ${now.getFullYear()}`;
 }
 
-// ─── Componentes ────────────────────────────────────────────────────────────
+// ─── Datos de clústeres ──────────────────────────────────────────────────────
+
+const CLUSTERS = [
+  {
+    id: 1,
+    slug: "estrategia-link-building",
+    name: "Estrategia de link building",
+    description: "Cómo construir una estrategia de enlaces sólida: tier 2, skyscraper, footprints, anchor text y medición de resultados.",
+    icon: TrendingUp,
+    color: "#B5E853",
+    count: 24,
+    tags: ["Tier 2", "Skyscraper", "Anchor text", "Medición"],
+    featured: [
+      "Tier 2 link building: estructura, usos y riesgos",
+      "Skyscraper technique: cómo ejecutarla en 2026",
+      "Footprints en link building: qué son y cómo detectarlos",
+    ],
+  },
+  {
+    id: 2,
+    slug: "tacticas-metodos",
+    name: "Tácticas y Métodos",
+    description: "Las técnicas más efectivas para conseguir backlinks: guest posting, HARO, digital PR, link reclamation y más.",
+    icon: Zap,
+    color: "#B5E853",
+    count: 18,
+    tags: ["Guest posting", "HARO", "Digital PR", "Outreach"],
+    featured: [
+      "HARO y fuentes para medios: backlinks sin pagar placement",
+      "Guest posting en 2026: qué funciona y qué no",
+      "Link reclamation: recupera los enlaces que ya mereces",
+    ],
+  },
+  {
+    id: 3,
+    slug: "reputacion-marca",
+    name: "Reputación de marca",
+    description: "Gestión de menciones, branded content, PR digital y cómo construir una presencia online que Google y los usuarios respeten.",
+    icon: Shield,
+    color: "#B5E853",
+    count: 15,
+    tags: ["Branded content", "PR digital", "Menciones", "EEAT"],
+    featured: [
+      "Cómo gestionar menciones negativas sobre tu marca",
+      "Branded content y link building: la combinación perfecta",
+      "EEAT: cómo los backlinks refuerzan tu autoridad temática",
+    ],
+  },
+  {
+    id: 4,
+    slug: "auditorias-analisis",
+    name: "Auditorías y análisis",
+    description: "Cómo auditar tu perfil de backlinks, detectar enlaces tóxicos, analizar a la competencia y construir un sistema de seguimiento.",
+    icon: BarChart2,
+    color: "#B5E853",
+    count: 12,
+    tags: ["Auditoría", "Tóxicos", "Competencia", "Seguimiento"],
+    featured: [
+      "Auditoría de backlinks paso a paso: guía completa",
+      "Cómo analizar el perfil de enlaces de tu competencia",
+      "Disavow: cuándo y cómo desautorizar enlaces",
+    ],
+  },
+  {
+    id: 5,
+    slug: "herramientas",
+    name: "Herramientas",
+    description: "Las mejores herramientas para link building: Ahrefs, Semrush, Majestic, Moz y alternativas gratuitas con análisis comparativo.",
+    icon: Wrench,
+    color: "#B5E853",
+    count: 10,
+    tags: ["Ahrefs", "Semrush", "Majestic", "Moz"],
+    featured: [
+      "Ahrefs vs Semrush para link building: comparativa 2026",
+      "Herramientas gratuitas para analizar backlinks",
+      "Cómo usar Majestic para auditar tu perfil de enlaces",
+    ],
+  },
+  {
+    id: 6,
+    slug: "tendencias-seo",
+    name: "Tendencias SEO",
+    description: "El link building en el contexto del SEO moderno: IA, SGE, búsqueda sin cookies y cómo adaptarse a los cambios del algoritmo.",
+    icon: Globe,
+    color: "#B5E853",
+    count: 9,
+    tags: ["IA", "SGE", "Algoritmo", "2026"],
+    featured: [
+      "Link building en la era de la IA y el SGE de Google",
+      "Medir el SEO sin cookies de terceros en 2026",
+      "Cómo afectan las actualizaciones de Google al link building",
+    ],
+  },
+  {
+    id: 7,
+    slug: "riesgos-penalizaciones",
+    name: "Riesgos y Penalizaciones",
+    description: "Qué prácticas pueden penalizarte, cómo detectar si tienes una penalización manual o algorítmica y cómo recuperarte.",
+    icon: AlertTriangle,
+    color: "#B5E853",
+    count: 11,
+    tags: ["Penalización", "PBNs", "Spam", "Recuperación"],
+    featured: [
+      "Penalizaciones de Google por links: tipos y recuperación",
+      "PBNs en 2026: riesgos reales y alternativas seguras",
+      "Cómo detectar si tienes una penalización manual",
+    ],
+  },
+  {
+    id: 8,
+    slug: "sectores",
+    name: "Sectores",
+    description: "Guías específicas de link building por industria: ecommerce, salud, legal, finanzas, turismo, SaaS y más.",
+    icon: Tag,
+    color: "#B5E853",
+    count: 16,
+    tags: ["Ecommerce", "Salud", "Finanzas", "SaaS"],
+    featured: [
+      "Link building para ecommerce: estrategia y tácticas",
+      "Backlinks para el sector salud: YMYL y EEAT",
+      "Link building para SaaS: cómo construir autoridad en B2B",
+    ],
+  },
+];
+
+const COUNTRIES = [
+  { name: "España", flag: "🇪🇸", slug: "espana" },
+  { name: "Argentina", flag: "🇦🇷", slug: "argentina" },
+  { name: "México", flag: "🇲🇽", slug: "mexico" },
+  { name: "Perú", flag: "🇵🇪", slug: "peru" },
+  { name: "Ecuador", flag: "🇪🇨", slug: "ecuador" },
+  { name: "Bolivia", flag: "🇧🇴", slug: "bolivia" },
+  { name: "Paraguay", flag: "🇵🇾", slug: "paraguay" },
+  { name: "Dinamarca", flag: "🇩🇰", slug: "dinamarca" },
+];
+
+const GUIDE_TYPES = [
+  {
+    icon: BookOpen,
+    title: "Guías fundamentales",
+    desc: "Qué es el link building, cómo funciona el algoritmo de Google y por qué los backlinks siguen siendo el factor de posicionamiento más importante.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Estrategia y planificación",
+    desc: "Cómo diseñar una campaña de link building desde cero: objetivos, presupuesto, selección de medios y ritmo de adquisición de enlaces.",
+  },
+  {
+    icon: Shield,
+    title: "PR digital y reputación",
+    desc: "La intersección entre relaciones públicas y SEO. Cómo las menciones en medios construyen autoridad, confianza y visibilidad de marca.",
+  },
+  {
+    icon: BarChart2,
+    title: "Branding y branded content",
+    desc: "Cómo el contenido de marca bien distribuido genera backlinks naturales, refuerza el reconocimiento y mejora el posicionamiento a largo plazo.",
+  },
+];
+
+const STATS = [
+  { value: "8", label: "Clústeres temáticos" },
+  { value: "+120", label: "Guías publicadas" },
+  { value: "8", label: "Países cubiertos" },
+  { value: getCurrentMonthYear(), label: "Última actualización" },
+];
+
+// ─── Navbar ──────────────────────────────────────────────────────────────────
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [dropOpen, setDropOpen] = useState(false);
+
+  const clusterLinks = [
+    "Estrategia de link building",
+    "Tácticas y Métodos",
+    "Reputación de marca",
+    "Auditorías y análisis",
+    "Herramientas",
+    "Tendencias SEO",
+    "Riesgos y Penalizaciones",
+    "Sectores",
+  ];
 
   return (
     <nav className="navbar fixed top-0 left-0 right-0 z-50">
@@ -206,27 +219,56 @@ function Navbar() {
             <div className="w-7 h-7 rounded flex items-center justify-center" style={{ background: "#B5E853" }}>
               <Link2 size={14} style={{ color: "#0D0D0D" }} strokeWidth={2.5} />
             </div>
-            <span className="font-bold text-base tracking-tight" style={{ color: "#E8E8E8" }}>
+            <span className="font-bold text-sm tracking-tight" style={{ color: "#E8E8E8" }}>
               Comprar<span style={{ color: "#B5E853" }}>Backlinks</span>
             </span>
           </div>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-6">
-            <a href="#categorias" className="text-sm transition-colors duration-200" style={{ color: "#888" }}
-              onMouseEnter={e => (e.currentTarget.style.color = "#B5E853")}
-              onMouseLeave={e => (e.currentTarget.style.color = "#888")}>
-              Categorías
-            </a>
+          <div className="hidden md:flex items-center gap-5">
+            {/* Dropdown clústeres */}
+            <div className="relative">
+              <button
+                className="text-sm flex items-center gap-1 transition-colors duration-200"
+                style={{ color: "#888" }}
+                onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.color = "#B5E853"; setDropOpen(true); }}
+                onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.color = "#888"; }}
+                onClick={() => setDropOpen(!dropOpen)}
+              >
+                Clústeres <ChevronRight size={12} className="rotate-90" />
+              </button>
+              {dropOpen && (
+                <div
+                  className="absolute top-8 left-0 rounded-lg py-2 min-w-[220px] z-50"
+                  style={{ background: "#141414", border: "1px solid #2A2A2A", boxShadow: "0 16px 40px rgba(0,0,0,0.6)" }}
+                  onMouseEnter={() => setDropOpen(true)}
+                  onMouseLeave={() => setDropOpen(false)}
+                >
+                  {clusterLinks.map(cl => (
+                    <a
+                      key={cl}
+                      href="#clusteres"
+                      className="block px-4 py-2 text-xs transition-colors duration-150"
+                      style={{ color: "#888" }}
+                      onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = "#B5E853"; (e.currentTarget as HTMLAnchorElement).style.background = "#1A1A1A"; }}
+                      onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = "#888"; (e.currentTarget as HTMLAnchorElement).style.background = "transparent"; }}
+                      onClick={() => setDropOpen(false)}
+                    >
+                      {cl}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
             <a href="#guias" className="text-sm transition-colors duration-200" style={{ color: "#888" }}
               onMouseEnter={e => (e.currentTarget.style.color = "#B5E853")}
               onMouseLeave={e => (e.currentTarget.style.color = "#888")}>
               Guías
             </a>
-            <a href="#como-funciona" className="text-sm transition-colors duration-200" style={{ color: "#888" }}
+            <a href="#paises" className="text-sm transition-colors duration-200" style={{ color: "#888" }}
               onMouseEnter={e => (e.currentTarget.style.color = "#B5E853")}
               onMouseLeave={e => (e.currentTarget.style.color = "#888")}>
-              Cómo funciona
+              Países
             </a>
             <a
               href="https://www.getalink.com"
@@ -239,7 +281,7 @@ function Navbar() {
             </a>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile */}
           <button
             className="md:hidden p-2 rounded"
             style={{ color: "#888" }}
@@ -254,17 +296,16 @@ function Navbar() {
         {menuOpen && (
           <div className="md:hidden pb-4 border-t" style={{ borderColor: "#1E1E1E" }}>
             <div className="flex flex-col gap-3 pt-4">
-              <a href="#categorias" className="text-sm px-2 py-1" style={{ color: "#888" }} onClick={() => setMenuOpen(false)}>Categorías</a>
+              <a href="#clusteres" className="text-sm px-2 py-1" style={{ color: "#888" }} onClick={() => setMenuOpen(false)}>Clústeres</a>
               <a href="#guias" className="text-sm px-2 py-1" style={{ color: "#888" }} onClick={() => setMenuOpen(false)}>Guías</a>
-              <a href="#como-funciona" className="text-sm px-2 py-1" style={{ color: "#888" }} onClick={() => setMenuOpen(false)}>Cómo funciona</a>
+              <a href="#paises" className="text-sm px-2 py-1" style={{ color: "#888" }} onClick={() => setMenuOpen(false)}>Países</a>
               <a
                 href="https://www.getalink.com"
                 rel="nofollow"
                 target="_blank"
                 className="btn-primary text-sm px-4 py-2 rounded font-semibold flex items-center gap-1.5 w-fit"
               >
-                Visitar getalink.com
-                <ExternalLink size={13} />
+                Visitar getalink.com <ExternalLink size={13} />
               </a>
             </div>
           </div>
@@ -274,26 +315,38 @@ function Navbar() {
   );
 }
 
+// ─── Hero ────────────────────────────────────────────────────────────────────
+
 function HeroSection() {
   const [query, setQuery] = useState("");
-  const [searchResults, setSearchResults] = useState<typeof CATEGORIES | null>(null);
+  const [searchResults, setSearchResults] = useState<typeof CLUSTERS | null>(null);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!query.trim()) {
-      setSearchResults(null);
-      return;
-    }
+    if (!query.trim()) { setSearchResults(null); return; }
     const q = query.toLowerCase();
-    const results = CATEGORIES.filter(
+    const results = CLUSTERS.filter(
       c =>
         c.name.toLowerCase().includes(q) ||
-        c.cluster.toLowerCase().includes(q) ||
+        c.description.toLowerCase().includes(q) ||
         c.tags.some(t => t.toLowerCase().includes(q)) ||
-        c.description.toLowerCase().includes(q)
+        c.featured.some(f => f.toLowerCase().includes(q))
     );
     setSearchResults(results);
-    // Scroll suave a resultados
+    setTimeout(() => {
+      document.getElementById("search-results")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 100);
+  };
+
+  const quickSearch = (term: string) => {
+    setQuery(term);
+    const q = term.toLowerCase();
+    const results = CLUSTERS.filter(
+      c =>
+        c.name.toLowerCase().includes(q) ||
+        c.tags.some(t => t.toLowerCase().includes(q))
+    );
+    setSearchResults(results);
     setTimeout(() => {
       document.getElementById("search-results")?.scrollIntoView({ behavior: "smooth", block: "start" });
     }, 100);
@@ -302,9 +355,9 @@ function HeroSection() {
   const currentDate = getCurrentMonthYear();
 
   return (
-    <section className="hero-gradient min-h-screen flex flex-col items-center justify-center px-4 pt-16 pb-12">
+    <section className="hero-gradient min-h-screen flex flex-col items-center justify-center px-4 pt-16 pb-16">
       <div className="max-w-4xl w-full mx-auto text-center">
-        {/* Badge de actualización */}
+        {/* Badge */}
         <div className="inline-flex items-center gap-2 mb-6 fade-in-up">
           <span className="pulse-dot"></span>
           <span className="badge-accent">Actualizado: {currentDate}</span>
@@ -312,22 +365,23 @@ function HeroSection() {
 
         {/* Título */}
         <h1
-          className="hero-title font-bold leading-tight mb-4 fade-in-up fade-in-up-delay-1"
-          style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", color: "#E8E8E8", letterSpacing: "-0.02em" }}
+          className="font-bold leading-tight mb-5 fade-in-up fade-in-up-delay-1"
+          style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", color: "#E8E8E8", letterSpacing: "-0.025em" }}
         >
-          Compra backlinks de calidad
+          El link building no es solo SEO.
           <br />
-          <span style={{ color: "#B5E853" }}>para escalar en Google</span>
+          <span style={{ color: "#B5E853" }}>Es reputación digital.</span>
         </h1>
 
         {/* Subtítulo */}
         <p
           className="text-lg mb-8 max-w-2xl mx-auto fade-in-up fade-in-up-delay-2"
-          style={{ color: "#888", lineHeight: "1.7" }}
+          style={{ color: "#777", lineHeight: "1.75" }}
         >
-          Accede a más de <strong style={{ color: "#E8E8E8" }}>7.500 medios verificados</strong> en{" "}
-          <strong style={{ color: "#E8E8E8" }}>12 categorías temáticas</strong>. Filtrados por DA, DR,
-          tráfico orgánico y relevancia. Sin PBNs, sin spam.
+          Guías, estrategias y recursos sobre <strong style={{ color: "#C8C8C8" }}>link building</strong>,{" "}
+          <strong style={{ color: "#C8C8C8" }}>PR digital</strong>,{" "}
+          <strong style={{ color: "#C8C8C8" }}>reputación de marca</strong> y{" "}
+          <strong style={{ color: "#C8C8C8" }}>branding</strong> para profesionales del SEO.
         </p>
 
         {/* Buscador */}
@@ -336,55 +390,35 @@ function HeroSection() {
           className="flex gap-2 max-w-2xl mx-auto mb-4 fade-in-up fade-in-up-delay-3"
         >
           <div className="relative flex-1">
-            <Search
-              size={18}
-              className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none"
-              style={{ color: "#555" }}
-            />
+            <Search size={17} className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" style={{ color: "#444" }} />
             <input
               type="text"
               value={query}
               onChange={e => setQuery(e.target.value)}
-              placeholder="Busca por categoría, nicho o temática..."
+              placeholder="Busca un clúster, técnica o temática..."
               className="search-input w-full pl-11 pr-4 py-3.5 rounded-lg text-sm"
             />
           </div>
-          <button
-            type="submit"
-            className="btn-primary px-6 py-3.5 rounded-lg text-sm font-semibold whitespace-nowrap"
-          >
+          <button type="submit" className="btn-primary px-6 py-3.5 rounded-lg text-sm font-semibold whitespace-nowrap">
             Buscar
           </button>
         </form>
 
-        {/* Sugerencias rápidas */}
+        {/* Sugerencias */}
         <div className="flex flex-wrap justify-center gap-2 fade-in-up fade-in-up-delay-3">
-          {["Tecnología", "Marketing", "Finanzas", "Salud", "Viajes"].map(tag => (
+          {["Estrategia", "PR digital", "Reputación", "Herramientas", "Penalizaciones"].map(tag => (
             <button
               key={tag}
-              onClick={() => {
-                setQuery(tag);
-                const q = tag.toLowerCase();
-                const results = CATEGORIES.filter(
-                  c =>
-                    c.name.toLowerCase().includes(q) ||
-                    c.cluster.toLowerCase().includes(q) ||
-                    c.tags.some(t => t.toLowerCase().includes(q))
-                );
-                setSearchResults(results);
-                setTimeout(() => {
-                  document.getElementById("search-results")?.scrollIntoView({ behavior: "smooth", block: "start" });
-                }, 100);
-              }}
+              onClick={() => quickSearch(tag)}
               className="text-xs px-3 py-1.5 rounded-full border transition-all duration-200"
-              style={{ borderColor: "#2A2A2A", color: "#666", background: "transparent" }}
+              style={{ borderColor: "#252525", color: "#555", background: "transparent" }}
               onMouseEnter={e => {
                 (e.currentTarget as HTMLButtonElement).style.borderColor = "#B5E853";
                 (e.currentTarget as HTMLButtonElement).style.color = "#B5E853";
               }}
               onMouseLeave={e => {
-                (e.currentTarget as HTMLButtonElement).style.borderColor = "#2A2A2A";
-                (e.currentTarget as HTMLButtonElement).style.color = "#666";
+                (e.currentTarget as HTMLButtonElement).style.borderColor = "#252525";
+                (e.currentTarget as HTMLButtonElement).style.color = "#555";
               }}
             >
               {tag}
@@ -395,31 +429,25 @@ function HeroSection() {
 
       {/* Resultados de búsqueda */}
       {searchResults !== null && (
-        <div id="search-results" className="max-w-7xl w-full mx-auto mt-12 px-4">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-semibold" style={{ color: "#E8E8E8" }}>
+        <div id="search-results" className="max-w-7xl w-full mx-auto mt-14 px-4">
+          <div className="flex items-center justify-between mb-5">
+            <h2 className="text-base font-semibold" style={{ color: "#E8E8E8" }}>
               {searchResults.length > 0
-                ? `${searchResults.length} resultado${searchResults.length !== 1 ? "s" : ""} para "${query}"`
+                ? `${searchResults.length} clúster${searchResults.length !== 1 ? "es" : ""} para "${query}"`
                 : `Sin resultados para "${query}"`}
             </h2>
-            <button
-              onClick={() => { setSearchResults(null); setQuery(""); }}
-              className="text-xs flex items-center gap-1"
-              style={{ color: "#555" }}
-            >
-              <X size={12} /> Limpiar
+            <button onClick={() => { setSearchResults(null); setQuery(""); }} className="text-xs flex items-center gap-1" style={{ color: "#444" }}>
+              <X size={11} /> Limpiar
             </button>
           </div>
           {searchResults.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-              {searchResults.map(cat => (
-                <CategoryCard key={cat.id} category={cat} />
-              ))}
+              {searchResults.map(c => <ClusterCard key={c.id} cluster={c} />)}
             </div>
           ) : (
-            <div className="text-center py-10" style={{ color: "#555" }}>
-              <Search size={32} className="mx-auto mb-3 opacity-30" />
-              <p className="text-sm">Prueba con otro término o explora las categorías más abajo.</p>
+            <div className="text-center py-10" style={{ color: "#444" }}>
+              <Search size={28} className="mx-auto mb-3 opacity-20" />
+              <p className="text-sm">Prueba con otro término o explora los clústeres más abajo.</p>
             </div>
           )}
         </div>
@@ -428,184 +456,273 @@ function HeroSection() {
   );
 }
 
-function StatsSection() {
+// ─── Stats ───────────────────────────────────────────────────────────────────
+
+function StatsBar() {
   return (
-    <section style={{ background: "#111111", borderTop: "1px solid #1E1E1E", borderBottom: "1px solid #1E1E1E" }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div style={{ background: "#111111", borderTop: "1px solid #1A1A1A", borderBottom: "1px solid #1A1A1A" }}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {STATS.map((stat, i) => (
+          {STATS.map((s, i) => (
             <div key={i} className="text-center">
-              <div className="text-3xl font-bold mb-1" style={{ color: "#B5E853" }}>{stat.value}</div>
-              <div className="text-sm" style={{ color: "#666" }}>{stat.label}</div>
+              <div className="text-2xl font-bold mb-0.5" style={{ color: "#B5E853" }}>{s.value}</div>
+              <div className="text-xs" style={{ color: "#555" }}>{s.label}</div>
             </div>
           ))}
         </div>
-      </div>
-    </section>
-  );
-}
-
-function CategoryCard({ category }: { category: typeof CATEGORIES[0] }) {
-  return (
-    <div className="card-accent rounded-lg p-5 cursor-pointer">
-      <div className="flex items-start justify-between mb-3">
-        <div>
-          <h3 className="font-semibold text-sm mb-0.5" style={{ color: "#E8E8E8" }}>{category.name}</h3>
-          <span className="text-xs" style={{ color: "#555" }}>{category.cluster}</span>
-        </div>
-        <span className="badge-accent">{category.count.toLocaleString()}</span>
-      </div>
-      <p className="text-xs mb-3 leading-relaxed" style={{ color: "#666" }}>{category.description}</p>
-      <div className="flex items-center justify-between">
-        <div className="flex flex-wrap gap-1">
-          {category.tags.map(tag => (
-            <span
-              key={tag}
-              className="text-xs px-2 py-0.5 rounded"
-              style={{ background: "#1E1E1E", color: "#555", border: "1px solid #2A2A2A" }}
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-        <span className="text-xs font-medium" style={{ color: "#B5E853" }}>DA {category.da}</span>
       </div>
     </div>
   );
 }
 
-function CategoriesSection() {
-  const [filter, setFilter] = useState("Todos");
-  const allClusters = ["Todos", ...Array.from(new Set(CATEGORIES.map(c => c.cluster.split(" & ")[0])))];
+// ─── Cluster Card ────────────────────────────────────────────────────────────
 
-  const filtered = useMemo(() => {
-    if (filter === "Todos") return CATEGORIES;
-    return CATEGORIES.filter(c => c.cluster.startsWith(filter));
-  }, [filter]);
-
-  const currentDate = getCurrentMonthYear();
+function ClusterCard({ cluster }: { cluster: typeof CLUSTERS[0] }) {
+  const Icon = cluster.icon;
+  const [hovered, setHovered] = useState(false);
 
   return (
-    <section id="categorias" className="py-20 px-4 sm:px-6 lg:px-8" style={{ background: "#0D0D0D" }}>
+    <div
+      className="rounded-lg p-5 cursor-pointer transition-all duration-200 flex flex-col"
+      style={{
+        background: hovered ? "#181818" : "#141414",
+        border: `1px solid ${hovered ? "#2A2A2A" : "#1E1E1E"}`,
+        borderLeft: `3px solid ${hovered ? "#8CC63F" : "#B5E853"}`,
+        transform: hovered ? "translateY(-3px)" : "translateY(0)",
+        boxShadow: hovered ? "0 10px 30px rgba(181,232,83,0.07)" : "none",
+      }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      {/* Header */}
+      <div className="flex items-start justify-between mb-3">
+        <div
+          className="w-9 h-9 rounded flex items-center justify-center flex-shrink-0"
+          style={{ background: "rgba(181,232,83,0.1)" }}
+        >
+          <Icon size={16} style={{ color: "#B5E853" }} />
+        </div>
+        <span
+          className="text-xs font-semibold px-2 py-0.5 rounded"
+          style={{ background: "rgba(181,232,83,0.08)", color: "#B5E853", border: "1px solid rgba(181,232,83,0.15)" }}
+        >
+          {cluster.count} guías
+        </span>
+      </div>
+
+      {/* Nombre */}
+      <h3 className="font-bold text-sm mb-2 leading-snug" style={{ color: "#E8E8E8" }}>
+        {cluster.name}
+      </h3>
+
+      {/* Descripción */}
+      <p className="text-xs leading-relaxed mb-4 flex-1" style={{ color: "#666" }}>
+        {cluster.description}
+      </p>
+
+      {/* Artículos destacados */}
+      <div className="mb-4">
+        {cluster.featured.map((f, i) => (
+          <div key={i} className="flex items-start gap-1.5 mb-1.5">
+            <ChevronRight size={10} className="flex-shrink-0 mt-0.5" style={{ color: "#B5E853" }} />
+            <span className="text-xs leading-snug" style={{ color: "#555" }}>{f}</span>
+          </div>
+        ))}
+      </div>
+
+      {/* Tags */}
+      <div className="flex flex-wrap gap-1 mt-auto">
+        {cluster.tags.map(tag => (
+          <span
+            key={tag}
+            className="text-xs px-2 py-0.5 rounded"
+            style={{ background: "#1A1A1A", color: "#444", border: "1px solid #242424" }}
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ─── Sección de Clústeres ────────────────────────────────────────────────────
+
+function ClustersSection() {
+  const [filter, setFilter] = useState("Todos");
+  const currentDate = getCurrentMonthYear();
+
+  const filterGroups = ["Todos", "Estrategia", "Técnico", "Reputación"];
+
+  const filtered = useMemo(() => {
+    if (filter === "Todos") return CLUSTERS;
+    if (filter === "Estrategia") return CLUSTERS.filter(c => [1, 2, 6].includes(c.id));
+    if (filter === "Técnico") return CLUSTERS.filter(c => [4, 5, 7].includes(c.id));
+    if (filter === "Reputación") return CLUSTERS.filter(c => [3, 8].includes(c.id));
+    return CLUSTERS;
+  }, [filter]);
+
+  return (
+    <section id="clusteres" className="py-20 px-4 sm:px-6 lg:px-8" style={{ background: "#0D0D0D" }}>
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
           <div>
-            <span className="badge-accent mb-3 inline-block">Catálogo</span>
-            <h2 className="text-3xl font-bold" style={{ color: "#E8E8E8", letterSpacing: "-0.02em" }}>
-              Categorías y clústeres
+            <span className="badge-accent mb-3 inline-block">
+              <Layers size={10} className="inline mr-1" />
+              Clústeres de contenido
+            </span>
+            <h2
+              className="text-3xl font-bold"
+              style={{ color: "#E8E8E8", letterSpacing: "-0.025em" }}
+            >
+              8 clústeres temáticos
             </h2>
-            <p className="mt-2 text-sm" style={{ color: "#666" }}>
-              Explora nuestro inventario de medios clasificados por temática y clúster semántico.
+            <p className="mt-2 text-sm max-w-xl" style={{ color: "#666" }}>
+              Todo el conocimiento sobre link building, PR y reputación digital organizado en clústeres semánticos.
+              Cada clúster agrupa guías, análisis y recursos especializados.
             </p>
           </div>
-          <div className="flex items-center gap-2 text-xs" style={{ color: "#555" }}>
-            <Calendar size={13} />
+          <div className="flex items-center gap-2 text-xs flex-shrink-0" style={{ color: "#444" }}>
+            <Calendar size={12} />
             <span>Actualizado: <strong style={{ color: "#B5E853" }}>{currentDate}</strong></span>
           </div>
         </div>
 
         {/* Filtros */}
         <div className="flex flex-wrap gap-2 mb-8">
-          {allClusters.map(cluster => (
+          {filterGroups.map(f => (
             <button
-              key={cluster}
-              onClick={() => setFilter(cluster)}
-              className="text-xs px-3 py-1.5 rounded-full border transition-all duration-200 font-medium"
+              key={f}
+              onClick={() => setFilter(f)}
+              className="text-xs px-4 py-1.5 rounded-full border font-medium transition-all duration-200"
               style={{
-                borderColor: filter === cluster ? "#B5E853" : "#2A2A2A",
-                color: filter === cluster ? "#0D0D0D" : "#666",
-                background: filter === cluster ? "#B5E853" : "transparent",
+                borderColor: filter === f ? "#B5E853" : "#222",
+                color: filter === f ? "#0D0D0D" : "#555",
+                background: filter === f ? "#B5E853" : "transparent",
               }}
             >
-              {cluster}
+              {f}
             </button>
           ))}
         </div>
 
-        {/* Grid de categorías */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {filtered.map(cat => (
-            <CategoryCard key={cat.id} category={cat} />
-          ))}
-        </div>
-
-        {/* CTA */}
-        <div className="mt-10 text-center">
-          <a
-            href="https://www.getalink.com"
-            rel="nofollow"
-            target="_blank"
-            className="btn-primary inline-flex items-center gap-2 px-8 py-3.5 rounded-lg text-sm font-semibold"
-          >
-            Ver todos los medios disponibles
-            <ExternalLink size={14} />
-          </a>
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+          {filtered.map(c => <ClusterCard key={c.id} cluster={c} />)}
         </div>
       </div>
     </section>
   );
 }
 
-function HowItWorksSection() {
-  const steps = [
-    {
-      num: "01",
-      title: "Elige tu categoría",
-      desc: "Selecciona el nicho temático que mejor se alinea con tu proyecto. Filtra por DA, DR, tráfico y precio.",
-    },
-    {
-      num: "02",
-      title: "Selecciona los medios",
-      desc: "Añade a tu carrito los medios que desees. Puedes comprar uno o varios a la vez con descuento por volumen.",
-    },
-    {
-      num: "03",
-      title: "Envía tu contenido",
-      desc: "Proporciona el artículo o déjanos redactarlo. Revisamos que cumpla los estándares editoriales del medio.",
-    },
-    {
-      num: "04",
-      title: "Publicación garantizada",
-      desc: "Tu enlace se publica en un plazo de 48h. Recibes confirmación con URL y métricas actualizadas.",
-    },
-  ];
+// ─── Sección de Guías ────────────────────────────────────────────────────────
 
+function GuidesSection() {
   return (
-    <section id="como-funciona" className="py-20 px-4 sm:px-6 lg:px-8" style={{ background: "#0A0A0A" }}>
+    <section id="guias" className="py-20 px-4 sm:px-6 lg:px-8" style={{ background: "#0A0A0A" }}>
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <span className="badge-accent mb-3 inline-block">Proceso</span>
-          <h2 className="text-3xl font-bold mb-3" style={{ color: "#E8E8E8", letterSpacing: "-0.02em" }}>
-            Cómo funciona
+          <span className="badge-accent mb-3 inline-block">
+            <BookOpen size={10} className="inline mr-1" />
+            Recursos editoriales
+          </span>
+          <h2 className="text-3xl font-bold mb-3" style={{ color: "#E8E8E8", letterSpacing: "-0.025em" }}>
+            Qué encontrarás en esta web
           </h2>
-          <p className="text-sm max-w-xl mx-auto" style={{ color: "#666" }}>
-            Un proceso simple, transparente y orientado a resultados reales de posicionamiento.
+          <p className="text-sm max-w-xl mx-auto" style={{ color: "#666", lineHeight: "1.75" }}>
+            Contenido editorial independiente sobre link building, PR digital, reputación y branding.
+            Sin afiliados ocultos, sin contenido patrocinado. Solo conocimiento técnico aplicable.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {steps.map((step, i) => (
-            <div
-              key={i}
-              className="relative p-6 rounded-lg"
-              style={{ background: "#141414", border: "1px solid #1E1E1E" }}
-            >
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto">
+          {GUIDE_TYPES.map((g, i) => {
+            const Icon = g.icon;
+            return (
               <div
-                className="text-4xl font-black mb-4 leading-none"
-                style={{ color: "rgba(181, 232, 83, 0.15)", fontVariantNumeric: "tabular-nums" }}
+                key={i}
+                className="p-6 rounded-lg flex gap-4"
+                style={{ background: "#141414", border: "1px solid #1E1E1E" }}
               >
-                {step.num}
+                <div
+                  className="w-10 h-10 rounded flex items-center justify-center flex-shrink-0"
+                  style={{ background: "rgba(181,232,83,0.08)", border: "1px solid rgba(181,232,83,0.12)" }}
+                >
+                  <Icon size={18} style={{ color: "#B5E853" }} />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-sm mb-1.5" style={{ color: "#E8E8E8" }}>{g.title}</h3>
+                  <p className="text-xs leading-relaxed" style={{ color: "#666" }}>{g.desc}</p>
+                </div>
               </div>
-              <h3 className="font-semibold text-sm mb-2" style={{ color: "#E8E8E8" }}>{step.title}</h3>
-              <p className="text-xs leading-relaxed" style={{ color: "#666" }}>{step.desc}</p>
-              {i < steps.length - 1 && (
-                <ChevronRight
-                  size={16}
-                  className="absolute -right-3 top-1/2 -translate-y-1/2 hidden lg:block"
-                  style={{ color: "#2A2A2A" }}
-                />
-              )}
+            );
+          })}
+        </div>
+
+        {/* Bloque editorial */}
+        <div
+          className="mt-12 p-8 rounded-xl max-w-4xl mx-auto"
+          style={{
+            background: "linear-gradient(135deg, #141414 0%, #111111 100%)",
+            border: "1px solid #1E1E1E",
+            borderLeft: "4px solid #B5E853",
+          }}
+        >
+          <p className="text-sm leading-relaxed mb-0" style={{ color: "#888" }}>
+            <strong style={{ color: "#B5E853" }}>"</strong>
+            {" "}El link building no se improvisa. Se diseña, se mide y se optimiza. Cada enlace es una señal de confianza,
+            y cada señal de confianza es una oportunidad de posicionamiento. Esta web existe para que tomes mejores decisiones
+            sobre tu estrategia de SEO offpage.{" "}
+            <strong style={{ color: "#B5E853" }}>"</strong>
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── Sección de Países ───────────────────────────────────────────────────────
+
+function CountriesSection() {
+  return (
+    <section id="paises" className="py-20 px-4 sm:px-6 lg:px-8" style={{ background: "#0D0D0D" }}>
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+          <div>
+            <span className="badge-accent mb-3 inline-block">
+              <MapPin size={10} className="inline mr-1" />
+              Cobertura geográfica
+            </span>
+            <h2 className="text-3xl font-bold" style={{ color: "#E8E8E8", letterSpacing: "-0.025em" }}>
+              Link building por país
+            </h2>
+            <p className="mt-2 text-sm max-w-xl" style={{ color: "#666" }}>
+              Guías específicas para construir autoridad en cada mercado hispanohablante y europeo,
+              con medios locales y estrategias adaptadas a cada ecosistema digital.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-3">
+          {COUNTRIES.map(country => (
+            <div
+              key={country.slug}
+              className="rounded-lg p-4 text-center cursor-pointer transition-all duration-200 group"
+              style={{ background: "#141414", border: "1px solid #1E1E1E" }}
+              onMouseEnter={e => {
+                (e.currentTarget as HTMLDivElement).style.borderColor = "#2A2A2A";
+                (e.currentTarget as HTMLDivElement).style.transform = "translateY(-2px)";
+                (e.currentTarget as HTMLDivElement).style.boxShadow = "0 6px 20px rgba(181,232,83,0.06)";
+              }}
+              onMouseLeave={e => {
+                (e.currentTarget as HTMLDivElement).style.borderColor = "#1E1E1E";
+                (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
+                (e.currentTarget as HTMLDivElement).style.boxShadow = "none";
+              }}
+            >
+              <div className="text-2xl mb-2">{country.flag}</div>
+              <div className="text-xs font-medium" style={{ color: "#888" }}>{country.name}</div>
             </div>
           ))}
         </div>
@@ -614,179 +731,91 @@ function HowItWorksSection() {
   );
 }
 
-function GuideCard({ guide }: { guide: typeof GUIDES[0] }) {
-  const Icon = guide.icon;
-  return (
-    <div
-      className="p-5 rounded-lg transition-all duration-200 cursor-pointer group"
-      style={{ background: "#141414", border: "1px solid #1E1E1E" }}
-      onMouseEnter={e => {
-        (e.currentTarget as HTMLDivElement).style.borderColor = "#2A2A2A";
-        (e.currentTarget as HTMLDivElement).style.transform = "translateY(-2px)";
-        (e.currentTarget as HTMLDivElement).style.boxShadow = "0 8px 24px rgba(181, 232, 83, 0.06)";
-      }}
-      onMouseLeave={e => {
-        (e.currentTarget as HTMLDivElement).style.borderColor = "#1E1E1E";
-        (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
-        (e.currentTarget as HTMLDivElement).style.boxShadow = "none";
-      }}
-    >
-      <div className="flex items-start gap-4">
-        <div
-          className="w-9 h-9 rounded flex items-center justify-center flex-shrink-0 mt-0.5"
-          style={{ background: "rgba(181, 232, 83, 0.1)" }}
-        >
-          <Icon size={16} style={{ color: "#B5E853" }} />
-        </div>
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2 mb-1.5 flex-wrap">
-            <span
-              className="text-xs px-2 py-0.5 rounded"
-              style={{ background: "#1E1E1E", color: "#555", border: "1px solid #2A2A2A" }}
-            >
-              {guide.category}
-            </span>
-            <span className="text-xs" style={{ color: "#444" }}>{guide.readTime} lectura</span>
-          </div>
-          <h3 className="font-semibold text-sm mb-1.5 leading-snug" style={{ color: "#E8E8E8" }}>
-            {guide.title}
-          </h3>
-          <p className="text-xs leading-relaxed" style={{ color: "#666" }}>{guide.description}</p>
-          <div
-            className="mt-3 flex items-center gap-1 text-xs font-medium transition-colors duration-200"
-            style={{ color: "#B5E853" }}
-          >
-            Leer guía <ChevronRight size={12} />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
+// ─── Sección "Qué es el link building" ──────────────────────────────────────
 
-function GuidesSection() {
-  const currentDate = getCurrentMonthYear();
-
-  return (
-    <section id="guias" className="py-20 px-4 sm:px-6 lg:px-8" style={{ background: "#0D0D0D" }}>
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
-          <div>
-            <span className="badge-accent mb-3 inline-block">Recursos</span>
-            <h2 className="text-3xl font-bold" style={{ color: "#E8E8E8", letterSpacing: "-0.02em" }}>
-              Guías de link building
-            </h2>
-            <p className="mt-2 text-sm" style={{ color: "#666" }}>
-              Aprende a construir una estrategia de backlinks sólida con nuestros recursos editoriales.
-            </p>
-          </div>
-          <div className="flex items-center gap-2 text-xs" style={{ color: "#555" }}>
-            <span className="pulse-dot"></span>
-            <span>Actualizado: <strong style={{ color: "#B5E853" }}>{currentDate}</strong></span>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {GUIDES.map(guide => (
-            <GuideCard key={guide.id} guide={guide} />
-          ))}
-        </div>
-
-        <div className="mt-10 text-center">
-          <a
-            href="https://www.getalink.com"
-            rel="nofollow"
-            target="_blank"
-            className="btn-outline inline-flex items-center gap-2 px-8 py-3.5 rounded-lg text-sm font-semibold"
-          >
-            Ver todas las guías
-            <ExternalLink size={14} />
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function TestimonialsSection() {
-  const testimonials = [
-    {
-      text: "Pasé de la página 3 a la primera posición en 4 meses. La calidad de los medios es notablemente superior a otras plataformas que había probado.",
-      author: "Carlos M.",
-      role: "SEO Manager, Agencia Digital",
-      stars: 5,
-    },
-    {
-      text: "El filtrado por DA y relevancia temática me ahorra horas de prospección. Los resultados hablan por sí solos en las métricas de autoridad de dominio.",
-      author: "Laura P.",
-      role: "Consultora SEO Freelance",
-      stars: 5,
-    },
-    {
-      text: "Usamos la plataforma para 12 clientes simultáneamente. El proceso es ágil, los plazos se cumplen y el soporte resuelve cualquier incidencia rápido.",
-      author: "Andrés T.",
-      role: "Director de SEO, Startup SaaS",
-      stars: 5,
-    },
+function WhatIsSection() {
+  const points = [
+    { title: "Autoridad de dominio", desc: "Cada enlace entrante transfiere señales de confianza que incrementan el DA/DR de tu sitio." },
+    { title: "Visibilidad orgánica", desc: "Más autoridad significa mejor posicionamiento para las palabras clave que te interesan." },
+    { title: "Tráfico referido", desc: "Los backlinks en medios relevantes generan visitas cualificadas con alta intención de compra." },
+    { title: "Reputación digital", desc: "Ser citado por medios de referencia construye credibilidad de marca más allá del SEO." },
   ];
 
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ background: "#0A0A0A" }}>
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <span className="badge-accent mb-3 inline-block">Testimonios</span>
-          <h2 className="text-3xl font-bold" style={{ color: "#E8E8E8", letterSpacing: "-0.02em" }}>
-            Lo que dicen nuestros clientes
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {testimonials.map((t, i) => (
-            <div
-              key={i}
-              className="p-6 rounded-lg"
-              style={{ background: "#141414", border: "1px solid #1E1E1E" }}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Texto */}
+          <div>
+            <span className="badge-accent mb-4 inline-block">Fundamentos</span>
+            <h2 className="text-3xl font-bold mb-5" style={{ color: "#E8E8E8", letterSpacing: "-0.025em" }}>
+              ¿Qué es el link building<br />y por qué importa?
+            </h2>
+            <p className="text-sm leading-relaxed mb-5" style={{ color: "#777" }}>
+              El link building es la práctica de conseguir <strong style={{ color: "#C8C8C8" }}>enlaces SEO</strong> desde
+              otros sitios web hacia el tuyo. Google los interpreta como votos de confianza: cuantos más votos de calidad
+              reciba tu sitio, más autoridad gana y más fácil resulta posicionar tus páginas.
+            </p>
+            <p className="text-sm leading-relaxed mb-6" style={{ color: "#777" }}>
+              El algoritmo de Google ha cambiado muchas veces, pero hay algo que nunca ha perdido peso:{" "}
+              <strong style={{ color: "#C8C8C8" }}>los backlinks de calidad</strong>. No se trata de cantidad,
+              sino de quién te enlaza, cómo y en qué contexto.
+            </p>
+            <a
+              href="#clusteres"
+              className="inline-flex items-center gap-2 text-sm font-semibold transition-colors duration-200"
+              style={{ color: "#B5E853" }}
+              onMouseEnter={e => (e.currentTarget.style.color = "#A8D832")}
+              onMouseLeave={e => (e.currentTarget.style.color = "#B5E853")}
             >
-              <div className="flex gap-0.5 mb-4">
-                {Array.from({ length: t.stars }).map((_, j) => (
-                  <Star key={j} size={13} fill="#B5E853" style={{ color: "#B5E853" }} />
-                ))}
+              Explorar los clústeres <ArrowRight size={14} />
+            </a>
+          </div>
+
+          {/* Grid de puntos */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {points.map((p, i) => (
+              <div
+                key={i}
+                className="p-5 rounded-lg"
+                style={{ background: "#141414", border: "1px solid #1E1E1E", borderLeft: "3px solid #B5E853" }}
+              >
+                <h4 className="font-semibold text-sm mb-1.5" style={{ color: "#E8E8E8" }}>{p.title}</h4>
+                <p className="text-xs leading-relaxed" style={{ color: "#666" }}>{p.desc}</p>
               </div>
-              <p className="text-sm leading-relaxed mb-5" style={{ color: "#888" }}>"{t.text}"</p>
-              <div>
-                <div className="text-sm font-semibold" style={{ color: "#E8E8E8" }}>{t.author}</div>
-                <div className="text-xs" style={{ color: "#555" }}>{t.role}</div>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
+// ─── CTA ─────────────────────────────────────────────────────────────────────
+
 function CTASection() {
   return (
     <section
-      className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
+      className="py-20 px-4 sm:px-6 lg:px-8"
       style={{
-        background: "radial-gradient(ellipse 70% 80% at 50% 50%, rgba(181, 232, 83, 0.06) 0%, transparent 70%), #0D0D0D",
-        borderTop: "1px solid #1E1E1E",
+        background: "radial-gradient(ellipse 70% 80% at 50% 50%, rgba(181,232,83,0.05) 0%, transparent 70%), #0D0D0D",
+        borderTop: "1px solid #1A1A1A",
       }}
     >
       <div className="max-w-3xl mx-auto text-center">
-        <span className="badge-accent mb-4 inline-block">Empieza hoy</span>
+        <span className="badge-accent mb-4 inline-block">Plataforma recomendada</span>
         <h2
           className="text-3xl md:text-4xl font-bold mb-4"
-          style={{ color: "#E8E8E8", letterSpacing: "-0.02em" }}
+          style={{ color: "#E8E8E8", letterSpacing: "-0.025em" }}
         >
-          Escala tu autoridad de dominio
+          ¿Listo para construir
           <br />
-          <span style={{ color: "#B5E853" }}>con backlinks que funcionan</span>
+          <span style={{ color: "#B5E853" }}>autoridad con estrategia?</span>
         </h2>
-        <p className="text-sm mb-8 max-w-xl mx-auto" style={{ color: "#666", lineHeight: "1.7" }}>
-          Más de 7.500 medios verificados. Sin PBNs, sin spam, sin riesgos. Solo enlaces editoriales
-          en medios reales con tráfico orgánico comprobado.
+        <p className="text-sm mb-8 max-w-xl mx-auto" style={{ color: "#666", lineHeight: "1.75" }}>
+          Si buscas ejecutar tu estrategia de link building con medios reales, tráfico verificado
+          y soporte humano, <strong style={{ color: "#C8C8C8" }}>Getalink</strong> es la plataforma
+          más completa del mercado hispanohablante.
         </p>
         <a
           href="https://www.getalink.com"
@@ -797,20 +826,38 @@ function CTASection() {
           Acceder a getalink.com
           <ExternalLink size={16} />
         </a>
+        <p className="mt-4 text-xs" style={{ color: "#333" }}>
+          Más de 20.000 medios verificados · España, LATAM y Europa
+        </p>
       </div>
     </section>
   );
 }
 
+// ─── Footer ──────────────────────────────────────────────────────────────────
+
 function Footer() {
   const currentDate = getCurrentMonthYear();
 
+  const clusterLinks = [
+    "Estrategia de link building",
+    "Tácticas y Métodos",
+    "Reputación de marca",
+    "Auditorías y análisis",
+    "Herramientas",
+    "Tendencias SEO",
+    "Riesgos y Penalizaciones",
+    "Sectores",
+  ];
+
+  const countryLinks = ["España", "Argentina", "México", "Perú", "Ecuador", "Bolivia"];
+
   return (
-    <footer style={{ background: "#080808", borderTop: "1px solid #1A1A1A" }}>
+    <footer style={{ background: "#080808", borderTop: "1px solid #141414" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-10">
           {/* Brand */}
-          <div className="md:col-span-2">
+          <div className="md:col-span-4">
             <div className="flex items-center gap-2 mb-3">
               <div className="w-6 h-6 rounded flex items-center justify-center" style={{ background: "#B5E853" }}>
                 <Link2 size={12} style={{ color: "#0D0D0D" }} strokeWidth={2.5} />
@@ -819,33 +866,29 @@ function Footer() {
                 Comprar<span style={{ color: "#B5E853" }}>Backlinks</span>
               </span>
             </div>
-            <p className="text-xs leading-relaxed max-w-xs" style={{ color: "#555" }}>
-              Directorio de medios verificados para estrategias de link building profesional.
-              Potenciado por{" "}
-              <a href="https://www.getalink.com" rel="nofollow" target="_blank" style={{ color: "#B5E853" }}>
-                getalink.com
-              </a>
+            <p className="text-xs leading-relaxed max-w-xs mb-4" style={{ color: "#444" }}>
+              Web informativa sobre link building, PR digital, reputación de marca y branding para profesionales del SEO.
             </p>
-            <div className="mt-4 flex items-center gap-2 text-xs" style={{ color: "#444" }}>
+            <div className="flex items-center gap-2 text-xs" style={{ color: "#333" }}>
               <span className="pulse-dot" style={{ width: "6px", height: "6px" }}></span>
-              Última actualización: {currentDate}
+              Actualizado: {currentDate}
             </div>
           </div>
 
-          {/* Categorías */}
-          <div>
-            <h4 className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: "#555" }}>
-              Categorías
+          {/* Clústeres */}
+          <div className="md:col-span-4">
+            <h4 className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: "#444" }}>
+              Clústeres
             </h4>
-            <ul className="space-y-2">
-              {["Tecnología", "Marketing", "Finanzas", "Salud", "Viajes", "E-commerce"].map(item => (
+            <ul className="grid grid-cols-2 gap-y-2">
+              {clusterLinks.map(item => (
                 <li key={item}>
                   <a
-                    href="#categorias"
+                    href="#clusteres"
                     className="text-xs transition-colors duration-200"
-                    style={{ color: "#444" }}
+                    style={{ color: "#3A3A3A" }}
                     onMouseEnter={e => (e.currentTarget.style.color = "#B5E853")}
-                    onMouseLeave={e => (e.currentTarget.style.color = "#444")}
+                    onMouseLeave={e => (e.currentTarget.style.color = "#3A3A3A")}
                   >
                     {item}
                   </a>
@@ -854,45 +897,58 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Recursos */}
-          <div>
-            <h4 className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: "#555" }}>
-              Recursos
+          {/* Países */}
+          <div className="md:col-span-2">
+            <h4 className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: "#444" }}>
+              Países
             </h4>
             <ul className="space-y-2">
-              {["Guías SEO", "Cómo funciona", "Casos de éxito", "Blog"].map(item => (
+              {countryLinks.map(item => (
                 <li key={item}>
                   <a
-                    href="#guias"
+                    href="#paises"
                     className="text-xs transition-colors duration-200"
-                    style={{ color: "#444" }}
+                    style={{ color: "#3A3A3A" }}
                     onMouseEnter={e => (e.currentTarget.style.color = "#B5E853")}
-                    onMouseLeave={e => (e.currentTarget.style.color = "#444")}
+                    onMouseLeave={e => (e.currentTarget.style.color = "#3A3A3A")}
                   >
                     {item}
                   </a>
                 </li>
               ))}
             </ul>
+          </div>
+
+          {/* Plataforma */}
+          <div className="md:col-span-2">
+            <h4 className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: "#444" }}>
+              Plataforma
+            </h4>
+            <a
+              href="https://www.getalink.com"
+              rel="nofollow"
+              target="_blank"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-2 rounded transition-all duration-200"
+              style={{ background: "rgba(181,232,83,0.08)", color: "#B5E853", border: "1px solid rgba(181,232,83,0.15)" }}
+              onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "rgba(181,232,83,0.15)"; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "rgba(181,232,83,0.08)"; }}
+            >
+              getalink.com <ExternalLink size={10} />
+            </a>
           </div>
         </div>
 
         <div
           className="pt-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs"
-          style={{ borderTop: "1px solid #1A1A1A", color: "#333" }}
+          style={{ borderTop: "1px solid #141414", color: "#2A2A2A" }}
         >
-          <span>© {new Date().getFullYear()} ComprarBacklinks.com — Todos los derechos reservados</span>
-          <a
-            href="https://www.getalink.com"
-            rel="nofollow"
-            target="_blank"
-            className="flex items-center gap-1.5 transition-colors duration-200"
-            style={{ color: "#444" }}
-            onMouseEnter={e => (e.currentTarget.style.color = "#B5E853")}
-            onMouseLeave={e => (e.currentTarget.style.color = "#444")}
-          >
-            Powered by getalink.com <ExternalLink size={11} />
-          </a>
+          <span>© {new Date().getFullYear()} ComprarBacklinks — Contenido editorial independiente</span>
+          <span style={{ color: "#2A2A2A" }}>Potenciado por{" "}
+            <a href="https://www.getalink.com" rel="nofollow" target="_blank" style={{ color: "#3A3A3A" }}
+              onMouseEnter={e => (e.currentTarget.style.color = "#B5E853")}
+              onMouseLeave={e => (e.currentTarget.style.color = "#3A3A3A")}
+            >getalink.com</a>
+          </span>
         </div>
       </div>
     </footer>
@@ -906,11 +962,11 @@ export default function Home() {
     <div className="min-h-screen" style={{ background: "#0D0D0D", fontFamily: "'Open Sans', sans-serif" }}>
       <Navbar />
       <HeroSection />
-      <StatsSection />
-      <CategoriesSection />
-      <HowItWorksSection />
+      <StatsBar />
+      <WhatIsSection />
+      <ClustersSection />
       <GuidesSection />
-      <TestimonialsSection />
+      <CountriesSection />
       <CTASection />
       <Footer />
     </div>
