@@ -1183,50 +1183,38 @@ export default function ArticlePage() {
             {(() => {
               const sections = article.content_sections;
               const midPoint = Math.floor(sections.length / 2);
-              // Obtener 2 artículos relacionados para el bloque de mitad
-              const midRelated = getArticlesByCluster(article.cluster)
-                .filter(a => a.slug !== slug)
-                .slice(0, 2);
 
               return (
                 <div className="article-body" style={{ fontSize, lineHeight: 1.8 }}>
                   {sections.map((section, idx) => {
                     const headingId = section.heading ? slugify(section.heading) : `section-${idx}`;
 
-                    // Insertar bloque "También te puede interesar" a mitad del contenido
-                    const midBlock = (idx === midPoint && midRelated.length > 0) ? (
-                      <div key={`mid-related-${idx}`} className="my-10 rounded-xl overflow-hidden" style={{ background: "#0F0F0F", border: "1px solid #1A1A1A" }}>
-                        <div className="px-5 py-3 flex items-center gap-2" style={{ borderBottom: "1px solid #1A1A1A", background: "#111" }}>
-                          <BookOpen size={13} style={{ color: "#B5E853" }} />
-                          <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: "#E0E0E0" }}>También te puede interesar</span>
+                    // CTA de Getalink a mitad del contenido
+                    const midBlock = idx === midPoint ? (
+                      <div
+                        key={`mid-cta-${idx}`}
+                        className="my-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-xl px-6 py-5"
+                        style={{
+                          background: "#0F0F0F",
+                          border: "1px solid #1E1E1E",
+                          borderLeft: "4px solid #B5E853",
+                        }}
+                      >
+                        <div className="min-w-0">
+                          <p className="text-sm font-semibold mb-1" style={{ color: "#F0F0F0", margin: 0 }}>¿Buscas medios para tu estrategia de link building?</p>
+                          <p className="text-xs leading-relaxed" style={{ color: "#B0B0B0", margin: 0 }}>Más de 20.000 medios verificados con métricas transparentes en Getalink.</p>
                         </div>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-0">
-                          {midRelated.map((r, ri) => (
-                            <a key={r.slug} href={`/${r.cluster}/${r.slug}`}
-                              className="flex items-start gap-3 p-4 transition-all duration-200"
-                              style={{
-                                textDecoration: "none",
-                                borderRight: ri === 0 && midRelated.length > 1 ? "1px solid #1A1A1A" : "none",
-                                background: "transparent",
-                              }}
-                              onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#141414"; }}
-                              onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "transparent"; }}
-                            >
-                              {r.featuredImage && (
-                                <div className="flex-shrink-0 rounded-lg overflow-hidden" style={{ width: 64, height: 48 }}>
-                                  <img src={r.featuredImage} alt={r.h1 || r.meta_title} className="w-full h-full object-cover" loading="lazy" />
-                                </div>
-                              )}
-                              <div className="min-w-0">
-                                <span className="badge-accent mb-1 inline-block" style={{ fontSize: "0.6rem" }}>{CLUSTER_LABELS[r.cluster] || r.cluster}</span>
-                                <h4 className="text-xs font-semibold leading-snug mb-1" style={{ color: "#D0D0D0", margin: 0 }}>{r.h1 || r.meta_title}</h4>
-                                <div className="flex items-center gap-1 text-xs" style={{ color: "#999" }}>
-                                  <Clock size={9} /><span>{r.read_time || 8} min</span>
-                                </div>
-                              </div>
-                            </a>
-                          ))}
-                        </div>
+                        <a
+                          href="https://www.getalink.com"
+                          rel="nofollow noopener"
+                          target="_blank"
+                          className="flex-shrink-0 flex items-center gap-1.5 px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200"
+                          style={{ background: "#B5E853", color: "#0D0D0D", textDecoration: "none", whiteSpace: "nowrap" }}
+                          onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#C8F060"; (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-1px)"; }}
+                          onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#B5E853"; (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)"; }}
+                        >
+                          Visitar getalink.com <ExternalLink size={13} />
+                        </a>
                       </div>
                     ) : null;
 
