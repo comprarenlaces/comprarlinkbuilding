@@ -429,8 +429,8 @@ function HeroSection() {
         );
     setArticleResults(results);
     setTimeout(() => {
-      document.getElementById("search-results")?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 100);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, 50);
   };
 
   const quickSearch = (term: string) => {

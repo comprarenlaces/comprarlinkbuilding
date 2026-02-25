@@ -646,36 +646,77 @@ function FaqAccordion({ items }: { items: FaqAccordionItem[] }) {
 
 // ─── Artículos relacionados ──────────────────────────────────────────────────
 
-function RelatedArticles({ cluster, currentSlug }: { cluster: string; currentSlug: string }) {
-  const related = getArticlesByCluster(cluster)
+function RelatedArticles({ cluster, currentSlug, internalLinks }: { cluster: string; currentSlug: string; internalLinks?: Array<{text: string; href: string}> }) {
+  // Artículos del mismo clúster
+  const sameCluster = getArticlesByCluster(cluster)
     .filter(a => a.slug !== currentSlug)
     .slice(0, 3);
 
-  if (related.length === 0) return null;
+  // Artículos cross-cluster desde internal_links (los que no son del mismo clúster)
+  const crossLinks = (internalLinks || [])
+    .filter(link => {
+      const parts = link.href.replace(/^\//, '').split('/');
+      return parts.length >= 2 && parts[0] !== cluster;
+    })
+    .slice(0, 4);
+
+  if (sameCluster.length === 0 && crossLinks.length === 0) return null;
 
   return (
     <div className="mt-12">
-      <div className="flex items-center gap-2 mb-5">
-        <BookOpen size={14} style={{ color: "#B5E853" }} />
-        <h3 className="text-sm font-semibold uppercase tracking-widest" style={{ color: "#555" }}>Artículos relacionados</h3>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {related.map((r) => (
-          <a key={r.slug} href={`/${r.cluster}/${r.slug}`}
-            className="block p-4 rounded-lg transition-all duration-200"
-            style={{ background: "#141414", border: "1px solid #1E1E1E", textDecoration: "none" }}
-            onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = "#2A2A2A"; (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-2px)"; }}
-            onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = "#1E1E1E"; (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)"; }}>
-            <span className="badge-accent mb-2 inline-block" style={{ fontSize: "0.6rem" }}>
-              {CLUSTER_LABELS[r.cluster] || r.cluster}
-            </span>
-            <h4 className="text-sm font-semibold leading-snug mb-2" style={{ color: "#E8E8E8" }}>{r.h1 || r.meta_title}</h4>
-            <div className="flex items-center gap-1 text-xs" style={{ color: "#444" }}>
-              <Clock size={10} /><span>{r.read_time || 8} min</span>
-            </div>
-          </a>
-        ))}
-      </div>
+      {/* Mismo clúster */}
+      {sameCluster.length > 0 && (
+        <>
+          <div className="flex items-center gap-2 mb-5">
+            <BookOpen size={14} style={{ color: "#B5E853" }} />
+            <h3 className="text-sm font-semibold uppercase tracking-widest" style={{ color: "#555" }}>Más guías de este clúster</h3>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+            {sameCluster.map((r) => (
+              <a key={r.slug} href={`/${r.cluster}/${r.slug}`}
+                className="block p-4 rounded-lg transition-all duration-200"
+                style={{ background: "#141414", border: "1px solid #1E1E1E", textDecoration: "none" }}
+                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = "#2A2A2A"; (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-2px)"; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = "#1E1E1E"; (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)"; }}>
+                <span className="badge-accent mb-2 inline-block" style={{ fontSize: "0.6rem" }}>
+                  {CLUSTER_LABELS[r.cluster] || r.cluster}
+                </span>
+                <h4 className="text-sm font-semibold leading-snug mb-2" style={{ color: "#E8E8E8" }}>{r.h1 || r.meta_title}</h4>
+                <div className="flex items-center gap-1 text-xs" style={{ color: "#444" }}>
+                  <Clock size={10} /><span>{r.read_time || 8} min</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </>
+      )}
+      {/* Cross-cluster */}
+      {crossLinks.length > 0 && (
+        <>
+          <div className="flex items-center gap-2 mb-4">
+            <Tag size={12} style={{ color: "#555" }} />
+            <h3 className="text-xs font-semibold uppercase tracking-widest" style={{ color: "#444" }}>También te puede interesar</h3>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {crossLinks.map((link, i) => {
+              const parts = link.href.replace(/^\//, '').split('/');
+              const clusterSlug = parts[0] || '';
+              const label = CLUSTER_LABELS[clusterSlug] || clusterSlug;
+              return (
+                <a key={i} href={link.href}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-150"
+                  style={{ background: "#141414", border: "1px solid #1E1E1E", color: "#888", textDecoration: "none" }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(181,232,83,0.3)"; (e.currentTarget as HTMLAnchorElement).style.color = "#B5E853"; }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = "#1E1E1E"; (e.currentTarget as HTMLAnchorElement).style.color = "#888"; }}>
+                  <span style={{ color: "#444", fontSize: "0.55rem", textTransform: "uppercase", letterSpacing: "0.05em" }}>{label}</span>
+                  <span style={{ color: "#333" }}>·</span>
+                  {link.text.replace(/^[^w\s\u00C0-\u024F]+\s*/, '').slice(0, 50)}{link.text.length > 50 ? '…' : ''}
+                </a>
+              );
+            })}
+          </div>
+        </>
+      )}
     </div>
   );
 }
@@ -1130,7 +1171,7 @@ export default function ArticlePage() {
             <InlineStarRating slug={slug} />
 
             {/* Artículos relacionados */}
-            <RelatedArticles cluster={article.cluster} currentSlug={slug} />
+            <RelatedArticles cluster={article.cluster} currentSlug={slug} internalLinks={article.internal_links} />
 
             {/* CTA final */}
             <div className="mt-8 p-6 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
