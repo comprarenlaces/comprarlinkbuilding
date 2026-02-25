@@ -158,11 +158,14 @@ function ArticleCard({ article }: { article: Article }) {
 
 // ─── Página principal ────────────────────────────────────────────────────────
 
+const ITEMS_PER_PAGE = 9;
+
 export default function ClusterPage() {
   const params = useParams<{ cluster: string }>();
   const clusterSlug = params.cluster || "";
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
 
   const articles = getArticlesByCluster(clusterSlug);
   const clusterLabel = CLUSTER_LABELS[clusterSlug] || clusterSlug;
@@ -192,6 +195,12 @@ export default function ClusterPage() {
     (a.h1 || a.meta_title).toLowerCase().includes(search.toLowerCase()) ||
     (a.meta_description || "").toLowerCase().includes(search.toLowerCase())
   );
+
+  const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
+  const paginated = filtered.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
+
+  // Reset page when search changes
+  useEffect(() => { setCurrentPage(1); }, [search]);
 
   if (!loading && articles.length === 0) {
     return (
@@ -282,11 +291,62 @@ export default function ClusterPage() {
                     ? `${articles.length} guías en este clúster`
                     : `${filtered.length} de ${articles.length} guías`}
                 </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {filtered.map(article => (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+                  {paginated.map(article => (
                     <ArticleCard key={article.slug} article={article} />
                   ))}
                 </div>
+
+                {/* Paginación */}
+                {totalPages > 1 && (
+                  <div className="flex items-center justify-center gap-2 mt-4">
+                    <button
+                      onClick={() => { setCurrentPage(p => Math.max(1, p - 1)); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                      disabled={currentPage === 1}
+                      className="flex items-center gap-1 px-4 py-2 rounded-lg text-xs font-semibold transition-all duration-200"
+                      style={{
+                        background: currentPage === 1 ? "#111" : "#141414",
+                        border: "1px solid #1E1E1E",
+                        color: currentPage === 1 ? "#333" : "#888",
+                        cursor: currentPage === 1 ? "not-allowed" : "pointer",
+                      }}
+                    >
+                      ← Anterior
+                    </button>
+
+                    <div className="flex items-center gap-1">
+                      {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+                        <button
+                          key={page}
+                          onClick={() => { setCurrentPage(page); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                          className="w-8 h-8 rounded-lg text-xs font-semibold transition-all duration-200"
+                          style={{
+                            background: page === currentPage ? "#B5E853" : "#141414",
+                            border: `1px solid ${page === currentPage ? "#B5E853" : "#1E1E1E"}`,
+                            color: page === currentPage ? "#0D0D0D" : "#666",
+                            fontWeight: page === currentPage ? 700 : 400,
+                          }}
+                        >
+                          {page}
+                        </button>
+                      ))}
+                    </div>
+
+                    <button
+                      onClick={() => { setCurrentPage(p => Math.min(totalPages, p + 1)); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                      disabled={currentPage === totalPages}
+                      className="flex items-center gap-1 px-4 py-2 rounded-lg text-xs font-semibold transition-all duration-200"
+                      style={{
+                        background: currentPage === totalPages ? "#111" : "#141414",
+                        border: "1px solid #1E1E1E",
+                        color: currentPage === totalPages ? "#333" : "#888",
+                        cursor: currentPage === totalPages ? "not-allowed" : "pointer",
+                      }}
+                    >
+                      Siguiente →
+                    </button>
+                  </div>
+                )}
               </>
             )}
           </div>

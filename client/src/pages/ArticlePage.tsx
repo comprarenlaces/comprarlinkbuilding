@@ -683,6 +683,16 @@ function RelatedArticles({ cluster, currentSlug }: { cluster: string; currentSlu
 // ─── Schema JSON-LD ───────────────────────────────────────────────────────────
 
 function ArticleSchema({ article, ratingValue, ratingCount }: { article: Article; ratingValue: number; ratingCount: number }) {
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://comprarlinkbuilding.com/" },
+      { "@type": "ListItem", "position": 2, "name": CLUSTER_LABELS[article.cluster] || article.cluster, "item": `https://comprarlinkbuilding.com/cluster/${article.cluster}` },
+      { "@type": "ListItem", "position": 3, "name": article.h1 || article.meta_title, "item": article.url || `https://comprarlinkbuilding.com/${article.cluster}/${article.slug}/` },
+    ]
+  };
+
   const schema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -713,10 +723,16 @@ function ArticleSchema({ article, ratingValue, ratingCount }: { article: Article
   }
 
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema, null, 2) }}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema, null, 2) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema, null, 2) }}
+      />
+    </>
   );
 }
 
@@ -883,16 +899,43 @@ export default function ArticlePage() {
 
           {/* ── Columna principal ── */}
           <main>
-            {/* Breadcrumb */}
-            <nav className="flex items-center gap-1.5 mb-6 flex-wrap">
-              <a href="/" className="text-xs transition-colors duration-200" style={{ color: "#444" }}
-                onMouseEnter={e => (e.currentTarget.style.color = "#B5E853")} onMouseLeave={e => (e.currentTarget.style.color = "#444")}>Inicio</a>
-              <ChevronRight size={10} style={{ color: "#2A2A2A" }} />
-              <a href={`/#clusteres`} className="text-xs transition-colors duration-200" style={{ color: "#444" }}
-                onMouseEnter={e => (e.currentTarget.style.color = "#B5E853")} onMouseLeave={e => (e.currentTarget.style.color = "#444")}>{clusterLabel}</a>
-              <ChevronRight size={10} style={{ color: "#2A2A2A" }} />
-              <span className="text-xs" style={{ color: "#666" }}>
-                {(article.h1 || article.meta_title).replace(/^[^\w\s]+\s/, '').slice(0, 50)}…
+            {/* Breadcrumb visual mejorado */}
+            <nav
+              aria-label="Ruta de navegación"
+              className="flex items-center gap-1 mb-6 flex-wrap px-3 py-2 rounded-lg"
+              style={{ background: "#111111", border: "1px solid #1A1A1A", display: "inline-flex" }}
+            >
+              <a
+                href="/"
+                className="flex items-center gap-1 text-xs transition-colors duration-200"
+                style={{ color: "#555", textDecoration: "none" }}
+                onMouseEnter={e => (e.currentTarget.style.color = "#B5E853")}
+                onMouseLeave={e => (e.currentTarget.style.color = "#555")}
+              >
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                  <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg>
+                Inicio
+              </a>
+              <ChevronRight size={10} style={{ color: "#2A2A2A", flexShrink: 0 }} />
+              <a
+                href={`/cluster/${article.cluster}`}
+                className="flex items-center gap-1 text-xs transition-colors duration-200"
+                style={{ color: "#555", textDecoration: "none" }}
+                onMouseEnter={e => (e.currentTarget.style.color = "#B5E853")}
+                onMouseLeave={e => (e.currentTarget.style.color = "#555")}
+              >
+                <Tag size={9} style={{ flexShrink: 0 }} />
+                {clusterLabel}
+              </a>
+              <ChevronRight size={10} style={{ color: "#2A2A2A", flexShrink: 0 }} />
+              <span
+                className="text-xs max-w-[200px] truncate"
+                style={{ color: "#B5E853", fontWeight: 600 }}
+                title={article.h1 || article.meta_title}
+              >
+                {(article.h1 || article.meta_title).replace(/^[^\w\s\u00C0-\u024F]+\s*/, '').slice(0, 45)}{(article.h1 || article.meta_title).length > 45 ? '…' : ''}
               </span>
             </nav>
 
