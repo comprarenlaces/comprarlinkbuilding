@@ -188,12 +188,7 @@ const GUIDE_TYPES = [
   },
 ];
 
-const STATS = [
-  { value: "8", label: "Clústeres temáticos" },
-  { value: "+120", label: "Guías publicadas" },
-  { value: "8", label: "Países cubiertos" },
-  { value: getCurrentMonthYear(), label: "Última actualización" },
-];
+
 
 // ─── Navbar ──────────────────────────────────────────────────────────────────
 
@@ -604,24 +599,7 @@ function HeroSection() {
   );
 }
 
-// ─── Stats ───────────────────────────────────────────────────────────────────
 
-function StatsBar() {
-  return (
-    <div style={{ background: "#111111", borderTop: "1px solid #1A1A1A", borderBottom: "1px solid #1A1A1A" }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {STATS.map((s, i) => (
-            <div key={i} className="text-center">
-              <div className="text-2xl font-bold mb-0.5" style={{ color: "#B5E853" }}>{s.value}</div>
-              <div className="text-xs" style={{ color: "#555" }}>{s.label}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
 
 // ─── Cluster Card ────────────────────────────────────────────────────────────
 
