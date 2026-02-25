@@ -556,8 +556,12 @@ function HeroSection() {
           <div className="flex items-center justify-between mb-5">
             <h2 className="text-base font-semibold" style={{ color: "#E8E8E8" }}>
               {articleResults.length > 0
-                ? `${articleResults.length} resultado${articleResults.length !== 1 ? "s" : ""} para "${query}"`
-                : `Sin resultados para "${query}"`}
+                ? activeTag
+                  ? `${articleResults.length} guía${articleResults.length !== 1 ? "s" : ""} sobre ${activeTag}`
+                  : `${articleResults.length} resultado${articleResults.length !== 1 ? "s" : ""} para "${query}"`
+                : activeTag
+                  ? `Sin guías encontradas sobre ${activeTag}`
+                  : `Sin resultados para "${query}"`}
             </h2>
             <button onClick={() => { setArticleResults(null); setQuery(""); }} className="text-xs flex items-center gap-1" style={{ color: "#444" }}>
               <X size={11} /> Limpiar
