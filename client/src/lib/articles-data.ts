@@ -70,12 +70,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "tácticas de link building", "href": "/tacticas-y-metodos/tacticas-link-building"},
-      {"text": "evaluar un medio", "href": "/planificacion-y-presupuesto/como-evaluar-calidad-medio-link-building"},
-      {"text": "Domain Rating", "href": "/metricas-y-medicion/dr-vs-da-vs-authority-score"},
-      {"text": "cuántos backlinks", "href": "/planificacion-y-presupuesto/cuantos-backlinks-necesito-posicionar"},
-      {"text": "herramientas de link building", "href": "/herramientas/herramientas-link-building"},
-      {"text": "presupuesto limitado", "href": "/planificacion-y-presupuesto/link-building-presupuesto-limitado"}
+      {"text": "tácticas de link building", "href": "/tacticas-y-metodos/tacticas-link-building"}
     ],
     "tags": ["link building españa", "estrategia seo", "backlinks de calidad", "precios link building", "medios digitales españa"],
   },
@@ -139,12 +134,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "tácticas de link building", "href": "/tacticas-y-metodos/tacticas-link-building"},
-      {"text": "evaluar un medio", "href": "/planificacion-y-presupuesto/como-evaluar-calidad-medio-link-building"},
-      {"text": "Domain Rating", "href": "/metricas-y-medicion/dr-vs-da-vs-authority-score"},
-      {"text": "cuántos backlinks", "href": "/planificacion-y-presupuesto/cuantos-backlinks-necesito-posicionar"},
-      {"text": "herramientas de link building", "href": "/herramientas/herramientas-link-building"},
-      {"text": "presupuesto limitado", "href": "/planificacion-y-presupuesto/link-building-presupuesto-limitado"}
+      {"text": "tácticas de link building", "href": "/tacticas-y-metodos/tacticas-link-building"}
     ],
     "tags": ["link building", "SEO", "backlinks", "México", "estrategia digital PR digital"],
   },
@@ -228,12 +218,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "tácticas de link building", "href": "/tacticas-y-metodos/tacticas-link-building"},
-      {"text": "evaluar un medio", "href": "/planificacion-y-presupuesto/como-evaluar-calidad-medio-link-building"},
-      {"text": "Domain Rating", "href": "/metricas-y-medicion/dr-vs-da-vs-authority-score"},
-      {"text": "cuántos backlinks", "href": "/planificacion-y-presupuesto/cuantos-backlinks-necesito-posicionar"},
-      {"text": "herramientas de link building", "href": "/herramientas/herramientas-link-building"},
-      {"text": "presupuesto limitado", "href": "/planificacion-y-presupuesto/link-building-presupuesto-limitado"}
+      {"text": "tácticas de link building", "href": "/tacticas-y-metodos/tacticas-link-building"}
     ],
     "tags": ["link building ecuador", "seo ecuador", "backlinks ecuador", "estrategia seo", "medios digitales ecuador"],
   },
@@ -325,12 +310,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "tácticas de link building", "href": "/tacticas-y-metodos/tacticas-link-building"},
-      {"text": "evaluar un medio", "href": "/planificacion-y-presupuesto/como-evaluar-calidad-medio-link-building"},
-      {"text": "Domain Rating", "href": "/metricas-y-medicion/dr-vs-da-vs-authority-score"},
-      {"text": "cuántos backlinks", "href": "/planificacion-y-presupuesto/cuantos-backlinks-necesito-posicionar"},
-      {"text": "herramientas de link building", "href": "/herramientas/herramientas-link-building"},
-      {"text": "presupuesto limitado", "href": "/planificacion-y-presupuesto/link-building-presupuesto-limitado"}
+      {"text": "tácticas de link building", "href": "/tacticas-y-metodos/tacticas-link-building"}
     ],
     "tags": ["link building Bolivia", "SEO Bolivia", "backlinks de calidad", "agencias SEO", "estrategia de contenidos"],
   },
@@ -400,12 +380,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "tácticas de link building", "href": "/tacticas-y-metodos/tacticas-link-building"},
-      {"text": "evaluar un medio", "href": "/planificacion-y-presupuesto/como-evaluar-calidad-medio-link-building"},
-      {"text": "Domain Rating", "href": "/metricas-y-medicion/dr-vs-da-vs-authority-score"},
-      {"text": "cuántos backlinks", "href": "/planificacion-y-presupuesto/cuantos-backlinks-necesito-posicionar"},
-      {"text": "herramientas de link building", "href": "/herramientas/herramientas-link-building"},
-      {"text": "presupuesto limitado", "href": "/planificacion-y-presupuesto/link-building-presupuesto-limitado"}
+      {"text": "tácticas de link building", "href": "/tacticas-y-metodos/tacticas-link-building"}
     ],
     "tags": ["SEO Paraguay", "Link Building", "Estrategia Digital", "Backlinks", "Marketing Online"],
   },
@@ -461,12 +436,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "tácticas de link building", "href": "/tacticas-y-metodos/tacticas-link-building"},
-      {"text": "evaluar un medio", "href": "/planificacion-y-presupuesto/como-evaluar-calidad-medio-link-building"},
-      {"text": "Domain Rating", "href": "/metricas-y-medicion/dr-vs-da-vs-authority-score"},
-      {"text": "cuántos backlinks", "href": "/planificacion-y-presupuesto/cuantos-backlinks-necesito-posicionar"},
-      {"text": "herramientas de link building", "href": "/herramientas/herramientas-link-building"},
-      {"text": "presupuesto limitado", "href": "/planificacion-y-presupuesto/link-building-presupuesto-limitado"}
+      {"text": "tácticas de link building", "href": "/tacticas-y-metodos/tacticas-link-building"}
     ],
     "tags": ["link building", "SEO Dinamarca", "backlinks", "estrategia SEO", "marketing digital"],
   },
@@ -532,12 +502,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "tácticas de link building", "href": "/tacticas-y-metodos/tacticas-link-building"},
-      {"text": "evaluar un medio", "href": "/planificacion-y-presupuesto/como-evaluar-calidad-medio-link-building"},
-      {"text": "Domain Rating", "href": "/metricas-y-medicion/dr-vs-da-vs-authority-score"},
-      {"text": "cuántos backlinks", "href": "/planificacion-y-presupuesto/cuantos-backlinks-necesito-posicionar"},
-      {"text": "herramientas de link building", "href": "/herramientas/herramientas-link-building"},
-      {"text": "presupuesto limitado", "href": "/planificacion-y-presupuesto/link-building-presupuesto-limitado"}
+      {"text": "tácticas de link building", "href": "/tacticas-y-metodos/tacticas-link-building"}
     ],
     "tags": ["link building", "SEO Argentina", "backlinks", "estrategia SEO", "marketing digital"],
   },
@@ -639,12 +604,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "tácticas de link building", "href": "/tacticas-y-metodos/tacticas-link-building"},
-      {"text": "evaluar un medio", "href": "/planificacion-y-presupuesto/como-evaluar-calidad-medio-link-building"},
-      {"text": "Domain Rating", "href": "/metricas-y-medicion/dr-vs-da-vs-authority-score"},
-      {"text": "cuántos backlinks", "href": "/planificacion-y-presupuesto/cuantos-backlinks-necesito-posicionar"},
-      {"text": "herramientas de link building", "href": "/herramientas/herramientas-link-building"},
-      {"text": "presupuesto limitado", "href": "/planificacion-y-presupuesto/link-building-presupuesto-limitado"}
+      {"text": "tácticas de link building", "href": "/tacticas-y-metodos/tacticas-link-building"}
     ],
     "tags": ["Link Building Perú", "SEO Perú", "Estrategia Digital Perú", "Backlinks Perú", "Marketing Digital Perú"],
   },
@@ -660,31 +620,25 @@ export const ARTICLES: Article[] = [
     "author": "Equipo Editorial",
     "date": "Febrero 2026",
     "read_time": 5,
-        "toc": [
+            "toc": [
       {"id": "que-es-estrategia-link-building", "text": "Qué es una estrategia de link building", "level": 2},
-      {"id": "pilares-fundamentales", "text": "Los 4 pilares fundamentales", "level": 2},
-      {"id": "tipos-de-backlinks", "text": "Tipos de backlinks y su valor SEO", "level": 2},
+      {"id": "por-que-necesitas-estrategia", "text": "Por qué necesitas una estrategia, no solo backlinks", "level": 2},
       {"id": "como-construir-estrategia", "text": "Cómo construir tu estrategia paso a paso", "level": 2},
-      {"id": "metricas-clave", "text": "Métricas clave para medir el éxito", "level": 2},
-      {"id": "errores-comunes", "text": "Errores comunes que debes evitar", "level": 2},
+      {"id": "tipos-de-backlinks-que-importan", "text": "Los tipos de backlinks que realmente importan", "level": 2},
+      {"id": "errores-que-destruyen-estrategia", "text": "Errores que destruyen una estrategia de link building", "level": 2},
       {"id": "preguntas-frecuentes", "text": "Preguntas frecuentes", "level": 2}
     ],
-        "content_sections": [
-      {"heading": "Qué es una estrategia de link building", "heading_level": 2, "content": "Una estrategia de link building es el conjunto planificado de acciones orientadas a conseguir que otros sitios web enlacen al tuyo de forma natural, relevante y sostenida en el tiempo. No se trata de acumular el mayor número posible de backlinks, sino de construir un perfil de enlaces que transmita autoridad temática, confianza y relevancia a los motores de búsqueda.\n\nGoogle interpreta cada enlace entrante como un voto de confianza. Sin embargo, no todos los votos tienen el mismo peso: un enlace de un medio de comunicación de referencia en tu sector vale infinitamente más que cien enlaces de directorios genéricos de baja calidad. Por eso, la estrategia importa más que el volumen.\n\nEn 2026, con la consolidación de los modelos de lenguaje (LLMs) como fuentes de información y la evolución de los algoritmos de Google, el link building ha adquirido una dimensión adicional: ya no solo posiciona en buscadores tradicionales, sino que también determina si tu marca aparece como fuente de referencia en respuestas generativas de IA."},
-      {"heading": "Los 4 pilares fundamentales", "heading_level": 2, "content": "Toda estrategia de link building efectiva se sustenta en cuatro pilares que deben trabajarse de forma coordinada:\n\n**1. Relevancia temática**\nEl sitio que te enlaza debe tratar temas relacionados con tu sector. Un enlace de un blog de tecnología hacia una tienda de electrónica tiene mucho más valor que el mismo enlace desde un blog de recetas de cocina. La relevancia temática es el primer filtro que aplica Google para determinar el valor de un backlink.\n\n**2. Autoridad del dominio**\nLa autoridad del dominio emisor, medida por métricas como el Domain Rating (DR) de Ahrefs o el Domain Authority (DA) de Moz, determina cuánta \"link equity\" transfiere el enlace. Prioriza conseguir enlaces de dominios con DR superior a 40 en tu nicho.\n\n**3. Diversidad del perfil**\nUn perfil de enlaces natural incluye una mezcla de tipos de anchor text (marca, URL desnuda, keyword exacta, keyword parcial, genérico), diferentes tipos de páginas enlazantes (blogs, medios, foros, directorios especializados) y una distribución geográfica coherente con tu mercado objetivo.\n\n**4. Velocidad de adquisición (link velocity)**\nConseguir 50 enlaces en una semana y luego ninguno durante meses es una señal de alerta para Google. La link velocity debe ser constante y proporcional al crecimiento natural de tu sitio. Un ritmo sostenido de 5-15 enlaces mensuales es más valioso que picos artificiales."},
-      {"heading": "Tipos de backlinks y su valor SEO", "heading_level": 2, "content": "No todos los backlinks son iguales. Conocer los distintos tipos y su impacto real en el SEO es fundamental para priorizar esfuerzos y presupuesto:\n\n| Tipo de backlink | Valor SEO | Dificultad | Coste aproximado |\n|---|---|---|---|\n| Editorial (ganado orgánicamente) | Muy alto | Muy alta | 0€ (requiere contenido excepcional) |\n| Guest post en medio relevante | Alto | Media-alta | 80-500€/enlace |\n| Niche edit en artículo existente | Alto | Media | 50-300€/enlace |\n| HARO / fuentes para medios | Muy alto | Alta | 0€ (requiere tiempo) |\n| Directorio especializado | Medio | Baja | 0-50€/año |\n| Foro / comunidad | Bajo-medio | Baja | 0€ |\n| PBN | Muy alto (riesgo) | Baja | 20-100€/enlace |\n\nLos enlaces editoriales, aquellos que se consiguen porque tu contenido es genuinamente valioso y otros deciden enlazarte de forma espontánea, son el Santo Grial del link building. Sin embargo, escalarlos requiere una inversión significativa en contenido de calidad. Por eso, la mayoría de estrategias combinan la obtención de enlaces editoriales con tácticas activas como los guest posts o los niche edits."},
-      {"heading": "Cómo construir tu estrategia paso a paso", "heading_level": 2, "content": "Construir una estrategia de link building efectiva requiere seguir un proceso estructurado que comienza mucho antes de contactar con el primer medio:\n\n**Paso 1: Auditoría del perfil de enlaces actual**\nAntes de construir, debes saber desde dónde partes. Usa herramientas como Ahrefs o SEMrush para analizar tu perfil de backlinks actual: número de dominios de referencia, distribución de anchor text, backlinks tóxicos que podrían estar penalizándote y páginas que ya reciben más enlaces.\n\n**Paso 2: Análisis de la competencia**\nIdentifica los 3-5 competidores que mejor posicionan para tus keywords objetivo y analiza su perfil de enlaces. ¿De qué medios obtienen sus mejores backlinks? ¿Qué tipo de contenido atrae más enlaces en tu sector? Este análisis te dará un mapa de oportunidades concretas.\n\n**Paso 3: Definición de páginas objetivo**\nNo todos los backlinks deben apuntar a tu homepage. Define qué páginas quieres posicionar para qué keywords y construye una estrategia de distribución de enlaces que refuerce esas páginas específicas. Las páginas de categoría y los artículos pillar suelen ser las mejores candidatas.\n\n**Paso 4: Selección de tácticas**\nElige las tácticas más adecuadas para tu sector, presupuesto y recursos. Un SaaS B2B se beneficiará más de HARO y estudios originales que de guest posts masivos. Un e-commerce puede priorizar los niche edits en blogs de reseñas. Adapta las tácticas a tu realidad.\n\n**Paso 5: Ejecución y seguimiento**\nImplementa la estrategia con un calendario editorial y un sistema de tracking. Registra cada enlace conseguido, la fecha, el DR del dominio, el anchor text usado y la URL destino. Revisa mensualmente el impacto en rankings y ajusta la estrategia según los resultados."},
-      {"heading": "Métricas clave para medir el éxito", "heading_level": 2, "content": "Medir el impacto de tu estrategia de link building es tan importante como ejecutarla. Estas son las métricas que debes monitorizar:\n\n**Domain Rating (DR) / Domain Authority (DA)**\nEl incremento gradual de estas métricas indica que tu perfil de enlaces está ganando fuerza. Un crecimiento de 5-10 puntos de DR en 6-12 meses es un resultado sólido para la mayoría de sitios.\n\n**Número de dominios de referencia únicos**\nMás importante que el número total de backlinks es la cantidad de dominios únicos que te enlazan. 100 enlaces de 100 dominios distintos valen más que 100 enlaces del mismo dominio.\n\n**Posicionamiento de keywords objetivo**\nEn última instancia, el objetivo del link building es mejorar el posicionamiento. Monitoriza semanalmente las posiciones de tus keywords más importantes y correlaciona los cambios con la adquisición de nuevos backlinks.\n\n**Tráfico orgánico a páginas enlazadas**\nLos backlinks de calidad no solo mejoran rankings; también generan tráfico de referencia directo. Analiza en Google Analytics cuánto tráfico llega desde los dominios que te enlazan.\n\n**Tasa de conversión del tráfico de referencia**\nEl tráfico que llega desde backlinks relevantes suele convertir mejor que el tráfico orgánico genérico, porque viene de usuarios con un contexto previo relacionado con tu oferta."},
-      {"heading": "Errores comunes que debes evitar", "heading_level": 2, "content": "Después de analizar cientos de estrategias de link building, estos son los errores más frecuentes que lastran los resultados:\n\n**Sobreoptimizar el anchor text**\nUsar siempre la misma keyword exacta como anchor text es una de las señales de alerta más claras para Google. Un perfil natural incluye variedad: nombre de marca, URL desnuda, keywords parciales y anchor text genérico (\"haz clic aquí\", \"más información\").\n\n**Ignorar la relevancia temática**\nConseguir un enlace de un sitio con DR 80 que habla de recetas de cocina cuando tu negocio es una agencia de marketing digital no aportará valor real. La relevancia temática es tan importante como la autoridad del dominio.\n\n**Construir enlaces demasiado rápido**\nUna link velocity artificial —conseguir decenas de enlaces en pocos días— activa las alarmas de los algoritmos de Google. La adquisición de backlinks debe ser gradual y constante.\n\n**No diversificar las fuentes**\nDepender de un único tipo de táctica (solo guest posts, solo directorios) crea un perfil de enlaces artificial y vulnerable. La diversificación es clave para la sostenibilidad.\n\n**Olvidar los enlaces internos**\nEl link building externo es solo la mitad de la ecuación. Una arquitectura de enlaces internos bien diseñada distribuye la autoridad conseguida hacia las páginas que más la necesitan, multiplicando el impacto de cada backlink externo."},
-      {"heading": "Preguntas frecuentes", "heading_level": 2, "content": "FAQ_ITEM::{\"q\": \"¿Cuánto tiempo tarda en verse el efecto del link building en el SEO?\", \"a\": \"El impacto del link building en el SEO no es inmediato y puede variar significativamente. Generalmente, los primeros resultados tangibles pueden observarse entre 3 y 6 meses después de iniciar una estrategia consistente. Sin embargo, la construcción de autoridad y la mejora sostenida en los rankings son procesos a largo plazo que requieren esfuerzo continuo. Factores como la autoridad actual de tu dominio, la competencia en tu nicho y la calidad de los enlaces adquiridos influyen en la velocidad de los resultados.\"}\n\nFAQ_ITEM::{\"q\": \"¿Es seguro comprar enlaces?\", \"a\": \"Google desaconseja y penaliza la compra de enlaces con fines de manipulación de rankings. Si bien es posible que algunos sitios web lo hagan sin ser detectados, el riesgo de una penalización manual o algorítmica es alto. Es preferible invertir en estrategias éticas y sostenibles que generen enlaces de forma natural y construyan autoridad a largo plazo. Si optas por comprar enlaces, hazlo en medios editoriales reales con tráfico orgánico verificable.\"}\n\nFAQ_ITEM::{\"q\": \"¿Cuántos backlinks necesito para posicionar mi web?\", \"a\": \"No existe un número mágico de backlinks. La cantidad necesaria depende de la competitividad de tu nicho, la autoridad de tu dominio y la calidad de los enlaces de tus competidores. En lugar de centrarte en un número, enfócate en adquirir enlaces de alta calidad, relevantes y de forma natural. Analiza cuántos dominios de referencia tienen los competidores que ocupan las primeras posiciones para tus keywords objetivo y usa ese dato como referencia.\"}\n\nFAQ_ITEM::{\"q\": \"¿Qué es mejor: muchos backlinks de baja calidad o pocos de alta calidad?\", \"a\": \"Siempre es mejor la calidad sobre la cantidad. Unos pocos backlinks de dominios con alta autoridad y relevancia temática tendrán un impacto mucho mayor en tu posicionamiento que cientos de enlaces de sitios de baja calidad. Además, los backlinks de baja calidad pueden ser perjudiciales si Google los interpreta como parte de un esquema de enlaces manipulador.\"}\n\nFAQ_ITEM::{\"q\": \"¿Cómo sé si un enlace es de calidad?\", \"a\": \"Para evaluar la calidad de un enlace potencial, analiza: el Domain Rating o Domain Authority del sitio (idealmente DR > 30), el tráfico orgánico real del dominio (verifica en Ahrefs o SEMrush), la relevancia temática del contenido donde aparecerá el enlace, la naturalidad del contexto editorial y si el sitio tiene una presencia real en redes sociales y referencias externas.\"}\n\nFAQ_ITEM::{\"q\": \"¿Debo usar el disavow tool de Google?\", \"a\": \"El disavow tool solo debe usarse cuando tienes una penalización manual por enlaces artificiales o cuando detectas un patrón claro de backlinks tóxicos que podrían estar afectando negativamente tu posicionamiento. Usarlo de forma indiscriminada puede ser contraproducente. Antes de hacer un disavow, intenta contactar con los webmasters para solicitar la eliminación de los enlaces problemáticos.\"}"}
+            "content_sections": [
+      {"heading": "Qué es una estrategia de link building", "heading_level": 2, "content": "Una estrategia de link building es el plan estructurado que define cómo, dónde y con qué frecuencia vas a conseguir que otros sitios web enlacen al tuyo. No es una lista de medios donde comprar enlaces ni un calendario de guest posts. Es una decisión consciente sobre qué autoridad quieres construir, para qué páginas y con qué objetivo de negocio detrás.\n\nLa diferencia entre tener backlinks y tener una estrategia es la misma que hay entre hacer ejercicio de vez en cuando y seguir un plan de entrenamiento. Los resultados no son comparables.\n\nGoogle interpreta cada enlace entrante como una señal de confianza. Pero no todos los enlaces transmiten la misma señal. Un enlace desde un medio especializado en tu sector, con tráfico orgánico real y contenido editorial de calidad, vale decenas de veces más que cien enlaces de directorios genéricos. Por eso la estrategia importa: te ayuda a priorizar dónde invertir tu tiempo y presupuesto para conseguir el máximo impacto con el mínimo riesgo."},
+      {"heading": "Por qué necesitas una estrategia, no solo backlinks", "heading_level": 2, "content": "La mayoría de los sitios web que no consiguen resultados con el link building no tienen un problema de volumen. Tienen un problema de dirección.\n\nComprar enlaces sin estrategia es como construir una casa sin planos: puedes poner ladrillos, pero no sabes si estás levantando las paredes correctas. Hay tres razones concretas por las que necesitas una estrategia antes de conseguir tu primer backlink:\n\n**1. No todos los backlinks benefician las mismas páginas.** Si quieres posicionar una página de categoría de producto, los backlinks deben apuntar a esa URL, no a tu homepage. Sin una estrategia de distribución de enlaces, acabas concentrando toda la autoridad en páginas que ya posicionan bien y descuidando las que más lo necesitan.\n\n**2. El perfil de enlaces debe parecer natural.** Google analiza el patrón de adquisición de backlinks: la velocidad, la variedad de anchor text, la diversidad de dominios y la coherencia temática. Un perfil artificial —demasiado rápido, demasiado uniforme, demasiado centrado en keywords exactas— activa señales de alerta algorítmicas. Una estrategia bien diseñada construye un perfil que resiste cualquier actualización de algoritmo.\n\n**3. El link building tiene un coste de oportunidad alto.** Cada euro y cada hora invertidos en conseguir un enlace de baja calidad es un recurso que no se ha invertido en un enlace que realmente mueve el ranking. La estrategia es el filtro que te permite distinguir entre las dos opciones."},
+      {"heading": "Cómo construir tu estrategia paso a paso", "heading_level": 2, "content": "Construir una estrategia de link building efectiva no requiere herramientas caras ni conocimientos avanzados. Requiere seguir un proceso lógico en el orden correcto.\n\n**Paso 1: Audita tu punto de partida**\nAntes de conseguir un solo enlace nuevo, analiza tu perfil actual. Usa Ahrefs o SEMrush para responder estas preguntas: ¿Cuántos dominios de referencia únicos tienes? ¿Cuál es tu Domain Rating actual? ¿Hay backlinks tóxicos que estén lastrando tu perfil? ¿Qué páginas ya reciben más enlaces y cuáles están huérfanas de autoridad?\n\nEsta auditoría te da el mapa de dónde estás. Sin él, no puedes trazar el camino hacia donde quieres llegar.\n\n**Paso 2: Analiza a tus competidores**\nIdentifica los 3-5 sitios que mejor posicionan para tus keywords objetivo y analiza su perfil de backlinks. ¿De qué medios obtienen sus mejores enlaces? ¿Qué tipo de contenido atrae más backlinks en tu sector? ¿Hay dominios que enlazan a varios de tus competidores pero no a ti? Estos son tus primeros objetivos.\n\n**Paso 3: Define las páginas que quieres posicionar**\nNo todas las páginas de tu sitio merecen la misma inversión en link building. Selecciona las 3-5 páginas con mayor potencial de conversión o tráfico y construye tu estrategia alrededor de ellas. Los backlinks que consigues deben apuntar directamente a estas URLs o a páginas que las enlazan internamente.\n\n**Paso 4: Elige tus tácticas**\nHay muchas formas de conseguir backlinks: guest posts, niche edits, HARO, broken link building, estudios originales, directorios especializados. No todas funcionan igual en todos los sectores. Un e-commerce se beneficia más de los niche edits en blogs de reseñas. Un SaaS B2B obtiene mejores resultados con estudios de datos y HARO. Elige las tácticas que mejor se adapten a tu sector, recursos y tolerancia al riesgo.\n\n**Paso 5: Establece un ritmo sostenible**\nLa link velocity —la velocidad a la que consigues nuevos backlinks— debe ser constante y proporcional al crecimiento natural de tu sitio. Para la mayoría de proyectos, un ritmo de 4-10 backlinks mensuales de dominios únicos es suficiente para construir autoridad sin activar señales de alerta. Más importante que el volumen es la consistencia: es mejor conseguir 5 backlinks cada mes durante un año que 60 en un mes y ninguno después."},
+      {"heading": "Los tipos de backlinks que realmente importan", "heading_level": 2, "content": "No todos los backlinks son iguales, y entender las diferencias entre ellos es fundamental para priorizar correctamente tu estrategia.\n\n**Backlinks editoriales**\nSon los más valiosos. Los consigues cuando otro sitio enlaza a tu contenido de forma espontánea porque lo considera genuinamente útil para su audiencia. No hay acuerdo comercial de por medio. Google los valora especialmente porque son la señal más difícil de manipular. Para conseguirlos, necesitas contenido que sea notablemente mejor que el de la competencia: estudios originales, herramientas gratuitas, guías exhaustivas o datos que nadie más ha publicado.\n\n**Guest posts en medios relevantes**\nEscribes un artículo para otro sitio de tu sector y a cambio incluyes un enlace hacia tu web. Es la táctica más escalable del link building cuando se hace bien. La clave está en la selección del medio: debe tener tráfico orgánico real, relevancia temática alta y una audiencia que se solape con la tuya. Un guest post en el medio equivocado es dinero y tiempo desperdiciados.\n\n**Niche edits**\nConsigues que un enlace hacia tu web se inserte en un artículo ya publicado y posicionado. El valor de esta táctica está en que el artículo ya tiene autoridad acumulada: Google ya lo ha rastreado, indexado y valorado. Un enlace en ese contexto puede tener un impacto más rápido que uno en un artículo nuevo.\n\n**Menciones de marca sin enlace**\nCuando alguien menciona tu marca sin enlazarte, tienes una oportunidad de link building: contacta con el autor y solicita que conviertan la mención en un enlace. La tasa de éxito de esta táctica es alta porque el autor ya ha demostrado que conoce y valora tu marca.\n\n| Tipo | Velocidad de impacto | Escalabilidad | Riesgo |\n|---|---|---|---|\n| Editorial | Lenta | Baja | Muy bajo |\n| Guest post | Media | Alta | Bajo-medio |\n| Niche edit | Rápida | Media | Bajo |\n| Mención → enlace | Rápida | Media | Muy bajo |"},
+      {"heading": "Errores que destruyen una estrategia de link building", "heading_level": 2, "content": "Después de analizar decenas de estrategias de link building, estos son los errores que más frecuentemente impiden que funcionen:\n\n**Sobreoptimizar el anchor text**\nUsar siempre la misma keyword exacta como anchor text es una de las señales de alerta más claras para Google. Un perfil de enlaces natural incluye variedad: nombre de marca, URL desnuda, keywords parciales y anchor text genérico. Si el 80% de tus backlinks tienen el mismo anchor text exacto, tienes un problema.\n\n**Priorizar el DR sobre la relevancia**\nUn dominio con DR 70 que habla de recetas de cocina no te va a ayudar a posicionar tu agencia de marketing. La relevancia temática es tan importante como la autoridad del dominio. Siempre es mejor un enlace de un sitio con DR 35 muy relevante para tu sector que uno de DR 65 completamente genérico.\n\n**Ignorar los enlaces internos**\nEl link building externo solo funciona bien si los enlaces internos distribuyen correctamente la autoridad conseguida. Si consigues un backlink hacia tu homepage pero la página que quieres posicionar no está bien enlazada desde la homepage, estás desperdiciando parte del impacto. Los enlaces internos son el sistema de tuberías que lleva la autoridad donde la necesitas.\n\n**Construir sin medir**\nSi no estás midiendo el impacto de cada backlink conseguido —en rankings, en tráfico, en Domain Rating— no puedes saber qué tácticas funcionan y cuáles son un desperdicio de recursos. El link building sin medición es un gasto; con medición, es una inversión."},
+      {"heading": "Preguntas frecuentes", "heading_level": 2, "content": "FAQ_ITEM::{\"q\": \"¿Cuánto tiempo tarda en verse el efecto del link building?\", \"a\": \"Los primeros resultados tangibles suelen aparecer entre 3 y 6 meses después de iniciar una estrategia consistente. El impacto exacto depende de la autoridad actual de tu dominio, la competencia en tu nicho y la calidad de los backlinks conseguidos. Los niche edits en artículos ya posicionados suelen tener un impacto más rápido que los guest posts en contenido nuevo.\"}\n\nFAQ_ITEM::{\"q\": \"¿Cuántos backlinks necesito para posicionar?\", \"a\": \"No existe un número universal. Lo que importa es superar a tus competidores directos en calidad y relevancia del perfil de enlaces. Analiza cuántos dominios de referencia tienen los sitios que ocupan las primeras posiciones para tus keywords objetivo y usa ese dato como referencia, no un número arbitrario.\"}\n\nFAQ_ITEM::{\"q\": \"¿Es mejor conseguir muchos backlinks baratos o pocos caros?\", \"a\": \"Siempre es mejor la calidad sobre la cantidad. Diez backlinks de dominios relevantes con tráfico real tienen más impacto que cien de directorios genéricos. Además, los backlinks de baja calidad pueden perjudicar tu perfil si Google los interpreta como parte de un esquema de enlaces manipulador.\"}\n\nFAQ_ITEM::{\"q\": \"¿Debo usar el disavow tool de Google?\", \"a\": \"Solo si tienes una penalización manual por enlaces artificiales o detectas un patrón claro de backlinks tóxicos que estén afectando tu posicionamiento. Usarlo de forma indiscriminada puede ser contraproducente. Antes de hacer un disavow, intenta contactar con los webmasters para solicitar la eliminación de los enlaces problemáticos.\"}\n\nFAQ_ITEM::{\"q\": \"¿El link building sigue siendo relevante con la IA?\", \"a\": \"Más que nunca. Los modelos de lenguaje como ChatGPT o Perplexity aprenden qué sitios son fuentes de referencia en cada sector analizando, entre otras señales, los patrones de enlazado en la web. Una estrategia de link building sólida no solo mejora tu posicionamiento en Google, sino que también aumenta las probabilidades de que tu marca aparezca como fuente de referencia en respuestas generativas de IA.\"}"}
     ],
                 "internal_links": [
       {"text": "tácticas de link building", "href": "/tacticas-y-metodos/tacticas-link-building"},
-      {"text": "auditoría de backlinks", "href": "/auditorias-y-analisis/auditoria-backlinks-analisis-competencia"},
-      {"text": "herramientas de link building", "href": "/herramientas/herramientas-link-building"},
-      {"text": "riesgos y penalizaciones", "href": "/riesgos-y-penalizaciones/riesgos-penalizaciones-link-building"},
-      {"text": "Domain Rating", "href": "/metricas-y-medicion/dr-vs-da-vs-authority-score"},
-      {"text": "link velocity", "href": "/metricas-y-medicion/link-velocity-ritmo-link-building"}
+      {"text": "auditoría de backlinks", "href": "/auditorias-y-analisis/auditoria-backlinks-analisis-competencia"}
     ],
     "tags": ["link building", "SEO", "backlinks", "estrategia digital", "marketing de contenidos"],
   },
@@ -754,13 +708,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "guest posts", "href": "/tacticas-y-metodos/guest-posts-vs-niche-edits-2026"},
-      {"text": "broken link building", "href": "/tacticas-y-metodos/broken-link-building-guia"},
-      {"text": "Skyscraper Technique", "href": "/tacticas-y-metodos/skyscraper-technique-guia-completa"},
-      {"text": "link reclamation", "href": "/tacticas-y-metodos/link-reclamation-guia-completa"},
-      {"text": "penalizaciones de Google", "href": "/riesgos-y-penalizaciones/riesgos-penalizaciones-link-building"},
-      {"text": "auditoría de backlinks", "href": "/auditorias-y-analisis/auditoria-backlinks-analisis-competencia"},
-      {"text": "Ahrefs", "href": "/herramientas/ahrefs-vs-semrush-link-building"}
+      {"text": "guest posts", "href": "/tacticas-y-metodos/guest-posts-vs-niche-edits-2026"}
     ],
     "tags": ["link building", "SEO", "backlinks", "estrategias de contenido", "digital PR", "reputación online"],
   },
@@ -858,12 +806,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "brand entity", "href": "/reputacion-de-marca/como-construir-brand-entity-google-llms"},
-      {"text": "Knowledge Panel", "href": "/reputacion-de-marca/knowledge-panel-google-como-conseguirlo"},
-      {"text": "ORM", "href": "/reputacion-de-marca/orm-seo-reputacion-online"},
-      {"text": "menciones negativas", "href": "/reputacion-de-marca/gestionar-menciones-negativas-marca"},
-      {"text": "tendencias de link building", "href": "/tendencias-seo/tendencias-link-building-seo-2026"},
-      {"text": "GEO", "href": "/llms-y-busqueda-generativa/geo-generative-engine-optimization-2026"}
+      {"text": "brand entity", "href": "/reputacion-de-marca/como-construir-brand-entity-google-llms"}
     ],
     "tags": ["reputación digital", "SEO", "link building", "PR digital", "reputación online"],
   },
@@ -953,12 +896,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "Ahrefs", "href": "/herramientas/ahrefs-vs-semrush-link-building"},
-      {"text": "Domain Rating", "href": "/metricas-y-medicion/dr-vs-da-vs-authority-score"},
-      {"text": "backlinks tóxicos", "href": "/riesgos-y-penalizaciones/backlinks-toxicos-disavow-cuando-usarlo"},
-      {"text": "anchor text", "href": "/riesgos-y-penalizaciones/anchor-text-sobreoptimizado-como-corregirlo"},
-      {"text": "link velocity", "href": "/metricas-y-medicion/link-velocity-ritmo-link-building"},
-      {"text": "herramientas de link building", "href": "/herramientas/herramientas-link-building"}
+      {"text": "Ahrefs", "href": "/herramientas/ahrefs-vs-semrush-link-building"}
     ],
     "tags": ["auditoría backlinks", "análisis competencia", "SEO", "link building", "enlaces tóxicos"],
   },
@@ -1010,10 +948,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "auditoría de backlinks", "href": "/auditorias-y-analisis/auditoria-backlinks-analisis-competencia"},
-      {"text": "Domain Rating", "href": "/metricas-y-medicion/dr-vs-da-vs-authority-score"},
-      {"text": "tácticas de link building", "href": "/tacticas-y-metodos/tacticas-link-building"},
-      {"text": "backlinks tóxicos", "href": "/riesgos-y-penalizaciones/backlinks-toxicos-disavow-cuando-usarlo"}
+      {"text": "auditoría de backlinks", "href": "/auditorias-y-analisis/auditoria-backlinks-analisis-competencia"}
     ],
     "tags": ["link building", "SEO", "herramientas SEO", "backlinks", "outreach"],
   },
@@ -1099,12 +1034,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "tácticas de link building", "href": "/tacticas-y-metodos/tacticas-link-building"},
-      {"text": "link building para SaaS", "href": "/sectores/link-building-saas"},
-      {"text": "link building para e-commerce", "href": "/sectores/link-building-ecommerce"},
-      {"text": "negocios locales", "href": "/sectores/link-building-negocios-locales"},
-      {"text": "cuántos backlinks", "href": "/planificacion-y-presupuesto/cuantos-backlinks-necesito-posicionar"},
-      {"text": "presupuesto limitado", "href": "/planificacion-y-presupuesto/link-building-presupuesto-limitado"}
+      {"text": "tácticas de link building", "href": "/tacticas-y-metodos/tacticas-link-building"}
     ],
     "tags": ["link building", "SEO por sector", "estrategias de enlaces", "link building vertical", "SEO industrial"],
   },
@@ -1162,11 +1092,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "GEO", "href": "/llms-y-busqueda-generativa/geo-generative-engine-optimization-2026"},
-      {"text": "LLMs", "href": "/llms-y-busqueda-generativa/llms-trafico-organico-seo-2026"},
-      {"text": "brand entity", "href": "/reputacion-de-marca/como-construir-brand-entity-google-llms"},
-      {"text": "reputación digital", "href": "/reputacion-de-marca/reputacion-digital-marca-seo"},
-      {"text": "Knowledge Panel", "href": "/reputacion-de-marca/knowledge-panel-google-como-conseguirlo"}
+      {"text": "GEO", "href": "/llms-y-busqueda-generativa/geo-generative-engine-optimization-2026"}
     ],
     "tags": ["link building", "SEO 2026", "tendencias SEO", "estrategia digital", "E-E-A-T"],
   },
@@ -1200,12 +1126,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "PBNs", "href": "/riesgos-y-penalizaciones/pbns-riesgos-2026"},
-      {"text": "backlinks tóxicos", "href": "/riesgos-y-penalizaciones/backlinks-toxicos-disavow-cuando-usarlo"},
-      {"text": "penalización manual", "href": "/riesgos-y-penalizaciones/recuperarse-penalizacion-manual-google"},
-      {"text": "anchor text", "href": "/riesgos-y-penalizaciones/anchor-text-sobreoptimizado-como-corregirlo"},
-      {"text": "auditoría de backlinks", "href": "/auditorias-y-analisis/auditoria-backlinks-analisis-competencia"},
-      {"text": "herramientas de link building", "href": "/herramientas/herramientas-link-building"}
+      {"text": "PBNs", "href": "/riesgos-y-penalizaciones/pbns-riesgos-2026"}
     ],
     "tags": ["link building", "penalizaciones google", "seo", "white hat seo", "black hat seo"],
   },
@@ -1241,11 +1162,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "auditoría de backlinks", "href": "/auditorias-y-analisis/auditoria-backlinks-analisis-competencia"},
-      {"text": "Ahrefs", "href": "/herramientas/ahrefs-vs-semrush-link-building"},
-      {"text": "link velocity", "href": "/metricas-y-medicion/link-velocity-ritmo-link-building"},
-      {"text": "backlinks tóxicos", "href": "/riesgos-y-penalizaciones/backlinks-toxicos-disavow-cuando-usarlo"},
-      {"text": "evaluar un medio", "href": "/planificacion-y-presupuesto/como-evaluar-calidad-medio-link-building"}
+      {"text": "auditoría de backlinks", "href": "/auditorias-y-analisis/auditoria-backlinks-analisis-competencia"}
     ],
     "tags": ["SEO", "Link Building", "Métricas SEO", "Autoridad de Dominio", "Ahrefs"],
   },
@@ -1299,13 +1216,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "tácticas de link building", "href": "/tacticas-y-metodos/tacticas-link-building"},
-      {"text": "anchor text", "href": "/riesgos-y-penalizaciones/anchor-text-sobreoptimizado-como-corregirlo"},
-      {"text": "auditoría de backlinks", "href": "/auditorias-y-analisis/auditoria-backlinks-analisis-competencia"},
-      {"text": "evaluar un medio", "href": "/planificacion-y-presupuesto/como-evaluar-calidad-medio-link-building"},
-      {"text": "negociar el precio", "href": "/planificacion-y-presupuesto/negociar-precio-placements-link-building"},
-      {"text": "footprints", "href": "/tacticas-y-metodos/footprints-link-building-como-detectarlos"},
-      {"text": "penalización manual", "href": "/riesgos-y-penalizaciones/recuperarse-penalizacion-manual-google"}
+      {"text": "tácticas de link building", "href": "/tacticas-y-metodos/tacticas-link-building"}
     ],
     "tags": ["SEO", "link building", "guest posts", "niche edits", "estrategia digital"],
   },
@@ -1401,12 +1312,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "reputación digital", "href": "/reputacion-de-marca/reputacion-digital-marca-seo"},
-      {"text": "Knowledge Panel", "href": "/reputacion-de-marca/knowledge-panel-google-como-conseguirlo"},
-      {"text": "ORM", "href": "/reputacion-de-marca/orm-seo-reputacion-online"},
-      {"text": "GEO", "href": "/llms-y-busqueda-generativa/geo-generative-engine-optimization-2026"},
-      {"text": "LLMs", "href": "/llms-y-busqueda-generativa/llms-trafico-organico-seo-2026"},
-      {"text": "tendencias de link building", "href": "/tendencias-seo/tendencias-link-building-seo-2026"}
+      {"text": "reputación digital", "href": "/reputacion-de-marca/reputacion-digital-marca-seo"}
     ],
     "tags": ["Brand Entity", "SEO", "LLMs", "Google", "Knowledge Graph"],
   },
@@ -1494,11 +1400,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "Ahrefs", "href": "/herramientas/ahrefs-vs-semrush-link-building"},
-      {"text": "Domain Rating", "href": "/metricas-y-medicion/dr-vs-da-vs-authority-score"},
-      {"text": "auditoría de backlinks", "href": "/auditorias-y-analisis/auditoria-backlinks-analisis-competencia"},
-      {"text": "link velocity", "href": "/metricas-y-medicion/link-velocity-ritmo-link-building"},
-      {"text": "backlinks tóxicos", "href": "/riesgos-y-penalizaciones/backlinks-toxicos-disavow-cuando-usarlo"}
+      {"text": "Ahrefs", "href": "/herramientas/ahrefs-vs-semrush-link-building"}
     ],
     "tags": ["análisis de backlinks", "link building", "SEO", "competencia", "estrategia SEO"],
   },
@@ -1534,11 +1436,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "Domain Rating", "href": "/metricas-y-medicion/dr-vs-da-vs-authority-score"},
-      {"text": "Ahrefs", "href": "/herramientas/ahrefs-vs-semrush-link-building"},
-      {"text": "negociar el precio", "href": "/planificacion-y-presupuesto/negociar-precio-placements-link-building"},
-      {"text": "tácticas de link building", "href": "/tacticas-y-metodos/tacticas-link-building"},
-      {"text": "herramientas de link building", "href": "/herramientas/herramientas-link-building"}
+      {"text": "Domain Rating", "href": "/metricas-y-medicion/dr-vs-da-vs-authority-score"}
     ],
     "tags": ["link building", "SEO", "calidad de enlaces", "métricas SEO", "reputación online"],
   },
@@ -1594,12 +1492,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "tácticas de link building", "href": "/tacticas-y-metodos/tacticas-link-building"},
-      {"text": "HARO", "href": "/tacticas-y-metodos/haro-fuentes-medios-link-building"},
-      {"text": "brand entity", "href": "/reputacion-de-marca/como-construir-brand-entity-google-llms"},
-      {"text": "reputación digital", "href": "/reputacion-de-marca/reputacion-digital-marca-seo"},
-      {"text": "cuántos backlinks", "href": "/planificacion-y-presupuesto/cuantos-backlinks-necesito-posicionar"},
-      {"text": "herramientas de link building", "href": "/herramientas/herramientas-link-building"}
+      {"text": "tácticas de link building", "href": "/tacticas-y-metodos/tacticas-link-building"}
     ],
     "tags": ["link building", "saas", "seo", "estrategia de enlaces", "autoridad de dominio"],
   },
@@ -1655,11 +1548,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "brand entity", "href": "/reputacion-de-marca/como-construir-brand-entity-google-llms"},
-      {"text": "reputación digital", "href": "/reputacion-de-marca/reputacion-digital-marca-seo"},
-      {"text": "LLMs", "href": "/llms-y-busqueda-generativa/llms-trafico-organico-seo-2026"},
-      {"text": "tendencias de link building", "href": "/tendencias-seo/tendencias-link-building-seo-2026"},
-      {"text": "Knowledge Panel", "href": "/reputacion-de-marca/knowledge-panel-google-como-conseguirlo"}
+      {"text": "brand entity", "href": "/reputacion-de-marca/como-construir-brand-entity-google-llms"}
     ],
     "tags": ["GEO", "Generative Engine Optimization", "Google SGE", "LLMs", "SEO"],
   },
@@ -1723,12 +1612,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "footprints", "href": "/tacticas-y-metodos/footprints-link-building-como-detectarlos"},
-      {"text": "penalización manual", "href": "/riesgos-y-penalizaciones/recuperarse-penalizacion-manual-google"},
-      {"text": "backlinks tóxicos", "href": "/riesgos-y-penalizaciones/backlinks-toxicos-disavow-cuando-usarlo"},
-      {"text": "anchor text", "href": "/riesgos-y-penalizaciones/anchor-text-sobreoptimizado-como-corregirlo"},
-      {"text": "auditoría de backlinks", "href": "/auditorias-y-analisis/auditoria-backlinks-analisis-competencia"},
-      {"text": "Domain Rating", "href": "/metricas-y-medicion/dr-vs-da-vs-authority-score"}
+      {"text": "footprints", "href": "/tacticas-y-metodos/footprints-link-building-como-detectarlos"}
     ],
     "tags": ["SEO", "Link Building", "PBN", "Black Hat SEO", "Penalizaciones Google"],
   },
@@ -1762,11 +1646,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "Domain Rating", "href": "/metricas-y-medicion/dr-vs-da-vs-authority-score"},
-      {"text": "auditoría de backlinks", "href": "/auditorias-y-analisis/auditoria-backlinks-analisis-competencia"},
-      {"text": "penalización manual", "href": "/riesgos-y-penalizaciones/recuperarse-penalizacion-manual-google"},
-      {"text": "medir el impacto", "href": "/metricas-y-medicion/medir-impacto-link-building"},
-      {"text": "cuántos backlinks", "href": "/planificacion-y-presupuesto/cuantos-backlinks-necesito-posicionar"}
+      {"text": "Domain Rating", "href": "/metricas-y-medicion/dr-vs-da-vs-authority-score"}
     ],
     "tags": ["Link Building", "SEO", "Backlinks", "Estrategia SEO", "Penalizaciones Google"],
   },
@@ -1824,11 +1704,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "reputación digital", "href": "/reputacion-de-marca/reputacion-digital-marca-seo"},
-      {"text": "brand entity", "href": "/reputacion-de-marca/como-construir-brand-entity-google-llms"},
-      {"text": "menciones negativas", "href": "/reputacion-de-marca/gestionar-menciones-negativas-marca"},
-      {"text": "Knowledge Panel", "href": "/reputacion-de-marca/knowledge-panel-google-como-conseguirlo"},
-      {"text": "GEO", "href": "/llms-y-busqueda-generativa/geo-generative-engine-optimization-2026"}
+      {"text": "reputación digital", "href": "/reputacion-de-marca/reputacion-digital-marca-seo"}
     ],
     "tags": ["ORM", "SEO", "reputación online", "gestión de marca", "resultados de búsqueda"],
   },
@@ -1864,12 +1740,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "auditoría de backlinks", "href": "/auditorias-y-analisis/auditoria-backlinks-analisis-competencia"},
-      {"text": "penalización manual", "href": "/riesgos-y-penalizaciones/recuperarse-penalizacion-manual-google"},
-      {"text": "Ahrefs", "href": "/herramientas/ahrefs-vs-semrush-link-building"},
-      {"text": "Domain Rating", "href": "/metricas-y-medicion/dr-vs-da-vs-authority-score"},
-      {"text": "anchor text", "href": "/riesgos-y-penalizaciones/anchor-text-sobreoptimizado-como-corregirlo"},
-      {"text": "herramientas de link building", "href": "/herramientas/herramientas-link-building"}
+      {"text": "auditoría de backlinks", "href": "/auditorias-y-analisis/auditoria-backlinks-analisis-competencia"}
     ],
     "tags": ["backlinks tóxicos", "disavow", "seo", "link building", "penalizaciones google"],
   },
@@ -1927,10 +1798,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "auditoría de backlinks", "href": "/auditorias-y-analisis/auditoria-backlinks-analisis-competencia"},
-      {"text": "Domain Rating", "href": "/metricas-y-medicion/dr-vs-da-vs-authority-score"},
-      {"text": "backlinks tóxicos", "href": "/riesgos-y-penalizaciones/backlinks-toxicos-disavow-cuando-usarlo"},
-      {"text": "link velocity", "href": "/metricas-y-medicion/link-velocity-ritmo-link-building"}
+      {"text": "auditoría de backlinks", "href": "/auditorias-y-analisis/auditoria-backlinks-analisis-competencia"}
     ],
     "tags": ["link building", "SEO", "Ahrefs", "Semrush", "comparativa herramientas SEO"],
   },
@@ -2066,12 +1934,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "tácticas de link building", "href": "/tacticas-y-metodos/tacticas-link-building"},
-      {"text": "guest posts", "href": "/tacticas-y-metodos/guest-posts-vs-niche-edits-2026"},
-      {"text": "cuántos backlinks", "href": "/planificacion-y-presupuesto/cuantos-backlinks-necesito-posicionar"},
-      {"text": "presupuesto limitado", "href": "/planificacion-y-presupuesto/link-building-presupuesto-limitado"},
-      {"text": "herramientas de link building", "href": "/herramientas/herramientas-link-building"},
-      {"text": "evaluar un medio", "href": "/planificacion-y-presupuesto/como-evaluar-calidad-medio-link-building"}
+      {"text": "tácticas de link building", "href": "/tacticas-y-metodos/tacticas-link-building"}
     ],
     "tags": ["link building", "e-commerce", "SEO", "estrategia digital", "backlinks"],
   },
@@ -2127,10 +1990,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "GEO", "href": "/llms-y-busqueda-generativa/geo-generative-engine-optimization-2026"},
-      {"text": "brand entity", "href": "/reputacion-de-marca/como-construir-brand-entity-google-llms"},
-      {"text": "reputación digital", "href": "/reputacion-de-marca/reputacion-digital-marca-seo"},
-      {"text": "tendencias de link building", "href": "/tendencias-seo/tendencias-link-building-seo-2026"}
+      {"text": "GEO", "href": "/llms-y-busqueda-generativa/geo-generative-engine-optimization-2026"}
     ],
     "tags": ["LLM", "SEO", "Tráfico Orgánico", "AI Overviews", "E-E-A-T"],
   },
@@ -2164,11 +2024,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "backlinks tóxicos", "href": "/riesgos-y-penalizaciones/backlinks-toxicos-disavow-cuando-usarlo"},
-      {"text": "auditoría de backlinks", "href": "/auditorias-y-analisis/auditoria-backlinks-analisis-competencia"},
-      {"text": "anchor text", "href": "/riesgos-y-penalizaciones/anchor-text-sobreoptimizado-como-corregirlo"},
-      {"text": "herramientas de link building", "href": "/herramientas/herramientas-link-building"},
-      {"text": "Domain Rating", "href": "/metricas-y-medicion/dr-vs-da-vs-authority-score"}
+      {"text": "backlinks tóxicos", "href": "/riesgos-y-penalizaciones/backlinks-toxicos-disavow-cuando-usarlo"}
     ],
     "tags": ["SEO", "penalización Google", "link building", "recuperación SEO", "Search Console"],
   },
@@ -2220,11 +2076,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "link velocity", "href": "/metricas-y-medicion/link-velocity-ritmo-link-building"},
-      {"text": "Domain Rating", "href": "/metricas-y-medicion/dr-vs-da-vs-authority-score"},
-      {"text": "auditoría de backlinks", "href": "/auditorias-y-analisis/auditoria-backlinks-analisis-competencia"},
-      {"text": "evaluar un medio", "href": "/planificacion-y-presupuesto/como-evaluar-calidad-medio-link-building"},
-      {"text": "presupuesto limitado", "href": "/planificacion-y-presupuesto/link-building-presupuesto-limitado"}
+      {"text": "link velocity", "href": "/metricas-y-medicion/link-velocity-ritmo-link-building"}
     ],
     "tags": ["backlinks", "link building", "SEO", "estrategia de enlaces", "posicionamiento web"],
   },
@@ -2290,12 +2142,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "Skyscraper Technique", "href": "/tacticas-y-metodos/skyscraper-technique-guia-completa"},
-      {"text": "link reclamation", "href": "/tacticas-y-metodos/link-reclamation-guia-completa"},
-      {"text": "auditoría de backlinks", "href": "/auditorias-y-analisis/auditoria-backlinks-analisis-competencia"},
-      {"text": "Ahrefs", "href": "/herramientas/ahrefs-vs-semrush-link-building"},
-      {"text": "Domain Rating", "href": "/metricas-y-medicion/dr-vs-da-vs-authority-score"},
-      {"text": "backlinks tóxicos", "href": "/riesgos-y-penalizaciones/backlinks-toxicos-disavow-cuando-usarlo"}
+      {"text": "Skyscraper Technique", "href": "/tacticas-y-metodos/skyscraper-technique-guia-completa"}
     ],
     "tags": ["broken link building", "link building", "SEO", "backlinks", "estrategia SEO"],
   },
@@ -2365,11 +2212,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "brand entity", "href": "/reputacion-de-marca/como-construir-brand-entity-google-llms"},
-      {"text": "reputación digital", "href": "/reputacion-de-marca/reputacion-digital-marca-seo"},
-      {"text": "ORM", "href": "/reputacion-de-marca/orm-seo-reputacion-online"},
-      {"text": "GEO", "href": "/llms-y-busqueda-generativa/geo-generative-engine-optimization-2026"},
-      {"text": "LLMs", "href": "/llms-y-busqueda-generativa/llms-trafico-organico-seo-2026"}
+      {"text": "brand entity", "href": "/reputacion-de-marca/como-construir-brand-entity-google-llms"}
     ],
     "tags": ["Knowledge Panel", "Google", "SEO", "Marca", "Reputación Online"],
   },
@@ -2419,12 +2262,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "broken link building", "href": "/tacticas-y-metodos/broken-link-building-guia"},
-      {"text": "HARO", "href": "/tacticas-y-metodos/haro-fuentes-medios-link-building"},
-      {"text": "link reclamation", "href": "/tacticas-y-metodos/link-reclamation-guia-completa"},
-      {"text": "evaluar un medio", "href": "/planificacion-y-presupuesto/como-evaluar-calidad-medio-link-building"},
-      {"text": "cuántos backlinks", "href": "/planificacion-y-presupuesto/cuantos-backlinks-necesito-posicionar"},
-      {"text": "tácticas de link building", "href": "/tacticas-y-metodos/tacticas-link-building"}
+      {"text": "broken link building", "href": "/tacticas-y-metodos/broken-link-building-guia"}
     ],
     "tags": ["link building", "SEO", "presupuesto limitado", "estrategias", "backlinks"],
   },
@@ -2516,12 +2354,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "Ahrefs", "href": "/herramientas/ahrefs-vs-semrush-link-building"},
-      {"text": "Domain Rating", "href": "/metricas-y-medicion/dr-vs-da-vs-authority-score"},
-      {"text": "backlinks tóxicos", "href": "/riesgos-y-penalizaciones/backlinks-toxicos-disavow-cuando-usarlo"},
-      {"text": "anchor text", "href": "/riesgos-y-penalizaciones/anchor-text-sobreoptimizado-como-corregirlo"},
-      {"text": "herramientas de link building", "href": "/herramientas/herramientas-link-building"},
-      {"text": "penalización manual", "href": "/riesgos-y-penalizaciones/recuperarse-penalizacion-manual-google"}
+      {"text": "Ahrefs", "href": "/herramientas/ahrefs-vs-semrush-link-building"}
     ],
     "tags": ["auditoría backlinks", "link building", "SEO", "enlaces tóxicos", "estrategia SEO"],
   },
@@ -2569,11 +2402,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "evaluar un medio", "href": "/planificacion-y-presupuesto/como-evaluar-calidad-medio-link-building"},
-      {"text": "Domain Rating", "href": "/metricas-y-medicion/dr-vs-da-vs-authority-score"},
-      {"text": "presupuesto limitado", "href": "/planificacion-y-presupuesto/link-building-presupuesto-limitado"},
-      {"text": "cuántos backlinks", "href": "/planificacion-y-presupuesto/cuantos-backlinks-necesito-posicionar"},
-      {"text": "tácticas de link building", "href": "/tacticas-y-metodos/tacticas-link-building"}
+      {"text": "evaluar un medio", "href": "/planificacion-y-presupuesto/como-evaluar-calidad-medio-link-building"}
     ],
     "tags": ["link building", "negociación", "SEO", "estrategia", "backlinks"],
   },
@@ -2637,11 +2466,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "backlinks tóxicos", "href": "/riesgos-y-penalizaciones/backlinks-toxicos-disavow-cuando-usarlo"},
-      {"text": "penalización manual", "href": "/riesgos-y-penalizaciones/recuperarse-penalizacion-manual-google"},
-      {"text": "auditoría de backlinks", "href": "/auditorias-y-analisis/auditoria-backlinks-analisis-competencia"},
-      {"text": "Ahrefs", "href": "/herramientas/ahrefs-vs-semrush-link-building"},
-      {"text": "link velocity", "href": "/metricas-y-medicion/link-velocity-ritmo-link-building"}
+      {"text": "backlinks tóxicos", "href": "/riesgos-y-penalizaciones/backlinks-toxicos-disavow-cuando-usarlo"}
     ],
     "tags": ["anchor text", "link building", "SEO", "sobreoptimización", "perfil de enlaces"],
   },
@@ -2733,12 +2558,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "tácticas de link building", "href": "/tacticas-y-metodos/tacticas-link-building"},
-      {"text": "presupuesto limitado", "href": "/planificacion-y-presupuesto/link-building-presupuesto-limitado"},
-      {"text": "cuántos backlinks", "href": "/planificacion-y-presupuesto/cuantos-backlinks-necesito-posicionar"},
-      {"text": "evaluar un medio", "href": "/planificacion-y-presupuesto/como-evaluar-calidad-medio-link-building"},
-      {"text": "herramientas de link building", "href": "/herramientas/herramientas-link-building"},
-      {"text": "Domain Rating", "href": "/metricas-y-medicion/dr-vs-da-vs-authority-score"}
+      {"text": "tácticas de link building", "href": "/tacticas-y-metodos/tacticas-link-building"}
     ],
     "tags": ["Link Building Local", "SEO Local", "Negocios Locales", "Estrategias SEO", "Backlinks Locales"],
   },
@@ -2808,11 +2628,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "Domain Rating", "href": "/metricas-y-medicion/dr-vs-da-vs-authority-score"},
-      {"text": "link velocity", "href": "/metricas-y-medicion/link-velocity-ritmo-link-building"},
-      {"text": "auditoría de backlinks", "href": "/auditorias-y-analisis/auditoria-backlinks-analisis-competencia"},
-      {"text": "herramientas de link building", "href": "/herramientas/herramientas-link-building"},
-      {"text": "medir sin cookies", "href": "/metricas-y-medicion/medir-seo-link-building-sin-cookies"}
+      {"text": "Domain Rating", "href": "/metricas-y-medicion/dr-vs-da-vs-authority-score"}
     ],
     "tags": ["link building", "SEO", "métricas", "impacto", "estrategia"],
   },
@@ -2848,12 +2664,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "reputación digital", "href": "/reputacion-de-marca/reputacion-digital-marca-seo"},
-      {"text": "brand entity", "href": "/reputacion-de-marca/como-construir-brand-entity-google-llms"},
-      {"text": "ORM", "href": "/reputacion-de-marca/orm-seo-reputacion-online"},
-      {"text": "link building para SaaS", "href": "/sectores/link-building-saas"},
-      {"text": "link velocity", "href": "/metricas-y-medicion/link-velocity-ritmo-link-building"},
-      {"text": "medir el impacto", "href": "/metricas-y-medicion/medir-impacto-link-building"}
+      {"text": "reputación digital", "href": "/reputacion-de-marca/reputacion-digital-marca-seo"}
     ],
     "tags": ["link building", "HARO", "backlinks", "PR digital", "SEO"],
   },
@@ -2927,11 +2738,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "ORM", "href": "/reputacion-de-marca/orm-seo-reputacion-online"},
-      {"text": "reputación digital", "href": "/reputacion-de-marca/reputacion-digital-marca-seo"},
-      {"text": "brand entity", "href": "/reputacion-de-marca/como-construir-brand-entity-google-llms"},
-      {"text": "Knowledge Panel", "href": "/reputacion-de-marca/knowledge-panel-google-como-conseguirlo"},
-      {"text": "tendencias de link building", "href": "/tendencias-seo/tendencias-link-building-seo-2026"}
+      {"text": "ORM", "href": "/reputacion-de-marca/orm-seo-reputacion-online"}
     ],
     "tags": ["reputación online", "gestión de crisis", "menciones negativas", "derecho al olvido", "SERP management"],
   },
@@ -3005,12 +2812,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "tácticas de link building", "href": "/tacticas-y-metodos/tacticas-link-building"},
-      {"text": "auditoría de backlinks", "href": "/auditorias-y-analisis/auditoria-backlinks-analisis-competencia"},
-      {"text": "herramientas de link building", "href": "/herramientas/herramientas-link-building"},
-      {"text": "negociar el precio", "href": "/planificacion-y-presupuesto/negociar-precio-placements-link-building"},
-      {"text": "evaluar un medio", "href": "/planificacion-y-presupuesto/como-evaluar-calidad-medio-link-building"},
-      {"text": "cuántos backlinks", "href": "/planificacion-y-presupuesto/cuantos-backlinks-necesito-posicionar"}
+      {"text": "tácticas de link building", "href": "/tacticas-y-metodos/tacticas-link-building"}
     ],
     "tags": ["link building", "agencias SEO", "estrategia SEO", "posicionamiento web", "backlinks"],
   },
@@ -3064,11 +2866,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "medir el impacto", "href": "/metricas-y-medicion/medir-impacto-link-building"},
-      {"text": "Domain Rating", "href": "/metricas-y-medicion/dr-vs-da-vs-authority-score"},
-      {"text": "link velocity", "href": "/metricas-y-medicion/link-velocity-ritmo-link-building"},
-      {"text": "herramientas de link building", "href": "/herramientas/herramientas-link-building"},
-      {"text": "tendencias de link building", "href": "/tendencias-seo/tendencias-link-building-seo-2026"}
+      {"text": "medir el impacto", "href": "/metricas-y-medicion/medir-impacto-link-building"}
     ],
     "tags": ["link building", "SEO sin cookies", "atribución SEO", "métricas SEO", "marketing digital 2026"],
   },
@@ -3096,12 +2894,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "PBNs", "href": "/riesgos-y-penalizaciones/pbns-riesgos-2026"},
-      {"text": "anchor text", "href": "/riesgos-y-penalizaciones/anchor-text-sobreoptimizado-como-corregirlo"},
-      {"text": "penalización manual", "href": "/riesgos-y-penalizaciones/recuperarse-penalizacion-manual-google"},
-      {"text": "backlinks tóxicos", "href": "/riesgos-y-penalizaciones/backlinks-toxicos-disavow-cuando-usarlo"},
-      {"text": "auditoría de backlinks", "href": "/auditorias-y-analisis/auditoria-backlinks-analisis-competencia"},
-      {"text": "herramientas de link building", "href": "/herramientas/herramientas-link-building"}
+      {"text": "PBNs", "href": "/riesgos-y-penalizaciones/pbns-riesgos-2026"}
     ],
     "tags": ["Link Building", "SEO", "Footprints", "Penalizaciones Google", "Estrategia SEO"],
   },
@@ -3153,12 +2946,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "broken link building", "href": "/tacticas-y-metodos/broken-link-building-guia"},
-      {"text": "guest posts", "href": "/tacticas-y-metodos/guest-posts-vs-niche-edits-2026"},
-      {"text": "Ahrefs", "href": "/herramientas/ahrefs-vs-semrush-link-building"},
-      {"text": "Domain Rating", "href": "/metricas-y-medicion/dr-vs-da-vs-authority-score"},
-      {"text": "link velocity", "href": "/metricas-y-medicion/link-velocity-ritmo-link-building"},
-      {"text": "auditoría de backlinks", "href": "/auditorias-y-analisis/auditoria-backlinks-analisis-competencia"}
+      {"text": "broken link building", "href": "/tacticas-y-metodos/broken-link-building-guia"}
     ],
     "tags": ["Skyscraper Technique", "Link Building", "SEO", "Estrategia de Contenido", "Backlinks"],
   },
@@ -3234,12 +3022,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "PBNs", "href": "/riesgos-y-penalizaciones/pbns-riesgos-2026"},
-      {"text": "footprints", "href": "/tacticas-y-metodos/footprints-link-building-como-detectarlos"},
-      {"text": "penalización manual", "href": "/riesgos-y-penalizaciones/recuperarse-penalizacion-manual-google"},
-      {"text": "backlinks tóxicos", "href": "/riesgos-y-penalizaciones/backlinks-toxicos-disavow-cuando-usarlo"},
-      {"text": "Domain Rating", "href": "/metricas-y-medicion/dr-vs-da-vs-authority-score"},
-      {"text": "link velocity", "href": "/metricas-y-medicion/link-velocity-ritmo-link-building"}
+      {"text": "PBNs", "href": "/riesgos-y-penalizaciones/pbns-riesgos-2026"}
     ],
     "tags": ["Tier 2 Link Building", "Estrategia de Link Building", "SEO Avanzado", "Backlinks", "Link Juice"],
   },
@@ -3315,12 +3098,7 @@ export const ARTICLES: Article[] = [
     ],
                 "internal_links": [
       {"text": "estrategia de link building", "href": "/estrategia-link-building/estrategia-link-building"},
-      {"text": "broken link building", "href": "/tacticas-y-metodos/broken-link-building-guia"},
-      {"text": "auditoría de backlinks", "href": "/auditorias-y-analisis/auditoria-backlinks-analisis-competencia"},
-      {"text": "Ahrefs", "href": "/herramientas/ahrefs-vs-semrush-link-building"},
-      {"text": "Domain Rating", "href": "/metricas-y-medicion/dr-vs-da-vs-authority-score"},
-      {"text": "medir el impacto", "href": "/metricas-y-medicion/medir-impacto-link-building"},
-      {"text": "link velocity", "href": "/metricas-y-medicion/link-velocity-ritmo-link-building"}
+      {"text": "broken link building", "href": "/tacticas-y-metodos/broken-link-building-guia"}
     ],
     "tags": ["link reclamation", "recuperación de enlaces", "backlinks rotos", "menciones sin enlace", "estrategia de link building"],
   },
