@@ -6,6 +6,7 @@
  */
 
 import { useState, useEffect, useRef } from "react";
+import { useDocumentMeta } from "@/hooks/useDocumentMeta";
 import { useParams } from "wouter";
 import {
   ChevronRight, ExternalLink, Clock, Calendar,
@@ -721,6 +722,61 @@ function ArticleSchema({ article, ratingValue, ratingCount }: { article: Article
 
 // ─── Página principal ────────────────────────────────────────────────────────
 
+// ─── Skeleton de carga ───────────────────────────────────────────────────────────
+
+function ArticleSkeleton() {
+  return (
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-20">
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-10" style={{ alignItems: "start" }}>
+        <main>
+          {/* Breadcrumb */}
+          <div className="flex items-center gap-2 mb-6">
+            <div className="skeleton skeleton-meta" style={{ width: 40 }} />
+            <div className="skeleton skeleton-meta" style={{ width: 8, borderRadius: "50%" }} />
+            <div className="skeleton skeleton-meta" style={{ width: 120 }} />
+          </div>
+          {/* Badge */}
+          <div className="skeleton skeleton-badge mb-4" />
+          {/* Título */}
+          <div className="skeleton skeleton-title mb-2" style={{ width: "90%" }} />
+          <div className="skeleton skeleton-title mb-6" style={{ width: "70%" }} />
+          {/* Descripción */}
+          <div className="skeleton skeleton-text mb-1" style={{ width: "100%" }} />
+          <div className="skeleton skeleton-text mb-6" style={{ width: "80%" }} />
+          {/* Imagen */}
+          <div className="skeleton skeleton-image mb-8" />
+          {/* Meta bar */}
+          <div className="flex items-center gap-4 py-4 mb-8" style={{ borderTop: "1px solid #1A1A1A", borderBottom: "1px solid #1A1A1A" }}>
+            <div className="skeleton skeleton-avatar" />
+            <div className="skeleton skeleton-meta" />
+            <div className="skeleton skeleton-meta" style={{ width: 100 }} />
+          </div>
+          {/* Contenido */}
+          {[1,2,3,4,5,6].map(i => (
+            <div key={i} className="mb-6">
+              {i % 2 === 0 && <div className="skeleton" style={{ height: "1.4rem", width: "60%", marginBottom: "1rem" }} />}
+              <div className="skeleton skeleton-text" style={{ width: "100%" }} />
+              <div className="skeleton skeleton-text" style={{ width: "95%" }} />
+              <div className="skeleton skeleton-text" style={{ width: "88%" }} />
+              <div className="skeleton skeleton-text" style={{ width: "92%" }} />
+            </div>
+          ))}
+        </main>
+        <aside className="hidden lg:block" style={{ alignSelf: "start", position: "sticky", top: "5.5rem" }}>
+          <div className="rounded-xl p-4 mb-4" style={{ background: "#111111", border: "1px solid #1E1E1E" }}>
+            <div className="skeleton" style={{ height: "1rem", width: "60%", marginBottom: "1rem" }} />
+            {[1,2,3,4].map(i => <div key={i} className="skeleton skeleton-text mb-2" style={{ width: `${70 + i * 5}%` }} />)}
+          </div>
+          <div className="rounded-xl p-4" style={{ background: "#111111", border: "1px solid #1E1E1E" }}>
+            <div className="skeleton" style={{ height: "1rem", width: "80%", marginBottom: "0.75rem" }} />
+            <div className="skeleton" style={{ height: "2.5rem", borderRadius: 8 }} />
+          </div>
+        </aside>
+      </div>
+    </div>
+  );
+}
+
 export default function ArticlePage() {
   const params = useParams<{ cluster: string; slug: string }>();
   const slug = params.slug || "";
@@ -730,6 +786,23 @@ export default function ArticlePage() {
   const [tocCollapsed, setTocCollapsed] = useState(true);
   const [mobileTocOpen, setMobileTocOpen] = useState(false);
   const [fontSize, setFontSize] = useState(16);
+  const [loading, setLoading] = useState(true);
+
+  // Simular carga breve para mostrar skeleton
+  useEffect(() => {
+    setLoading(true);
+    const t = setTimeout(() => setLoading(false), 350);
+    return () => clearTimeout(t);
+  }, [slug]);
+
+  // Meta tags dinámicos
+  useDocumentMeta({
+    title: article ? `${article.meta_title || article.h1} | Comprar Linkbuilding` : "Comprar Link Building | Enlaces SEO, PR & Reputación",
+    description: article?.meta_description || "",
+    ogImage: article?.featuredImage || "",
+    ogType: "article",
+    canonical: article ? `https://comprarlinkbuilding.com/${article.cluster}/${article.slug}/` : undefined,
+  });
 
   // Scroll al top cuando cambia el artículo
   useEffect(() => {
@@ -777,6 +850,11 @@ export default function ArticlePage() {
 
       {/* Navbar */}
       <ArticleNavbar />
+
+      {/* Skeleton de carga */}
+      {loading ? (
+        <ArticleSkeleton />
+      ) : (<>
 
       {/* TOC móvil flotante */}
       <div className="lg:hidden fixed bottom-20 right-6 z-40">
@@ -1005,6 +1083,7 @@ export default function ArticlePage() {
           </a>
         </div>
       </footer>
+      </>)}{/* fin contenido real */}
     </div>
   );
 }
