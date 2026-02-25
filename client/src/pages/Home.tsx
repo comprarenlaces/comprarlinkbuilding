@@ -486,9 +486,8 @@ function HeroSection() {
           className="font-bold leading-tight mb-5 fade-in-up fade-in-up-delay-1"
           style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", color: "#E8E8E8", letterSpacing: "-0.025em" }}
         >
-          El link building no es solo SEO.
-          <br />
-          <span style={{ color: "#B5E853" }}>Es reputación digital.</span>
+          Antes de comprar linkbuilding,<br />
+          <span style={{ color: "#B5E853" }}>entiende cómo funciona de verdad.</span>
         </h1>
 
         {/* Subtítulo */}
@@ -496,11 +495,11 @@ function HeroSection() {
           className="text-base mb-8 max-w-2xl mx-auto fade-in-up fade-in-up-delay-2"
           style={{ color: "#666", lineHeight: "1.8" }}
         >
-          Guías, estrategias y recursos sobre{" "}
+          Guías, estrategias y análisis sobre{" "}
           <strong style={{ color: "#B0B0B0" }}>link building</strong>,{" "}
           <strong style={{ color: "#B0B0B0" }}>PR digital</strong>,{" "}
           <strong style={{ color: "#B0B0B0" }}>reputación de marca</strong> y{" "}
-          <strong style={{ color: "#B0B0B0" }}>branding</strong> para profesionales del SEO.
+          <strong style={{ color: "#B0B0B0" }}>autoridad SEO</strong> para profesionales que quieren resultados reales.
         </p>
 
         {/* Buscador */}
