@@ -721,17 +721,102 @@ function RelatedArticles({ cluster, currentSlug, internalLinks }: { cluster: str
   );
 }
 
+// ─── Sidebar: Artículos más leídos ─────────────────────────────────────────
+
+const MOST_READ = [
+  { slug: "estrategia-link-building", cluster: "estrategia-link-building", title: "Estrategia de link building: guía completa 2026", readTime: 18 },
+  { slug: "tacticas-link-building", cluster: "tacticas-y-metodos", title: "Tácticas de Link Building 2026: Guía Operativa", readTime: 15 },
+  { slug: "auditoria-backlinks-analisis-competencia", cluster: "auditorias-y-analisis", title: "Auditoría de Backlinks 2026: Proceso Completo", readTime: 14 },
+  { slug: "dr-vs-da-vs-authority-score", cluster: "metricas-y-medicion", title: "DR vs DA vs Authority Score: Cuál Importa", readTime: 12 },
+  { slug: "herramientas-link-building", cluster: "herramientas", title: "Herramientas de Link Building 2026: Cuál Usar", readTime: 13 },
+  { slug: "riesgos-penalizaciones-link-building", cluster: "riesgos-y-penalizaciones", title: "Riesgos y Penalizaciones en Link Building", readTime: 11 },
+  { slug: "reputacion-digital-marca-seo", cluster: "reputacion-de-marca", title: "Reputación Digital y SEO: Autoridad de Marca", readTime: 16 },
+  { slug: "geo-generative-engine-optimization-2026", cluster: "llms-y-busqueda-generativa", title: "GEO: Cómo Aparecer en Respuestas de LLMs y SGE", readTime: 14 },
+];
+
+function MostReadSidebar({ currentSlug }: { currentSlug: string }) {
+  const items = MOST_READ.filter(a => a.slug !== currentSlug).slice(0, 6);
+  return (
+    <div className="rounded-xl p-4" style={{ background: "#111111", border: "1px solid #1E1E1E" }}>
+      <div className="flex items-center gap-2 mb-4">
+        <BookOpen size={12} style={{ color: "#B5E853" }} />
+        <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: "#555" }}>Guías esenciales</p>
+      </div>
+      <div className="space-y-1">
+        {items.map((item, i) => (
+          <a
+            key={item.slug}
+            href={`/${item.cluster}/${item.slug}`}
+            className="flex items-start gap-2.5 py-2.5 transition-all duration-150 group"
+            style={{ textDecoration: "none", borderBottom: i < items.length - 1 ? "1px solid #161616" : "none" }}
+          >
+            <span
+              className="flex-shrink-0 w-5 h-5 rounded flex items-center justify-center text-xs font-bold mt-0.5"
+              style={{ background: "rgba(181,232,83,0.06)", color: "#3A3A3A", fontSize: "0.6rem" }}
+            >
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <div className="min-w-0">
+              <p
+                className="text-xs leading-snug mb-1 transition-colors duration-150"
+                style={{ color: "#777", lineHeight: "1.4" }}
+                onMouseEnter={e => (e.currentTarget.style.color = "#B5E853")}
+                onMouseLeave={e => (e.currentTarget.style.color = "#777")}
+              >
+                {item.title}
+              </p>
+              <div className="flex items-center gap-1" style={{ color: "#333" }}>
+                <Clock size={9} />
+                <span style={{ fontSize: "0.6rem" }}>{item.readTime} min</span>
+                <span style={{ fontSize: "0.6rem", color: "#2A2A2A", margin: "0 2px" }}>·</span>
+                <span style={{ fontSize: "0.6rem", color: "#333", textTransform: "uppercase", letterSpacing: "0.04em" }}>
+                  {CLUSTER_LABELS[item.cluster]?.split(" ")[0] || item.cluster}
+                </span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 // ─── Schema JSON-LD ───────────────────────────────────────────────────────────
 
+// Mapa de slug de país → nombre legible
+const COUNTRY_NAMES: Record<string, string> = {
+  "backlinks-para-espana": "España",
+  "backlinks-para-mexico": "México",
+  "backlinks-para-argentina": "Argentina",
+  "backlinks-para-peru": "Perú",
+  "backlinks-para-ecuador": "Ecuador",
+  "backlinks-para-bolivia": "Bolivia",
+  "backlinks-para-paraguay": "Paraguay",
+  "backlinks-para-dinamarca": "Dinamarca",
+};
+
 function ArticleSchema({ article, ratingValue, ratingCount }: { article: Article; ratingValue: number; ratingCount: number }) {
+  const isPais = article.cluster === "paises";
+  const countryName = isPais ? COUNTRY_NAMES[article.slug] : null;
+
+  // Breadcrumb con 4 niveles para países: Inicio > Países > España > Artículo
+  // Breadcrumb con 3 niveles para el resto: Inicio > Clúster > Artículo
+  const breadcrumbItems = isPais && countryName
+    ? [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://comprarlinkbuilding.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Link Building por País", "item": "https://comprarlinkbuilding.com/cluster/paises" },
+        { "@type": "ListItem", "position": 3, "name": `Link Building en ${countryName}`, "item": `https://comprarlinkbuilding.com/paises/${article.slug}/` },
+      ]
+    : [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://comprarlinkbuilding.com/" },
+        { "@type": "ListItem", "position": 2, "name": CLUSTER_LABELS[article.cluster] || article.cluster, "item": `https://comprarlinkbuilding.com/cluster/${article.cluster}` },
+        { "@type": "ListItem", "position": 3, "name": article.h1 || article.meta_title, "item": article.url || `https://comprarlinkbuilding.com/${article.cluster}/${article.slug}/` },
+      ];
+
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://comprarlinkbuilding.com/" },
-      { "@type": "ListItem", "position": 2, "name": CLUSTER_LABELS[article.cluster] || article.cluster, "item": `https://comprarlinkbuilding.com/cluster/${article.cluster}` },
-      { "@type": "ListItem", "position": 3, "name": article.h1 || article.meta_title, "item": article.url || `https://comprarlinkbuilding.com/${article.cluster}/${article.slug}/` },
-    ]
+    "itemListElement": breadcrumbItems,
   };
 
   const schema: Record<string, unknown> = {
@@ -1207,6 +1292,7 @@ export default function ArticlePage() {
                 <TableOfContents items={article.toc} activeId={activeId} collapsed={tocCollapsed} onToggle={() => setTocCollapsed(!tocCollapsed)} />
               )}
               <SocialShareBlock title={article.meta_title || article.h1} />
+              <MostReadSidebar currentSlug={slug} />
               <div className="rounded-xl p-4" style={{ background: "#111111", border: "1px solid #1E1E1E" }}>
                 <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#555" }}>Plataforma recomendada</p>
                 <p className="text-xs mb-3 leading-relaxed" style={{ color: "#444" }}>Medios verificados para ejecutar tu estrategia.</p>
