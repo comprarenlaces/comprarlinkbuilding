@@ -36,120 +36,159 @@ const CLUSTERS = [
     id: 1,
     slug: "estrategia-link-building",
     name: "Estrategia de link building",
-    description: "Cómo construir una estrategia de enlaces sólida: tier 2, skyscraper, footprints, anchor text y medición de resultados.",
+    description: "Fundamentos y visión global para construir una estrategia de enlaces sólida, sostenible y orientada a resultados reales.",
     icon: TrendingUp,
     color: "#B5E853",
-    count: 24,
-    tags: ["Tier 2", "Skyscraper", "Anchor text", "Medición"],
+    count: 1,
+    tags: ["Estrategia", "Autoridad", "Fundamentos", "2026"],
     featured: [
-      "Tier 2 link building: estructura, usos y riesgos",
-      "Skyscraper technique: cómo ejecutarla en 2026",
-      "Footprints en link building: qué son y cómo detectarlos",
+      "Estrategia de link building: guía completa para construir autoridad real en 2026",
     ],
   },
   {
     id: 2,
-    slug: "tacticas-metodos",
+    slug: "tacticas-y-metodos",
     name: "Tácticas y Métodos",
-    description: "Las técnicas más efectivas para conseguir backlinks: guest posting, HARO, digital PR, link reclamation y más.",
+    description: "Las técnicas más efectivas para conseguir backlinks: guest posts, niche edits, HARO, skyscraper, broken link building y más.",
     icon: Zap,
     color: "#B5E853",
-    count: 18,
-    tags: ["Guest posting", "HARO", "Digital PR", "Outreach"],
+    count: 8,
+    tags: ["Guest posts", "HARO", "Skyscraper", "Outreach"],
     featured: [
-      "HARO y fuentes para medios: backlinks sin pagar placement",
-      "Guest posting en 2026: qué funciona y qué no",
-      "Link reclamation: recupera los enlaces que ya mereces",
+      "Tácticas de link building en 2026: guía operativa por método, coste y riesgo",
+      "Guest posts vs niche edits en 2026: guía comparativa",
+      "HARO y fuentes para medios: backlinks de autoridad sin pagar placement",
     ],
   },
   {
     id: 3,
-    slug: "reputacion-marca",
-    name: "Reputación de marca",
-    description: "Gestión de menciones, branded content, PR digital y cómo construir una presencia online que Google y los usuarios respeten.",
-    icon: Shield,
+    slug: "riesgos-y-penalizaciones",
+    name: "Riesgos y Penalizaciones",
+    description: "Qué prácticas pueden penalizarte, cómo detectar una penalización manual o algorítmica y cómo recuperar tu sitio.",
+    icon: AlertTriangle,
     color: "#B5E853",
-    count: 15,
-    tags: ["Branded content", "PR digital", "Menciones", "EEAT"],
+    count: 5,
+    tags: ["Penalización", "PBNs", "Disavow", "Recuperación"],
     featured: [
-      "Cómo gestionar menciones negativas sobre tu marca",
-      "Branded content y link building: la combinación perfecta",
-      "EEAT: cómo los backlinks refuerzan tu autoridad temática",
+      "Riesgos y penalizaciones en link building: qué evitar y cómo recuperarse",
+      "PBNs en 2026: riesgos reales y por qué no usarlas",
+      "Backlinks tóxicos y disavow: cuándo actuar y cómo hacerlo",
     ],
   },
   {
     id: 4,
-    slug: "auditorias-analisis",
-    name: "Auditorías y análisis",
-    description: "Cómo auditar tu perfil de backlinks, detectar enlaces tóxicos, analizar a la competencia y construir un sistema de seguimiento.",
+    slug: "auditorias-y-analisis",
+    name: "Auditorías y Análisis",
+    description: "Cómo auditar tu perfil de backlinks, analizar a la competencia y construir un sistema de seguimiento de enlaces.",
     icon: BarChart2,
     color: "#B5E853",
-    count: 12,
-    tags: ["Auditoría", "Tóxicos", "Competencia", "Seguimiento"],
+    count: 3,
+    tags: ["Auditoría", "Competencia", "Análisis", "Seguimiento"],
     featured: [
-      "Auditoría de backlinks paso a paso: guía completa",
-      "Cómo analizar el perfil de enlaces de tu competencia",
-      "Disavow: cuándo y cómo desautorizar enlaces",
+      "Auditoría de backlinks y análisis de competencia: guía paso a paso para 2026",
+      "Auditoría completa de backlinks: proceso paso a paso",
+      "Cómo analizar los backlinks de tu competencia",
     ],
   },
   {
     id: 5,
-    slug: "herramientas",
-    name: "Herramientas",
-    description: "Las mejores herramientas para link building: Ahrefs, Semrush, Majestic, Moz y alternativas gratuitas con análisis comparativo.",
-    icon: Wrench,
+    slug: "metricas-y-medicion",
+    name: "Métricas y Medición",
+    description: "DR, DA, Authority Score, link velocity y cómo medir el impacto real del link building en tu posicionamiento.",
+    icon: BarChart2,
     color: "#B5E853",
-    count: 10,
-    tags: ["Ahrefs", "Semrush", "Majestic", "Moz"],
+    count: 4,
+    tags: ["DR", "DA", "Link velocity", "Medición"],
     featured: [
-      "Ahrefs vs Semrush para link building: comparativa 2026",
-      "Herramientas gratuitas para analizar backlinks",
-      "Cómo usar Majestic para auditar tu perfil de enlaces",
+      "DR vs DA vs Authority Score: cuál importa realmente",
+      "Cómo medir el impacto del link building de forma realista",
+      "Link velocity: cuántos enlaces conseguir y a qué ritmo",
     ],
   },
   {
     id: 6,
-    slug: "tendencias-seo",
-    name: "Tendencias SEO",
-    description: "El link building en el contexto del SEO moderno: IA, SGE, búsqueda sin cookies y cómo adaptarse a los cambios del algoritmo.",
-    icon: Globe,
+    slug: "herramientas",
+    name: "Herramientas",
+    description: "Las mejores herramientas para link building en 2026: Ahrefs, Semrush y comparativas para cada fase del proceso.",
+    icon: Wrench,
     color: "#B5E853",
-    count: 9,
-    tags: ["IA", "SGE", "Algoritmo", "2026"],
+    count: 2,
+    tags: ["Ahrefs", "Semrush", "Comparativa", "2026"],
     featured: [
-      "Link building en la era de la IA y el SGE de Google",
-      "Medir el SEO sin cookies de terceros en 2026",
-      "Cómo afectan las actualizaciones de Google al link building",
+      "Herramientas de link building en 2026: qué usa cada fase del proceso",
+      "Ahrefs vs Semrush para link building: comparativa 2026",
     ],
   },
   {
     id: 7,
-    slug: "riesgos-penalizaciones",
-    name: "Riesgos y Penalizaciones",
-    description: "Qué prácticas pueden penalizarte, cómo detectar si tienes una penalización manual o algorítmica y cómo recuperarte.",
-    icon: AlertTriangle,
+    slug: "sectores",
+    name: "Sectores",
+    description: "Guías específicas de link building por industria: e-commerce, SaaS, negocios locales, agencias SEO y más.",
+    icon: Tag,
     color: "#B5E853",
-    count: 11,
-    tags: ["Penalización", "PBNs", "Spam", "Recuperación"],
+    count: 5,
+    tags: ["E-commerce", "SaaS", "Local", "Agencias"],
     featured: [
-      "Penalizaciones de Google por links: tipos y recuperación",
-      "PBNs en 2026: riesgos reales y alternativas seguras",
-      "Cómo detectar si tienes una penalización manual",
+      "Link building por sector: qué funciona en e-commerce, SaaS, negocios locales y startups",
+      "Link building para e-commerce: guía estratégica 2026",
+      "Link building para SaaS: estrategia por fase de crecimiento",
     ],
   },
   {
     id: 8,
-    slug: "sectores",
-    name: "Sectores",
-    description: "Guías específicas de link building por industria: ecommerce, salud, legal, finanzas, turismo, SaaS y más.",
-    icon: Tag,
+    slug: "reputacion-de-marca",
+    name: "Reputación de marca",
+    description: "Gestión de menciones, ORM, Knowledge Panel y cómo construir una brand entity que Google y los LLMs reconozcan.",
+    icon: Shield,
     color: "#B5E853",
-    count: 16,
-    tags: ["Ecommerce", "Salud", "Finanzas", "SaaS"],
+    count: 5,
+    tags: ["ORM", "Brand entity", "Menciones", "Knowledge Panel"],
     featured: [
-      "Link building para ecommerce: estrategia y tácticas",
-      "Backlinks para el sector salud: YMYL y EEAT",
-      "Link building para SaaS: cómo construir autoridad en B2B",
+      "Reputación digital para SEO: cómo construir autoridad de marca",
+      "ORM y SEO: gestiona tu reputación en buscadores",
+      "Knowledge Panel de Google: cómo conseguirlo para tu marca",
+    ],
+  },
+  {
+    id: 9,
+    slug: "llms-y-busqueda-generativa",
+    name: "LLMs y Búsqueda Generativa",
+    description: "GEO, optimización para motores de respuesta generativa y cómo los LLMs están cambiando el tráfico orgánico en 2026.",
+    icon: Globe,
+    color: "#B5E853",
+    count: 2,
+    tags: ["GEO", "LLMs", "IA", "SGE"],
+    featured: [
+      "GEO: optimización para motores de respuesta generativa en 2026",
+      "LLMs y tráfico orgánico: qué está cambiando en 2026",
+    ],
+  },
+  {
+    id: 10,
+    slug: "planificacion-y-presupuesto",
+    name: "Planificación y Presupuesto",
+    description: "Cómo priorizar con presupuesto limitado, negociar placements, evaluar medios y calcular cuántos backlinks necesitas.",
+    icon: BookOpen,
+    color: "#B5E853",
+    count: 4,
+    tags: ["Presupuesto", "Negociación", "Placements", "ROI"],
+    featured: [
+      "Link building con presupuesto limitado: cómo priorizar",
+      "Cómo negociar el precio de un placement con un medio",
+      "¿Cuántos backlinks necesitas para posicionar?",
+    ],
+  },
+  {
+    id: 11,
+    slug: "tendencias-seo",
+    name: "Tendencias SEO",
+    description: "El link building en el contexto del SEO moderno: LLMs, brand mentions, E-E-A-T y GEO para 2026.",
+    icon: TrendingUp,
+    color: "#B5E853",
+    count: 1,
+    tags: ["E-E-A-T", "Brand mentions", "GEO", "2026"],
+    featured: [
+      "Tendencias del link building en 2026: LLMs, brand mentions, E-E-A-T y GEO",
     ],
   },
 ];
@@ -160,7 +199,7 @@ const COUNTRIES = [
   { name: "México", flag: "🇲🇽", slug: "backlinks-para-mexico", cluster: "paises" },
   { name: "Perú", flag: "🇵🇪", slug: "backlinks-para-peru", cluster: "paises" },
   { name: "Ecuador", flag: "🇪🇨", slug: "backlinks-para-ecuador", cluster: "paises" },
-  { name: "Bolivia", flag: "🇧🇴", slug: "backlinks-para-bolivia", cluster: "estrategia-link-building" },
+  { name: "Bolivia", flag: "🇧🇴", slug: "backlinks-para-bolivia", cluster: "paises" },
   { name: "Paraguay", flag: "🇵🇾", slug: "backlinks-para-paraguay", cluster: "paises" },
   { name: "Dinamarca", flag: "🇩🇰", slug: "backlinks-para-dinamarca", cluster: "paises" },
 ];
@@ -197,14 +236,17 @@ function Navbar() {
   const [dropOpen, setDropOpen] = useState(false);
 
   const clusterLinks = [
-    "Estrategia de link building",
-    "Tácticas y Métodos",
-    "Reputación de marca",
-    "Auditorías y análisis",
-    "Herramientas",
-    "Tendencias SEO",
-    "Riesgos y Penalizaciones",
-    "Sectores",
+    { name: "Estrategia de link building", slug: "estrategia-link-building" },
+    { name: "Tácticas y Métodos", slug: "tacticas-y-metodos" },
+    { name: "Riesgos y Penalizaciones", slug: "riesgos-y-penalizaciones" },
+    { name: "Auditorías y Análisis", slug: "auditorias-y-analisis" },
+    { name: "Métricas y Medición", slug: "metricas-y-medicion" },
+    { name: "Herramientas", slug: "herramientas" },
+    { name: "Sectores", slug: "sectores" },
+    { name: "Reputación de marca", slug: "reputacion-de-marca" },
+    { name: "LLMs y Búsqueda Generativa", slug: "llms-y-busqueda-generativa" },
+    { name: "Planificación y Presupuesto", slug: "planificacion-y-presupuesto" },
+    { name: "Tendencias SEO", slug: "tendencias-seo" },
   ];
 
   return (
@@ -238,15 +280,15 @@ function Navbar() {
                 >
                   {clusterLinks.map(cl => (
                     <a
-                      key={cl}
-                      href="#clusteres"
+                      key={cl.slug}
+                      href={`/cluster/${cl.slug}`}
                       className="block px-4 py-2 text-xs transition-colors duration-150"
                       style={{ color: "#888" }}
                       onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = "#B5E853"; (e.currentTarget as HTMLAnchorElement).style.background = "#1A1A1A"; }}
                       onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = "#888"; (e.currentTarget as HTMLAnchorElement).style.background = "transparent"; }}
                       onClick={() => setDropOpen(false)}
                     >
-                      {cl}
+                      {cl.name}
                     </a>
                   ))}
                 </div>
@@ -356,10 +398,14 @@ function HeroSection() {
   // Mapa de etiqueta → slug de clúster real
   const TAG_TO_CLUSTER: Record<string, string> = {
     "Estrategia": "estrategia-link-building",
-    "PR digital": "pr-digital",
-    "Reputación": "reputacion-de-marca",
-    "Herramientas": "herramientas-seo",
+    "Tácticas": "tacticas-y-metodos",
     "Penalizaciones": "riesgos-y-penalizaciones",
+    "Métricas": "metricas-y-medicion",
+    "Reputación": "reputacion-de-marca",
+    "Herramientas": "herramientas",
+    "Sectores": "sectores",
+    "LLMs & IA": "llms-y-busqueda-generativa",
+    "Presupuesto": "planificacion-y-presupuesto",
   };
 
   const handleTagClick = (tag: string) => {
@@ -514,7 +560,7 @@ function HeroSection() {
 
         {/* Etiquetas rápidas — filtros de clúster reales */}
         <div className="flex flex-wrap justify-center gap-2 mb-10 fade-in-up fade-in-up-delay-3">
-          {["Estrategia", "PR digital", "Reputación", "Herramientas", "Penalizaciones"].map(tag => {
+          {["Estrategia", "Tácticas", "Penalizaciones", "Métricas", "Reputación", "Herramientas", "LLMs & IA", "Presupuesto"].map(tag => {
             const isActive = activeTag === tag;
             return (
               <button
@@ -724,13 +770,18 @@ function ClustersSection() {
   const [filter, setFilter] = useState("Todos");
   const currentDate = getCurrentMonthYear();
 
-  const filterGroups = ["Todos", "Estrategia", "Técnico", "Reputación"];
+  const filterGroups = ["Todos", "Estrategia", "Análisis", "Marca", "Avanzado"];
 
   const filtered = useMemo(() => {
     if (filter === "Todos") return CLUSTERS;
-    if (filter === "Estrategia") return CLUSTERS.filter(c => [1, 2, 6].includes(c.id));
-    if (filter === "Técnico") return CLUSTERS.filter(c => [4, 5, 7].includes(c.id));
-    if (filter === "Reputación") return CLUSTERS.filter(c => [3, 8].includes(c.id));
+    // Estrategia: Estrategia de LB + Tácticas + Planificación y Presupuesto
+    if (filter === "Estrategia") return CLUSTERS.filter(c => [1, 2, 10].includes(c.id));
+    // Análisis: Auditorías + Métricas + Herramientas + Riesgos
+    if (filter === "Análisis") return CLUSTERS.filter(c => [3, 4, 5, 6].includes(c.id));
+    // Marca: Reputación + Sectores
+    if (filter === "Marca") return CLUSTERS.filter(c => [7, 8].includes(c.id));
+    // Avanzado: LLMs + Tendencias SEO
+    if (filter === "Avanzado") return CLUSTERS.filter(c => [9, 11].includes(c.id));
     return CLUSTERS;
   }, [filter]);
 
@@ -748,7 +799,7 @@ function ClustersSection() {
               className="text-3xl font-bold"
               style={{ color: "#E8E8E8", letterSpacing: "-0.025em" }}
             >
-              8 clústeres temáticos
+              11 clústeres temáticos
             </h2>
             <p className="mt-2 text-sm max-w-xl" style={{ color: "#666" }}>
               Todo el conocimiento sobre link building, PR y reputación digital organizado en clústeres semánticos.
@@ -1065,14 +1116,17 @@ function Footer() {
   const currentDate = getCurrentMonthYear();
 
   const clusterLinks = [
-    "Estrategia de link building",
-    "Tácticas y Métodos",
-    "Reputación de marca",
-    "Auditorías y análisis",
-    "Herramientas",
-    "Tendencias SEO",
-    "Riesgos y Penalizaciones",
-    "Sectores",
+    { name: "Estrategia de link building", slug: "estrategia-link-building" },
+    { name: "Tácticas y Métodos", slug: "tacticas-y-metodos" },
+    { name: "Riesgos y Penalizaciones", slug: "riesgos-y-penalizaciones" },
+    { name: "Auditorías y Análisis", slug: "auditorias-y-analisis" },
+    { name: "Métricas y Medición", slug: "metricas-y-medicion" },
+    { name: "Herramientas", slug: "herramientas" },
+    { name: "Sectores", slug: "sectores" },
+    { name: "Reputación de marca", slug: "reputacion-de-marca" },
+    { name: "LLMs y Búsqueda Generativa", slug: "llms-y-busqueda-generativa" },
+    { name: "Planificación y Presupuesto", slug: "planificacion-y-presupuesto" },
+    { name: "Tendencias SEO", slug: "tendencias-seo" },
   ];
 
   const countryLinks = ["España", "Argentina", "México", "Perú", "Ecuador", "Bolivia"];
@@ -1102,15 +1156,15 @@ function Footer() {
             </h4>
             <ul className="grid grid-cols-2 gap-y-2">
               {clusterLinks.map(item => (
-                <li key={item}>
+                <li key={item.slug}>
                   <a
-                    href="#clusteres"
+                    href={`/cluster/${item.slug}`}
                     className="text-xs transition-colors duration-200"
                     style={{ color: "#3A3A3A" }}
                     onMouseEnter={e => (e.currentTarget.style.color = "#B5E853")}
                     onMouseLeave={e => (e.currentTarget.style.color = "#3A3A3A")}
                   >
-                    {item}
+                    {item.name}
                   </a>
                 </li>
               ))}

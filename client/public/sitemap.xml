@@ -7,7 +7,7 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://comprarlinkbuilding.com/cluster/auditorias-analisis</loc>
+    <loc>https://comprarlinkbuilding.com/cluster/auditorias-y-analisis</loc>
     <lastmod>2026-02-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -31,7 +31,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://comprarlinkbuilding.com/cluster/reputacion-marca</loc>
+    <loc>https://comprarlinkbuilding.com/cluster/reputacion-de-marca</loc>
     <lastmod>2026-02-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -43,7 +43,31 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://comprarlinkbuilding.com/cluster/tacticas-metodos</loc>
+    <loc>https://comprarlinkbuilding.com/cluster/tacticas-y-metodos</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://comprarlinkbuilding.com/cluster/riesgos-y-penalizaciones</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://comprarlinkbuilding.com/cluster/metricas-y-medicion</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://comprarlinkbuilding.com/cluster/llms-y-busqueda-generativa</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://comprarlinkbuilding.com/cluster/planificacion-y-presupuesto</loc>
     <lastmod>2026-02-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
