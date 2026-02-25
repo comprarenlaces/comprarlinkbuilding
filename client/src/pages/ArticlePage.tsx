@@ -115,7 +115,7 @@ function TableOfContents({ items, activeId, collapsed, onToggle }: {
       >
         <div className="flex items-center gap-2">
           <AlignLeft size={14} style={{ color: "#B5E853" }} />
-          <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: "#888" }}>Índice de contenidos</span>
+          <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: "#E0E0E0" }}>Índice de contenidos</span>
         </div>
         {collapsed ? <ChevronDown size={14} style={{ color: "#444" }} /> : <ChevronUp size={14} style={{ color: "#444" }} />}
       </button>
@@ -139,7 +139,7 @@ function TableOfContents({ items, activeId, collapsed, onToggle }: {
                   background: isActive ? "#B5E853" : "#333",
                 }} />
                 <span className="text-xs leading-snug" style={{
-                  color: isActive ? "#B5E853" : item.level === 3 ? "#555" : "#777",
+                  color: isActive ? "#B5E853" : item.level === 3 ? "#B0B0B0" : "#D0D0D0",
                   fontWeight: isActive ? 600 : item.level === 2 ? 500 : 400,
                 }}>{item.text}</span>
               </button>
@@ -288,7 +288,7 @@ function SocialShareBlock({ title }: { title: string }) {
       >
         <div className="flex items-center gap-2">
           <Share2 size={14} style={{ color: "#B5E853" }} />
-          <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: "#888" }}>Compartir artículo</span>
+          <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: "#E0E0E0" }}>Compartir artículo</span>
         </div>
         {shareOpen ? <ChevronUp size={14} style={{ color: "#444" }} /> : <ChevronDown size={14} style={{ color: "#444" }} />}
       </button>
@@ -355,7 +355,7 @@ function StarRating({ slug }: { slug: string }) {
     <div className="rounded-xl p-5" style={{ background: "#111111", border: "1px solid #1E1E1E" }}>
       <div className="flex items-center gap-2 mb-4">
         <Star size={14} style={{ color: "#B5E853" }} />
-        <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: "#888" }}>Valorar contenido</span>
+        <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: "#E0E0E0" }}>Valorar contenido</span>
       </div>
       <div className="flex items-center gap-3 mb-4 pb-4" style={{ borderBottom: "1px solid #1A1A1A" }}>
         <div className="text-3xl font-bold" style={{ color: "#E8E8E8", letterSpacing: "-0.03em" }}>{avgRating.toFixed(1)}</div>
@@ -693,7 +693,7 @@ function RelatedArticles({ cluster, currentSlug, internalLinks }: { cluster: str
         <>
           <div className="flex items-center gap-2 mb-5">
             <BookOpen size={14} style={{ color: "#B5E853" }} />
-            <h3 className="text-sm font-semibold uppercase tracking-widest" style={{ color: "#888" }}>Más guías de este clúster</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-widest" style={{ color: "#E0E0E0" }}>Más guías de este clúster</h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
             {sameCluster.map((r) => (
@@ -706,7 +706,7 @@ function RelatedArticles({ cluster, currentSlug, internalLinks }: { cluster: str
                   {CLUSTER_LABELS[r.cluster] || r.cluster}
                 </span>
                 <h4 className="text-sm font-semibold leading-snug mb-2" style={{ color: "#E8E8E8" }}>{r.h1 || r.meta_title}</h4>
-                <div className="flex items-center gap-1 text-xs" style={{ color: "#444" }}>
+                <div className="flex items-center gap-1 text-xs" style={{ color: "#999" }}>
                   <Clock size={10} /><span>{r.read_time || 8} min</span>
                 </div>
               </a>
@@ -718,8 +718,8 @@ function RelatedArticles({ cluster, currentSlug, internalLinks }: { cluster: str
       {crossLinks.length > 0 && (
         <>
           <div className="flex items-center gap-2 mb-4">
-            <Tag size={12} style={{ color: "#555" }} />
-            <h3 className="text-xs font-semibold uppercase tracking-widest" style={{ color: "#444" }}>También te puede interesar</h3>
+            <Tag size={12} style={{ color: "#B5E853" }} />
+            <h3 className="text-xs font-semibold uppercase tracking-widest" style={{ color: "#E0E0E0" }}>También te puede interesar</h3>
           </div>
           <div className="flex flex-wrap gap-2">
             {crossLinks.map((link, i) => {
@@ -732,8 +732,8 @@ function RelatedArticles({ cluster, currentSlug, internalLinks }: { cluster: str
                   style={{ background: "#141414", border: "1px solid #1E1E1E", color: "#888", textDecoration: "none" }}
                   onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(181,232,83,0.3)"; (e.currentTarget as HTMLAnchorElement).style.color = "#B5E853"; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = "#1E1E1E"; (e.currentTarget as HTMLAnchorElement).style.color = "#888"; }}>
-                  <span style={{ color: "#444", fontSize: "0.55rem", textTransform: "uppercase", letterSpacing: "0.05em" }}>{label}</span>
-                  <span style={{ color: "#333" }}>·</span>
+                  <span style={{ color: "#999", fontSize: "0.55rem", textTransform: "uppercase", letterSpacing: "0.05em" }}>{label}</span>
+                  <span style={{ color: "#666" }}>·</span>
                   {link.text.replace(/^[^w\s\u00C0-\u024F]+\s*/, '').slice(0, 50)}{link.text.length > 50 ? '…' : ''}
                 </a>
               );
@@ -764,7 +764,7 @@ function MostReadSidebar({ currentSlug }: { currentSlug: string }) {
     <div className="rounded-xl p-4" style={{ background: "#111111", border: "1px solid #1E1E1E" }}>
       <div className="flex items-center gap-2 mb-4">
         <BookOpen size={12} style={{ color: "#B5E853" }} />
-        <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: "#888" }}>Guías esenciales</p>
+        <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: "#E0E0E0" }}>Guías esenciales</p>
       </div>
       <div className="space-y-1">
         {items.map((item, i) => (
@@ -776,24 +776,24 @@ function MostReadSidebar({ currentSlug }: { currentSlug: string }) {
           >
             <span
               className="flex-shrink-0 w-5 h-5 rounded flex items-center justify-center text-xs font-bold mt-0.5"
-              style={{ background: "rgba(181,232,83,0.06)", color: "#3A3A3A", fontSize: "0.6rem" }}
+              style={{ background: "rgba(181,232,83,0.06)", color: "#B5E853", fontSize: "0.6rem" }}
             >
               {String(i + 1).padStart(2, "0")}
             </span>
             <div className="min-w-0">
               <p
                 className="text-xs leading-snug mb-1 transition-colors duration-150"
-                style={{ color: "#777", lineHeight: "1.4" }}
+                style={{ color: "#D8D8D8", lineHeight: "1.4" }}
                 onMouseEnter={e => (e.currentTarget.style.color = "#B5E853")}
-                onMouseLeave={e => (e.currentTarget.style.color = "#777")}
+                onMouseLeave={e => (e.currentTarget.style.color = "#D8D8D8")}
               >
                 {item.title}
               </p>
-              <div className="flex items-center gap-1" style={{ color: "#333" }}>
+              <div className="flex items-center gap-1" style={{ color: "#999" }}>
                 <Clock size={9} />
                 <span style={{ fontSize: "0.6rem" }}>{item.readTime} min</span>
-                <span style={{ fontSize: "0.6rem", color: "#2A2A2A", margin: "0 2px" }}>·</span>
-                <span style={{ fontSize: "0.6rem", color: "#333", textTransform: "uppercase", letterSpacing: "0.04em" }}>
+                <span style={{ fontSize: "0.6rem", color: "#666", margin: "0 2px" }}>·</span>
+                <span style={{ fontSize: "0.6rem", color: "#999", textTransform: "uppercase", letterSpacing: "0.04em" }}>
                   {CLUSTER_LABELS[item.cluster]?.split(" ")[0] || item.cluster}
                 </span>
               </div>
@@ -1198,7 +1198,7 @@ export default function ArticlePage() {
                       <div key={`mid-related-${idx}`} className="my-10 rounded-xl overflow-hidden" style={{ background: "#0F0F0F", border: "1px solid #1A1A1A" }}>
                         <div className="px-5 py-3 flex items-center gap-2" style={{ borderBottom: "1px solid #1A1A1A", background: "#111" }}>
                           <BookOpen size={13} style={{ color: "#B5E853" }} />
-                          <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: "#555" }}>También te puede interesar</span>
+                          <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: "#E0E0E0" }}>También te puede interesar</span>
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-0">
                           {midRelated.map((r, ri) => (
@@ -1220,7 +1220,7 @@ export default function ArticlePage() {
                               <div className="min-w-0">
                                 <span className="badge-accent mb-1 inline-block" style={{ fontSize: "0.6rem" }}>{CLUSTER_LABELS[r.cluster] || r.cluster}</span>
                                 <h4 className="text-xs font-semibold leading-snug mb-1" style={{ color: "#D0D0D0", margin: 0 }}>{r.h1 || r.meta_title}</h4>
-                                <div className="flex items-center gap-1 text-xs" style={{ color: "#444" }}>
+                                <div className="flex items-center gap-1 text-xs" style={{ color: "#999" }}>
                                   <Clock size={9} /><span>{r.read_time || 8} min</span>
                                 </div>
                               </div>
@@ -1318,8 +1318,8 @@ export default function ArticlePage() {
               <SocialShareBlock title={article.meta_title || article.h1} />
               <MostReadSidebar currentSlug={slug} />
               <div className="rounded-xl p-4" style={{ background: "#111111", border: "1px solid #1E1E1E" }}>
-                <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#555" }}>Plataforma recomendada</p>
-                <p className="text-xs mb-3 leading-relaxed" style={{ color: "#444" }}>Medios verificados para ejecutar tu estrategia.</p>
+                <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#E0E0E0" }}>Plataforma recomendada</p>
+                <p className="text-xs mb-3 leading-relaxed" style={{ color: "#C8C8C8" }}>Medios verificados para ejecutar tu estrategia.</p>
                 <a href="https://www.getalink.com" rel="nofollow" target="_blank"
                   className="btn-primary w-full flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg text-xs font-semibold">
                   getalink.com <ExternalLink size={11} />

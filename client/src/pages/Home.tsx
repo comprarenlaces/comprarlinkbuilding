@@ -264,9 +264,9 @@ function Navbar() {
             <div className="relative">
               <button
                 className="text-sm flex items-center gap-1 transition-colors duration-200"
-                style={{ color: "#888" }}
+                style={{ color: "#E8E8E8" }}
                 onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.color = "#B5E853"; setDropOpen(true); }}
-                onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.color = "#888"; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.color = "#E8E8E8"; }}
                 onClick={() => setDropOpen(!dropOpen)}
               >
                 Clústeres <ChevronRight size={12} className="rotate-90" />
@@ -283,9 +283,9 @@ function Navbar() {
                       key={cl.slug}
                       href={`/cluster/${cl.slug}`}
                       className="block px-4 py-2 text-xs transition-colors duration-150"
-                      style={{ color: "#888" }}
+                      style={{ color: "#D8D8D8" }}
                       onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = "#B5E853"; (e.currentTarget as HTMLAnchorElement).style.background = "#1A1A1A"; }}
-                      onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = "#888"; (e.currentTarget as HTMLAnchorElement).style.background = "transparent"; }}
+                      onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = "#D8D8D8"; (e.currentTarget as HTMLAnchorElement).style.background = "transparent"; }}
                       onClick={() => setDropOpen(false)}
                     >
                       {cl.name}
@@ -294,9 +294,9 @@ function Navbar() {
                 </div>
               )}
             </div>
-            <a href="#paises" className="text-sm transition-colors duration-200" style={{ color: "#888" }}
+            <a href="#paises" className="text-sm transition-colors duration-200" style={{ color: "#E8E8E8" }}
               onMouseEnter={e => (e.currentTarget.style.color = "#B5E853")}
-              onMouseLeave={e => (e.currentTarget.style.color = "#888")}>
+              onMouseLeave={e => (e.currentTarget.style.color = "#E8E8E8")}>
               Países
             </a>
             <a
@@ -325,8 +325,8 @@ function Navbar() {
         {menuOpen && (
           <div className="md:hidden pb-4 border-t" style={{ borderColor: "#1E1E1E" }}>
             <div className="flex flex-col gap-3 pt-4">
-              <a href="#clusteres" className="text-sm px-2 py-1" style={{ color: "#888" }} onClick={() => setMenuOpen(false)}>Clústeres</a>
-              <a href="#paises" className="text-sm px-2 py-1" style={{ color: "#888" }} onClick={() => setMenuOpen(false)}>Países</a>
+              <a href="#clusteres" className="text-sm px-2 py-1" style={{ color: "#E8E8E8" }} onClick={() => setMenuOpen(false)}>Clústeres</a>
+              <a href="#paises" className="text-sm px-2 py-1" style={{ color: "#E8E8E8" }} onClick={() => setMenuOpen(false)}>Países</a>
               <a
                 href="https://www.getalink.com"
                 rel="nofollow"
