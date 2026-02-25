@@ -257,11 +257,6 @@ function Navbar() {
                 </div>
               )}
             </div>
-            <a href="#guias" className="text-sm transition-colors duration-200" style={{ color: "#888" }}
-              onMouseEnter={e => (e.currentTarget.style.color = "#B5E853")}
-              onMouseLeave={e => (e.currentTarget.style.color = "#888")}>
-              Guías
-            </a>
             <a href="#paises" className="text-sm transition-colors duration-200" style={{ color: "#888" }}
               onMouseEnter={e => (e.currentTarget.style.color = "#B5E853")}
               onMouseLeave={e => (e.currentTarget.style.color = "#888")}>
@@ -294,7 +289,6 @@ function Navbar() {
           <div className="md:hidden pb-4 border-t" style={{ borderColor: "#1E1E1E" }}>
             <div className="flex flex-col gap-3 pt-4">
               <a href="#clusteres" className="text-sm px-2 py-1" style={{ color: "#888" }} onClick={() => setMenuOpen(false)}>Clústeres</a>
-              <a href="#guias" className="text-sm px-2 py-1" style={{ color: "#888" }} onClick={() => setMenuOpen(false)}>Guías</a>
               <a href="#paises" className="text-sm px-2 py-1" style={{ color: "#888" }} onClick={() => setMenuOpen(false)}>Países</a>
               <a
                 href="https://www.getalink.com"
@@ -317,6 +311,12 @@ function Navbar() {
 function HeroSection() {
   const [query, setQuery] = useState("");
   const [searchResults, setSearchResults] = useState<typeof CLUSTERS | null>(null);
+  const currentDate = getCurrentMonthYear();
+
+  // Número real de artículos publicados
+  const TOTAL_ARTICLES = 48;
+  const TOTAL_COUNTRIES = 8;
+  const TOTAL_CLUSTERS = 8;
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -349,10 +349,30 @@ function HeroSection() {
     }, 100);
   };
 
-  const currentDate = getCurrentMonthYear();
-
   return (
     <section className="hero-gradient min-h-screen flex flex-col items-center justify-center px-4 pt-16 pb-16">
+      {/* Nodos flotantes decorativos — efecto red de backlinks */}
+      <span className="hero-node hero-node-1" />
+      <span className="hero-node hero-node-2" />
+      <span className="hero-node hero-node-3" />
+      <span className="hero-node hero-node-4" />
+      <span className="hero-node hero-node-5" />
+      <span className="hero-node hero-node-6" />
+
+      {/* SVG de líneas de conexión entre nodos */}
+      <svg className="hero-connections" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="12" y1="22" x2="85" y2="35" stroke="#B5E853" strokeWidth="0.15" />
+        <line x1="85" y1="35" x2="70" y2="65" stroke="#B5E853" strokeWidth="0.12" />
+        <line x1="70" y1="65" x2="30" y2="70" stroke="#B5E853" strokeWidth="0.1" />
+        <line x1="30" y1="70" x2="8" y2="55" stroke="#B5E853" strokeWidth="0.1" />
+        <line x1="8" y1="55" x2="12" y2="22" stroke="#B5E853" strokeWidth="0.08" />
+        <line x1="12" y1="22" x2="30" y2="70" stroke="#B5E853" strokeWidth="0.06" />
+        <line x1="85" y1="35" x2="90" y2="75" stroke="#B5E853" strokeWidth="0.08" />
+        <line x1="90" y1="75" x2="55" y2="80" stroke="#B5E853" strokeWidth="0.07" />
+        <line x1="55" y1="80" x2="30" y2="70" stroke="#B5E853" strokeWidth="0.07" />
+        <line x1="18" y1="30" x2="90" y2="75" stroke="#B5E853" strokeWidth="0.05" />
+      </svg>
+
       <div className="max-w-4xl w-full mx-auto text-center">
         {/* Badge */}
         <div className="inline-flex items-center gap-2 mb-6 fade-in-up">
@@ -372,19 +392,20 @@ function HeroSection() {
 
         {/* Subtítulo */}
         <p
-          className="text-lg mb-8 max-w-2xl mx-auto fade-in-up fade-in-up-delay-2"
-          style={{ color: "#777", lineHeight: "1.75" }}
+          className="text-base mb-8 max-w-2xl mx-auto fade-in-up fade-in-up-delay-2"
+          style={{ color: "#666", lineHeight: "1.8" }}
         >
-          Guías, estrategias y recursos sobre <strong style={{ color: "#C8C8C8" }}>link building</strong>,{" "}
-          <strong style={{ color: "#C8C8C8" }}>PR digital</strong>,{" "}
-          <strong style={{ color: "#C8C8C8" }}>reputación de marca</strong> y{" "}
-          <strong style={{ color: "#C8C8C8" }}>branding</strong> para profesionales del SEO.
+          Guías, estrategias y recursos sobre{" "}
+          <strong style={{ color: "#B0B0B0" }}>link building</strong>,{" "}
+          <strong style={{ color: "#B0B0B0" }}>PR digital</strong>,{" "}
+          <strong style={{ color: "#B0B0B0" }}>reputación de marca</strong> y{" "}
+          <strong style={{ color: "#B0B0B0" }}>branding</strong> para profesionales del SEO.
         </p>
 
         {/* Buscador */}
         <form
           onSubmit={handleSearch}
-          className="flex gap-2 max-w-2xl mx-auto mb-4 fade-in-up fade-in-up-delay-3"
+          className="flex gap-2 max-w-2xl mx-auto mb-3 fade-in-up fade-in-up-delay-3"
         >
           <div className="relative flex-1">
             <Search size={17} className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" style={{ color: "#444" }} />
@@ -401,8 +422,8 @@ function HeroSection() {
           </button>
         </form>
 
-        {/* Sugerencias */}
-        <div className="flex flex-wrap justify-center gap-2 fade-in-up fade-in-up-delay-3">
+        {/* Sugerencias rápidas */}
+        <div className="flex flex-wrap justify-center gap-2 mb-10 fade-in-up fade-in-up-delay-3">
           {["Estrategia", "PR digital", "Reputación", "Herramientas", "Penalizaciones"].map(tag => (
             <button
               key={tag}
@@ -420,6 +441,49 @@ function HeroSection() {
             >
               {tag}
             </button>
+          ))}
+        </div>
+
+        {/* ── Stats inline — 40px bajo el buscador ── */}
+        <div
+          className="fade-in-up"
+          style={{
+            marginTop: "40px",
+            display: "grid",
+            gridTemplateColumns: "repeat(4, 1fr)",
+            gap: "1px",
+            maxWidth: "640px",
+            margin: "40px auto 0",
+            background: "#1E1E1E",
+            borderRadius: "10px",
+            overflow: "hidden",
+            border: "1px solid #1E1E1E",
+          }}
+        >
+          {[
+            { value: TOTAL_CLUSTERS.toString(), label: "Clústeres temáticos" },
+            { value: TOTAL_ARTICLES.toString(), label: "Guías publicadas" },
+            { value: TOTAL_COUNTRIES.toString(), label: "Países cubiertos" },
+            { value: currentDate, label: "Última actualización" },
+          ].map((s, i) => (
+            <div
+              key={i}
+              className="text-center py-4 px-3"
+              style={{ background: "#111111" }}
+            >
+              <div
+                className="font-bold mb-0.5"
+                style={{
+                  color: "#B5E853",
+                  fontSize: i === 3 ? "0.75rem" : "1.25rem",
+                  letterSpacing: i === 3 ? "0" : "-0.02em",
+                  lineHeight: 1.2,
+                }}
+              >
+                {s.value}
+              </div>
+              <div className="text-xs" style={{ color: "#444" }}>{s.label}</div>
+            </div>
           ))}
         </div>
       </div>
@@ -1019,7 +1083,6 @@ export default function Home() {
     <div className="min-h-screen" style={{ background: "#0D0D0D", fontFamily: "'Open Sans', sans-serif" }}>
       <Navbar />
       <HeroSection />
-      <StatsBar />
       <WhatIsSection />
       <ClustersSection />
       <LatestGuidesSection />
