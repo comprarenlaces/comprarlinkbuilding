@@ -9,8 +9,9 @@
  */
 
 import { useState, useMemo } from "react";
+import { ARTICLES, getArticlesByCluster, CLUSTER_LABELS } from "@/lib/articles-data";
 import {
-  Search, ExternalLink, BookOpen, Layers, Calendar,
+  Search, ExternalLink, BookOpen, Layers, Calendar, Clock,
   ChevronRight, Menu, X, TrendingUp, Shield,
   Zap, Globe, AlertTriangle, BarChart2, Wrench, Tag,
   MapPin, ArrowRight
@@ -154,14 +155,14 @@ const CLUSTERS = [
 ];
 
 const COUNTRIES = [
-  { name: "España", flag: "🇪🇸", slug: "espana" },
-  { name: "Argentina", flag: "🇦🇷", slug: "argentina" },
-  { name: "México", flag: "🇲🇽", slug: "mexico" },
-  { name: "Perú", flag: "🇵🇪", slug: "peru" },
-  { name: "Ecuador", flag: "🇪🇨", slug: "ecuador" },
-  { name: "Bolivia", flag: "🇧🇴", slug: "bolivia" },
-  { name: "Paraguay", flag: "🇵🇾", slug: "paraguay" },
-  { name: "Dinamarca", flag: "🇩🇰", slug: "dinamarca" },
+  { name: "España", flag: "🇪🇸", slug: "backlinks-para-espana", cluster: "paises" },
+  { name: "Argentina", flag: "🇦🇷", slug: "backlinks-para-argentina", cluster: "paises" },
+  { name: "México", flag: "🇲🇽", slug: "backlinks-para-mexico", cluster: "paises" },
+  { name: "Perú", flag: "🇵🇪", slug: "backlinks-para-peru", cluster: "paises" },
+  { name: "Ecuador", flag: "🇪🇨", slug: "backlinks-para-ecuador", cluster: "paises" },
+  { name: "Bolivia", flag: "🇧🇴", slug: "backlinks-para-bolivia", cluster: "estrategia-link-building" },
+  { name: "Paraguay", flag: "🇵🇾", slug: "backlinks-para-paraguay", cluster: "paises" },
+  { name: "Dinamarca", flag: "🇩🇰", slug: "backlinks-para-dinamarca", cluster: "paises" },
 ];
 
 const GUIDE_TYPES = [
@@ -518,7 +519,19 @@ function ClusterCard({ cluster }: { cluster: typeof CLUSTERS[0] }) {
 
       {/* Artículos destacados */}
       <div className="mb-4">
-        {cluster.featured.map((f, i) => (
+        {getArticlesByCluster(cluster.slug).slice(0, 3).map((a) => (
+          <a key={a.slug} href={`/${a.cluster}/${a.slug}`}
+            className="flex items-start gap-1.5 mb-1.5 group" style={{ textDecoration: "none" }}>
+            <ChevronRight size={10} className="flex-shrink-0 mt-0.5" style={{ color: "#B5E853" }} />
+            <span className="text-xs leading-snug transition-colors duration-150"
+              style={{ color: "#555" }}
+              onMouseEnter={e => (e.currentTarget.style.color = "#B5E853")}
+              onMouseLeave={e => (e.currentTarget.style.color = "#555")}>
+              {(a.h1 || a.meta_title).replace(/^[^\w\s]+\s/, '').slice(0, 60)}
+            </span>
+          </a>
+        ))}
+        {getArticlesByCluster(cluster.slug).length === 0 && cluster.featured.map((f, i) => (
           <div key={i} className="flex items-start gap-1.5 mb-1.5">
             <ChevronRight size={10} className="flex-shrink-0 mt-0.5" style={{ color: "#B5E853" }} />
             <span className="text-xs leading-snug" style={{ color: "#555" }}>{f}</span>
@@ -702,24 +715,77 @@ function CountriesSection() {
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-3">
           {COUNTRIES.map(country => (
-            <div
+            <a
               key={country.slug}
-              className="rounded-lg p-4 text-center cursor-pointer transition-all duration-200 group"
-              style={{ background: "#141414", border: "1px solid #1E1E1E" }}
+              href={`/${country.cluster}/${country.slug}`}
+              className="rounded-lg p-4 text-center cursor-pointer transition-all duration-200 block"
+              style={{ background: "#141414", border: "1px solid #1E1E1E", textDecoration: "none" }}
               onMouseEnter={e => {
-                (e.currentTarget as HTMLDivElement).style.borderColor = "#2A2A2A";
-                (e.currentTarget as HTMLDivElement).style.transform = "translateY(-2px)";
-                (e.currentTarget as HTMLDivElement).style.boxShadow = "0 6px 20px rgba(181,232,83,0.06)";
+                (e.currentTarget as HTMLAnchorElement).style.borderColor = "#2A2A2A";
+                (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-2px)";
+                (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 6px 20px rgba(181,232,83,0.06)";
               }}
               onMouseLeave={e => {
-                (e.currentTarget as HTMLDivElement).style.borderColor = "#1E1E1E";
-                (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
-                (e.currentTarget as HTMLDivElement).style.boxShadow = "none";
+                (e.currentTarget as HTMLAnchorElement).style.borderColor = "#1E1E1E";
+                (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)";
+                (e.currentTarget as HTMLAnchorElement).style.boxShadow = "none";
               }}
             >
               <div className="text-2xl mb-2">{country.flag}</div>
               <div className="text-xs font-medium" style={{ color: "#888" }}>{country.name}</div>
-            </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── Sección de últimas guías ───────────────────────────────────────────────
+
+function LatestGuidesSection() {
+  const latest = ARTICLES.slice(0, 9);
+  return (
+    <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ background: "#0A0A0A" }}>
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+          <div>
+            <span className="badge-accent mb-3 inline-block">
+              <BookOpen size={10} className="inline mr-1" />
+              Guías recientes
+            </span>
+            <h2 className="text-3xl font-bold" style={{ color: "#E8E8E8", letterSpacing: "-0.025em" }}>
+              Últimas guías publicadas
+            </h2>
+            <p className="mt-2 text-sm max-w-xl" style={{ color: "#666" }}>
+              Contenido editorial actualizado sobre link building, PR digital y reputación de marca.
+            </p>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {latest.map(article => (
+            <a key={article.slug} href={`/${article.cluster}/${article.slug}`}
+              className="block p-5 rounded-lg transition-all duration-200"
+              style={{ background: "#141414", border: "1px solid #1E1E1E", textDecoration: "none" }}
+              onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = "#2A2A2A"; (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-3px)"; (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 10px 30px rgba(181,232,83,0.06)"; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = "#1E1E1E"; (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)"; (e.currentTarget as HTMLAnchorElement).style.boxShadow = "none"; }}
+            >
+              <span className="badge-accent mb-3 inline-block" style={{ fontSize: "0.6rem" }}>
+                {CLUSTER_LABELS[article.cluster] || article.cluster}
+              </span>
+              <h3 className="font-semibold text-sm leading-snug mb-2" style={{ color: "#E8E8E8" }}>
+                {(article.h1 || article.meta_title).replace(/^[^\w\s]+\s/, '').slice(0, 70)}
+              </h3>
+              {article.meta_description && (
+                <p className="text-xs leading-relaxed mb-3" style={{ color: "#555" }}>
+                  {article.meta_description.slice(0, 100)}…
+                </p>
+              )}
+              <div className="flex items-center gap-3 text-xs" style={{ color: "#444" }}>
+                <span className="flex items-center gap-1"><Clock size={10} />{article.read_time || 8} min</span>
+                <span className="flex items-center gap-1"><Calendar size={10} />{article.date || "Feb 2026"}</span>
+              </div>
+            </a>
           ))}
         </div>
       </div>
@@ -956,6 +1022,7 @@ export default function Home() {
       <StatsBar />
       <WhatIsSection />
       <ClustersSection />
+      <LatestGuidesSection />
       <GuidesSection />
       <CountriesSection />
       <CTASection />
