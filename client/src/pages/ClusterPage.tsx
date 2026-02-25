@@ -15,24 +15,40 @@ import { useDocumentMeta } from "@/hooks/useDocumentMeta";
 
 const CLUSTER_DESCRIPTIONS: Record<string, string> = {
   "paises": "Guías especializadas sobre link building en diferentes mercados y países. Estrategias adaptadas a cada ecosistema digital.",
-  "estrategia-link-building": "Todo sobre planificación y ejecución de estrategias de link building efectivas. Desde los fundamentos hasta las tácticas más avanzadas.",
-  "tacticas-metodos": "Métodos y tácticas concretas para conseguir backlinks de calidad. Técnicas probadas por profesionales del SEO.",
+  "estrategia-link-building": "Fundamentos y visión global para construir una estrategia de enlaces sólida, sostenible y orientada a resultados reales en 2026.",
+  "tacticas-y-metodos": "Las técnicas más efectivas para conseguir backlinks: guest posts, niche edits, HARO, skyscraper, broken link building y más.",
+  "riesgos-y-penalizaciones": "Qué prácticas pueden penalizarte, cómo detectar una penalización manual o algorítmica y cómo recuperar tu sitio.",
+  "auditorias-y-analisis": "Cómo auditar tu perfil de backlinks, analizar a la competencia y construir un sistema de seguimiento de enlaces.",
+  "metricas-y-medicion": "DR, DA, Authority Score, link velocity y cómo medir el impacto real del link building en tu posicionamiento.",
+  "herramientas": "Las mejores herramientas para link building en 2026: Ahrefs, Semrush y comparativas para cada fase del proceso.",
+  "sectores": "Guías específicas de link building por industria: e-commerce, SaaS, negocios locales, agencias SEO y más.",
+  "reputacion-de-marca": "Gestión de menciones, ORM, Knowledge Panel y cómo construir una brand entity que Google y los LLMs reconozcan.",
+  "llms-y-busqueda-generativa": "GEO, optimización para motores de respuesta generativa y cómo los LLMs están cambiando el tráfico orgánico en 2026.",
+  "planificacion-y-presupuesto": "Cómo priorizar con presupuesto limitado, negociar placements, evaluar medios y calcular cuántos backlinks necesitas.",
+  "tendencias-seo": "El link building en el contexto del SEO moderno: LLMs, brand mentions, E-E-A-T y GEO para 2026.",
+  // Legacy
+  "tacticas-metodos": "Las técnicas más efectivas para conseguir backlinks de calidad. Técnicas probadas por profesionales del SEO.",
   "reputacion-marca": "Cómo el link building impacta en la reputación digital de tu marca. PR digital, branding y autoridad online.",
   "auditorias-analisis": "Aprende a auditar tu perfil de backlinks, analizar el de tu competencia y tomar decisiones basadas en datos.",
-  "herramientas": "Las mejores herramientas para gestionar, analizar y escalar tu estrategia de link building.",
-  "sectores": "Guías de link building específicas por sector e industria. Estrategias adaptadas a tu nicho de mercado.",
-  "tendencias-seo": "Las últimas tendencias en SEO y link building. Mantente al día con los cambios del algoritmo de Google.",
 };
 
 const CLUSTER_ICONS: Record<string, string> = {
   "paises": "🌍",
   "estrategia-link-building": "🎯",
-  "tacticas-metodos": "⚙️",
-  "reputacion-marca": "🏆",
-  "auditorias-analisis": "🔍",
+  "tacticas-y-metodos": "⚡",
+  "riesgos-y-penalizaciones": "⚠️",
+  "auditorias-y-analisis": "🔍",
+  "metricas-y-medicion": "📊",
   "herramientas": "🛠️",
   "sectores": "🏢",
+  "reputacion-de-marca": "🏆",
+  "llms-y-busqueda-generativa": "🤖",
+  "planificacion-y-presupuesto": "💰",
   "tendencias-seo": "📈",
+  // Legacy
+  "tacticas-metodos": "⚡",
+  "reputacion-marca": "🏆",
+  "auditorias-analisis": "🔍",
 };
 
 // ─── Navbar ──────────────────────────────────────────────────────────────────
