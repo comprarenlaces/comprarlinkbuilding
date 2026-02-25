@@ -7,11 +7,16 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import ArticlePage from "./pages/ArticlePage";
 import ClusterPage from "./pages/ClusterPage";
+import PrivacyPage from "./pages/PrivacyPage";
+import LegalPage from "./pages/LegalPage";
 
 function Router() {
   return (
     <Switch>
       <Route path={"/"} component={Home} />
+      {/* Páginas legales */}
+      <Route path={"/privacidad"} component={PrivacyPage} />
+      <Route path={"/aviso-legal"} component={LegalPage} />
       {/* Página de listado por clúster */}
       <Route path={"/cluster/:cluster"} component={ClusterPage} />
       {/* Rutas dinámicas por clúster/slug — estructura real de comprarlinkbuilding.com */}

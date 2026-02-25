@@ -1176,8 +1176,13 @@ function Footer() {
           className="pt-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs"
           style={{ borderTop: "1px solid #141414", color: "#2A2A2A" }}
         >
-          <span>© {new Date().getFullYear()} ComprarBacklinks — Contenido editorial independiente</span>
-
+          <span>© {new Date().getFullYear()} ComprarLinkbuilding — Contenido editorial independiente</span>
+          <div className="flex items-center gap-4">
+            <a href="/privacidad" className="transition-colors duration-200" style={{ color: "#333" }}
+              onMouseEnter={e => (e.currentTarget.style.color = "#B5E853")} onMouseLeave={e => (e.currentTarget.style.color = "#333")}>Política de Privacidad</a>
+            <a href="/aviso-legal" className="transition-colors duration-200" style={{ color: "#333" }}
+              onMouseEnter={e => (e.currentTarget.style.color = "#B5E853")} onMouseLeave={e => (e.currentTarget.style.color = "#333")}>Aviso Legal</a>
+          </div>
         </div>
       </div>
     </footer>

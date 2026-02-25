@@ -854,7 +854,18 @@ export default function ArticlePage() {
   }
 
   const clusterLabel = CLUSTER_LABELS[article.cluster] || article.cluster;
-  const readTime = typeof article.read_time === 'number' ? article.read_time : parseInt(String(article.read_time)) || 8;
+
+  // Tiempo de lectura dinámico real: contar palabras de todo el contenido
+  const dynamicReadTime = (() => {
+    const allText = [
+      article.intro || '',
+      ...article.content_sections.map(s => `${s.heading || ''} ${s.content || ''}`),
+    ].join(' ');
+    const wordCount = allText.trim().split(/\s+/).filter(Boolean).length;
+    // Velocidad media de lectura: 200 palabras por minuto
+    return Math.max(1, Math.ceil(wordCount / 200));
+  })();
+  const readTime = dynamicReadTime;
 
   return (
     <div style={{ background: "#0D0D0D", minHeight: "100vh", fontFamily: "'Open Sans', sans-serif" }}>
@@ -1019,47 +1030,101 @@ export default function ArticlePage() {
             )}
 
             {/* Secciones de contenido */}
-            <div className="article-body" style={{ fontSize, lineHeight: 1.8 }}>
-              {article.content_sections.map((section, idx) => {
-                const headingId = section.heading ? slugify(section.heading) : `section-${idx}`;
+            {(() => {
+              const sections = article.content_sections;
+              const midPoint = Math.floor(sections.length / 2);
+              // Obtener 2 artículos relacionados para el bloque de mitad
+              const midRelated = getArticlesByCluster(article.cluster)
+                .filter(a => a.slug !== slug)
+                .slice(0, 2);
 
-                // Sección FAQ con acordeón
-                if (section.is_faq && section.content) {
-                  const faqItems: FaqAccordionItem[] = [];
-                  const faqLines = section.content.split('\n\n');
-                  for (const line of faqLines) {
-                    if (line.startsWith('FAQ_ITEM::')) {
-                      try {
-                        const parsed = JSON.parse(line.replace('FAQ_ITEM::', ''));
-                        if (parsed.q && parsed.a) faqItems.push({ question: parsed.q, answer: parsed.a });
-                      } catch {}
-                    }
-                  }
-                  return (
-                    <div key={headingId} className="mt-12 mb-8">
-                      <div className="flex items-center gap-3 mb-6">
-                        <div className="w-1 h-7 rounded-full" style={{ background: "#B5E853" }} />
-                        <h2 id={headingId} className="!mt-0 !mb-0" style={{ color: "#F0F0F0" }}>{section.heading}</h2>
+              return (
+                <div className="article-body" style={{ fontSize, lineHeight: 1.8 }}>
+                  {sections.map((section, idx) => {
+                    const headingId = section.heading ? slugify(section.heading) : `section-${idx}`;
+
+                    // Insertar bloque "También te puede interesar" a mitad del contenido
+                    const midBlock = (idx === midPoint && midRelated.length > 0) ? (
+                      <div key={`mid-related-${idx}`} className="my-10 rounded-xl overflow-hidden" style={{ background: "#0F0F0F", border: "1px solid #1A1A1A" }}>
+                        <div className="px-5 py-3 flex items-center gap-2" style={{ borderBottom: "1px solid #1A1A1A", background: "#111" }}>
+                          <BookOpen size={13} style={{ color: "#B5E853" }} />
+                          <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: "#555" }}>También te puede interesar</span>
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-0">
+                          {midRelated.map((r, ri) => (
+                            <a key={r.slug} href={`/${r.cluster}/${r.slug}`}
+                              className="flex items-start gap-3 p-4 transition-all duration-200"
+                              style={{
+                                textDecoration: "none",
+                                borderRight: ri === 0 && midRelated.length > 1 ? "1px solid #1A1A1A" : "none",
+                                background: "transparent",
+                              }}
+                              onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#141414"; }}
+                              onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "transparent"; }}
+                            >
+                              {r.featuredImage && (
+                                <div className="flex-shrink-0 rounded-lg overflow-hidden" style={{ width: 64, height: 48 }}>
+                                  <img src={r.featuredImage} alt={r.h1 || r.meta_title} className="w-full h-full object-cover" loading="lazy" />
+                                </div>
+                              )}
+                              <div className="min-w-0">
+                                <span className="badge-accent mb-1 inline-block" style={{ fontSize: "0.6rem" }}>{CLUSTER_LABELS[r.cluster] || r.cluster}</span>
+                                <h4 className="text-xs font-semibold leading-snug mb-1" style={{ color: "#D0D0D0", margin: 0 }}>{r.h1 || r.meta_title}</h4>
+                                <div className="flex items-center gap-1 text-xs" style={{ color: "#444" }}>
+                                  <Clock size={9} /><span>{r.read_time || 8} min</span>
+                                </div>
+                              </div>
+                            </a>
+                          ))}
+                        </div>
                       </div>
-                      <FaqAccordion items={faqItems} />
-                    </div>
-                  );
-                }
+                    ) : null;
 
-                return (
-                  <div key={headingId}>
-                    {section.heading_level === 2 ? (
-                      <h2 id={headingId}>{section.heading}</h2>
-                    ) : section.heading_level === 3 ? (
-                      <h3 id={headingId}>{section.heading}</h3>
-                    ) : (
-                      <h4 id={headingId} style={{ color: "#C8C8C8", fontSize: "1rem", fontWeight: 600, marginTop: "1.25rem", marginBottom: "0.5rem" }}>{section.heading}</h4>
-                    )}
-                    {renderContent(section.content, article.internal_links || [])}
-                  </div>
-                );
-              })}
-            </div>
+                    // Sección FAQ con acordeón
+                    if (section.is_faq && section.content) {
+                      const faqItems: FaqAccordionItem[] = [];
+                      const faqLines = section.content.split('\n\n');
+                      for (const line of faqLines) {
+                        if (line.startsWith('FAQ_ITEM::')) {
+                          try {
+                            const parsed = JSON.parse(line.replace('FAQ_ITEM::', ''));
+                            if (parsed.q && parsed.a) faqItems.push({ question: parsed.q, answer: parsed.a });
+                          } catch {}
+                        }
+                      }
+                      return (
+                        <>
+                          {midBlock}
+                          <div key={headingId} className="mt-12 mb-8">
+                            <div className="flex items-center gap-3 mb-6">
+                              <div className="w-1 h-7 rounded-full" style={{ background: "#B5E853" }} />
+                              <h2 id={headingId} className="!mt-0 !mb-0" style={{ color: "#F0F0F0" }}>{section.heading}</h2>
+                            </div>
+                            <FaqAccordion items={faqItems} />
+                          </div>
+                        </>
+                      );
+                    }
+
+                    return (
+                      <>
+                        {midBlock}
+                        <div key={headingId}>
+                          {section.heading_level === 2 ? (
+                            <h2 id={headingId}>{section.heading}</h2>
+                          ) : section.heading_level === 3 ? (
+                            <h3 id={headingId}>{section.heading}</h3>
+                          ) : (
+                            <h4 id={headingId} style={{ color: "#C8C8C8", fontSize: "1rem", fontWeight: 600, marginTop: "1.25rem", marginBottom: "0.5rem" }}>{section.heading}</h4>
+                          )}
+                          {renderContent(section.content, article.internal_links || [])}
+                        </div>
+                      </>
+                    );
+                  })}
+                </div>
+              );
+            })()}
 
             {/* Valoración inline */}
             <InlineStarRating slug={slug} />
