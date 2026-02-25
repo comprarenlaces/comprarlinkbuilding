@@ -268,7 +268,7 @@ body {
   color: #C0C0C0;
   font-family: 'Open Sans', sans-serif;
   line-height: 1.8;
-  max-width: 72ch;
+  width: 100%;
 }
 
 /* Encabezados */

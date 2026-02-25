@@ -321,6 +321,7 @@ function HeroSection() {
   const [query, setQuery] = useState("");
   const [articleResults, setArticleResults] = useState<ArticleResult[] | null>(null);
   const [showDropdown, setShowDropdown] = useState(false);
+  const [activeTag, setActiveTag] = useState<string | null>(null);
   const currentDate = getCurrentMonthYear();
 
   // Número real de artículos publicados
@@ -331,6 +332,7 @@ function HeroSection() {
   // Búsqueda en tiempo real sobre los 48 artículos reales
   const handleQueryChange = (value: string) => {
     setQuery(value);
+    setActiveTag(null);
     if (!value.trim()) {
       setArticleResults(null);
       setShowDropdown(false);
@@ -356,8 +358,43 @@ function HeroSection() {
     }, 100);
   };
 
+  // Mapa de etiqueta → slug de clúster real
+  const TAG_TO_CLUSTER: Record<string, string> = {
+    "Estrategia": "estrategia-link-building",
+    "PR digital": "pr-digital",
+    "Reputación": "reputacion-de-marca",
+    "Herramientas": "herramientas-seo",
+    "Penalizaciones": "riesgos-y-penalizaciones",
+  };
+
+  const handleTagClick = (tag: string) => {
+    if (activeTag === tag) {
+      // Limpiar filtro
+      setActiveTag(null);
+      setArticleResults(null);
+      setQuery("");
+      setShowDropdown(false);
+      return;
+    }
+    setActiveTag(tag);
+    setQuery("");
+    setShowDropdown(false);
+    const clusterSlug = TAG_TO_CLUSTER[tag];
+    const results = clusterSlug
+      ? ARTICLES.filter((a: ArticleResult) => a.cluster === clusterSlug)
+      : ARTICLES.filter((a: ArticleResult) =>
+          (a.h1 || "").toLowerCase().includes(tag.toLowerCase()) ||
+          (CLUSTER_LABELS[a.cluster] || "").toLowerCase().includes(tag.toLowerCase())
+        );
+    setArticleResults(results);
+    setTimeout(() => {
+      document.getElementById("search-results")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 100);
+  };
+
   const quickSearch = (term: string) => {
     setQuery(term);
+    setActiveTag(null);
     const q = term.toLowerCase();
     const results = ARTICLES.filter(
       (a: ArticleResult) =>
@@ -480,70 +517,37 @@ function HeroSection() {
           </button>
         </form>
 
-        {/* Sugerencias rápidas */}
+        {/* Etiquetas rápidas — filtros de clúster reales */}
         <div className="flex flex-wrap justify-center gap-2 mb-10 fade-in-up fade-in-up-delay-3">
-          {["Estrategia", "PR digital", "Reputación", "Herramientas", "Penalizaciones"].map(tag => (
-            <button
-              key={tag}
-              onClick={() => quickSearch(tag)}
-              className="text-xs px-3 py-1.5 rounded-full border transition-all duration-200"
-              style={{ borderColor: "#252525", color: "#555", background: "transparent" }}
-              onMouseEnter={e => {
-                (e.currentTarget as HTMLButtonElement).style.borderColor = "#B5E853";
-                (e.currentTarget as HTMLButtonElement).style.color = "#B5E853";
-              }}
-              onMouseLeave={e => {
-                (e.currentTarget as HTMLButtonElement).style.borderColor = "#252525";
-                (e.currentTarget as HTMLButtonElement).style.color = "#555";
-              }}
-            >
-              {tag}
-            </button>
-          ))}
-        </div>
-
-        {/* ── Stats inline — 40px bajo el buscador ── */}
-        <div
-          className="fade-in-up"
-          style={{
-            marginTop: "40px",
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-            gap: "1px",
-            maxWidth: "640px",
-            margin: "40px auto 0",
-            background: "#1E1E1E",
-            borderRadius: "10px",
-            overflow: "hidden",
-            border: "1px solid #1E1E1E",
-          }}
-        >
-          {[
-            { value: TOTAL_CLUSTERS.toString(), label: "Clústeres temáticos" },
-            { value: TOTAL_ARTICLES.toString(), label: "Guías publicadas" },
-            { value: TOTAL_COUNTRIES.toString(), label: "Países cubiertos" },
-            { value: currentDate, label: "Última actualización" },
-          ].map((s, i) => (
-            <div
-              key={i}
-              className="text-center py-4 px-3"
-              style={{ background: "#111111" }}
-            >
-              <div
-                className="font-bold mb-0.5"
+          {["Estrategia", "PR digital", "Reputación", "Herramientas", "Penalizaciones"].map(tag => {
+            const isActive = activeTag === tag;
+            return (
+              <button
+                key={tag}
+                onClick={() => handleTagClick(tag)}
+                className="text-xs px-3 py-1.5 rounded-full border transition-all duration-200"
                 style={{
-                  color: "#B5E853",
-                  fontSize: i === 3 ? "0.75rem" : "1.25rem",
-                  letterSpacing: i === 3 ? "0" : "-0.02em",
-                  lineHeight: 1.2,
+                  borderColor: isActive ? "#B5E853" : "#252525",
+                  color: isActive ? "#0D0D0D" : "#555",
+                  background: isActive ? "#B5E853" : "transparent",
+                  fontWeight: isActive ? 600 : 400,
                 }}
               >
-                {s.value}
-              </div>
-              <div className="text-xs" style={{ color: "#444" }}>{s.label}</div>
-            </div>
-          ))}
+                {isActive ? `✕ ${tag}` : tag}
+              </button>
+            );
+          })}
+          {activeTag && (
+            <button
+              onClick={() => { setActiveTag(null); setArticleResults(null); setQuery(""); }}
+              className="text-xs px-3 py-1.5 rounded-full border transition-all duration-200"
+              style={{ borderColor: "#333", color: "#666", background: "transparent" }}
+            >
+              Limpiar filtro
+            </button>
+          )}
         </div>
+
       </div>
 
       {/* Resultados de búsqueda — artículos reales */}
