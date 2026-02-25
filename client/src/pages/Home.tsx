@@ -308,28 +308,49 @@ function Navbar() {
 
 // ─── Hero ────────────────────────────────────────────────────────────────────
 
+// Tipo para resultados de búsqueda de artículos
+type ArticleResult = {
+  slug: string;
+  cluster: string;
+  h1: string;
+  meta_description?: string;
+  read_time?: number | string;
+};
+
 function HeroSection() {
   const [query, setQuery] = useState("");
-  const [searchResults, setSearchResults] = useState<typeof CLUSTERS | null>(null);
+  const [articleResults, setArticleResults] = useState<ArticleResult[] | null>(null);
+  const [showDropdown, setShowDropdown] = useState(false);
   const currentDate = getCurrentMonthYear();
 
   // Número real de artículos publicados
-  const TOTAL_ARTICLES = 48;
+  const TOTAL_ARTICLES = ARTICLES.length;
   const TOTAL_COUNTRIES = 8;
   const TOTAL_CLUSTERS = 8;
 
+  // Búsqueda en tiempo real sobre los 48 artículos reales
+  const handleQueryChange = (value: string) => {
+    setQuery(value);
+    if (!value.trim()) {
+      setArticleResults(null);
+      setShowDropdown(false);
+      return;
+    }
+    const q = value.toLowerCase();
+    const results = ARTICLES.filter(
+      (a: ArticleResult) =>
+        (a.h1 || "").toLowerCase().includes(q) ||
+        (a.meta_description || "").toLowerCase().includes(q) ||
+        (CLUSTER_LABELS[a.cluster] || "").toLowerCase().includes(q)
+    ).slice(0, 8);
+    setArticleResults(results);
+    setShowDropdown(true);
+  };
+
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!query.trim()) { setSearchResults(null); return; }
-    const q = query.toLowerCase();
-    const results = CLUSTERS.filter(
-      c =>
-        c.name.toLowerCase().includes(q) ||
-        c.description.toLowerCase().includes(q) ||
-        c.tags.some(t => t.toLowerCase().includes(q)) ||
-        c.featured.some(f => f.toLowerCase().includes(q))
-    );
-    setSearchResults(results);
+    if (!query.trim()) { setArticleResults(null); setShowDropdown(false); return; }
+    setShowDropdown(false);
     setTimeout(() => {
       document.getElementById("search-results")?.scrollIntoView({ behavior: "smooth", block: "start" });
     }, 100);
@@ -338,12 +359,14 @@ function HeroSection() {
   const quickSearch = (term: string) => {
     setQuery(term);
     const q = term.toLowerCase();
-    const results = CLUSTERS.filter(
-      c =>
-        c.name.toLowerCase().includes(q) ||
-        c.tags.some(t => t.toLowerCase().includes(q))
-    );
-    setSearchResults(results);
+    const results = ARTICLES.filter(
+      (a: ArticleResult) =>
+        (a.h1 || "").toLowerCase().includes(q) ||
+        (a.meta_description || "").toLowerCase().includes(q) ||
+        (CLUSTER_LABELS[a.cluster] || "").toLowerCase().includes(q)
+    ).slice(0, 8);
+    setArticleResults(results);
+    setShowDropdown(false);
     setTimeout(() => {
       document.getElementById("search-results")?.scrollIntoView({ behavior: "smooth", block: "start" });
     }, 100);
@@ -412,10 +435,45 @@ function HeroSection() {
             <input
               type="text"
               value={query}
-              onChange={e => setQuery(e.target.value)}
-              placeholder="Busca un clúster, técnica o temática..."
+              onChange={e => handleQueryChange(e.target.value)}
+              onFocus={() => { if (articleResults && articleResults.length > 0) setShowDropdown(true); }}
+              onBlur={() => setTimeout(() => setShowDropdown(false), 200)}
+              placeholder="Busca un artículo, técnica o temática..."
               className="search-input w-full pl-11 pr-4 py-3.5 rounded-lg text-sm"
+              autoComplete="off"
             />
+            {/* Dropdown en tiempo real */}
+            {showDropdown && articleResults && articleResults.length > 0 && (
+              <div
+                className="absolute left-0 right-0 top-full mt-1 rounded-lg overflow-hidden z-50"
+                style={{ background: "#141414", border: "1px solid #2A2A2A", boxShadow: "0 20px 50px rgba(0,0,0,0.8)" }}
+              >
+                {articleResults.map(a => (
+                  <a
+                    key={a.slug}
+                    href={`/${a.cluster}/${a.slug}`}
+                    className="flex items-start gap-3 px-4 py-3 transition-colors duration-150"
+                    style={{ textDecoration: "none", borderBottom: "1px solid #1E1E1E" }}
+                    onMouseEnter={e => (e.currentTarget.style.background = "#1A1A1A")}
+                    onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
+                  >
+                    <BookOpen size={12} style={{ color: "#B5E853", flexShrink: 0, marginTop: 2 }} />
+                    <div className="min-w-0">
+                      <p className="text-xs font-medium leading-snug" style={{ color: "#D8D8D8" }}>
+                        {(a.h1 || "").slice(0, 65)}{(a.h1 || "").length > 65 ? "..." : ""}
+                      </p>
+                      <p className="text-xs mt-0.5" style={{ color: "#555" }}>
+                        {CLUSTER_LABELS[a.cluster] || a.cluster}
+                      </p>
+                    </div>
+                    <span className="ml-auto text-xs flex-shrink-0" style={{ color: "#B5E853" }}>→</span>
+                  </a>
+                ))}
+                <div className="px-4 py-2 text-xs" style={{ color: "#444", background: "#111" }}>
+                  {articleResults.length} resultado{articleResults.length !== 1 ? "s" : ""} · Pulsa Enter para ver todos
+                </div>
+              </div>
+            )}
           </div>
           <button type="submit" className="btn-primary px-6 py-3.5 rounded-lg text-sm font-semibold whitespace-nowrap">
             Buscar
@@ -488,22 +546,43 @@ function HeroSection() {
         </div>
       </div>
 
-      {/* Resultados de búsqueda */}
-      {searchResults !== null && (
-        <div id="search-results" className="max-w-7xl w-full mx-auto mt-14 px-4">
+      {/* Resultados de búsqueda — artículos reales */}
+      {articleResults !== null && !showDropdown && (
+        <div id="search-results" className="max-w-4xl w-full mx-auto mt-14 px-4">
           <div className="flex items-center justify-between mb-5">
             <h2 className="text-base font-semibold" style={{ color: "#E8E8E8" }}>
-              {searchResults.length > 0
-                ? `${searchResults.length} clúster${searchResults.length !== 1 ? "es" : ""} para "${query}"`
+              {articleResults.length > 0
+                ? `${articleResults.length} resultado${articleResults.length !== 1 ? "s" : ""} para "${query}"`
                 : `Sin resultados para "${query}"`}
             </h2>
-            <button onClick={() => { setSearchResults(null); setQuery(""); }} className="text-xs flex items-center gap-1" style={{ color: "#444" }}>
+            <button onClick={() => { setArticleResults(null); setQuery(""); }} className="text-xs flex items-center gap-1" style={{ color: "#444" }}>
               <X size={11} /> Limpiar
             </button>
           </div>
-          {searchResults.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-              {searchResults.map(c => <ClusterCard key={c.id} cluster={c} />)}
+          {articleResults.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {articleResults.map(a => (
+                <a
+                  key={a.slug}
+                  href={`/${a.cluster}/${a.slug}`}
+                  className="flex items-start gap-3 p-4 rounded-lg transition-all duration-150"
+                  style={{ background: "#111111", border: "1px solid #1E1E1E", textDecoration: "none" }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(181,232,83,0.25)"; }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = "#1E1E1E"; }}
+                >
+                  <BookOpen size={14} style={{ color: "#B5E853", flexShrink: 0, marginTop: 2 }} />
+                  <div className="min-w-0">
+                    <p className="text-sm font-medium leading-snug mb-1" style={{ color: "#D8D8D8" }}>
+                      {a.h1 || ""}
+                    </p>
+                    <div className="flex items-center gap-3">
+                      <span className="text-xs" style={{ color: "#555" }}>{CLUSTER_LABELS[a.cluster] || a.cluster}</span>
+                      {a.read_time && <span className="text-xs flex items-center gap-1" style={{ color: "#444" }}><Clock size={9} />{a.read_time}m</span>}
+                    </div>
+                  </div>
+                  <span className="ml-auto text-xs flex-shrink-0 font-semibold" style={{ color: "#B5E853" }}>Leer →</span>
+                </a>
+              ))}
             </div>
           ) : (
             <div className="text-center py-10" style={{ color: "#444" }}>
@@ -584,21 +663,33 @@ function ClusterCard({ cluster }: { cluster: typeof CLUSTERS[0] }) {
             </span>
           ))}
         </div>
-        {/* Botón expandir */}
+        {/* Botones de acción */}
         {realCount > 0 && (
-          <button
-            onClick={() => setExpanded(!expanded)}
-            className="flex items-center gap-1.5 text-xs font-semibold transition-colors duration-150"
-            style={{ color: expanded ? "#B5E853" : "#555", background: "none", border: "none", padding: 0, cursor: "pointer" }}
-            onMouseEnter={e => (e.currentTarget.style.color = "#B5E853")}
-            onMouseLeave={e => (e.currentTarget.style.color = expanded ? "#B5E853" : "#555")}
-          >
-            <ChevronRight
-              size={12}
-              style={{ transform: expanded ? "rotate(90deg)" : "rotate(0deg)", transition: "transform 0.2s" }}
-            />
-            {expanded ? "Ocultar guías" : `Ver las ${realCount} guías`}
-          </button>
+          <div className="flex items-center gap-3 flex-wrap">
+            <button
+              onClick={() => setExpanded(!expanded)}
+              className="flex items-center gap-1.5 text-xs font-semibold transition-colors duration-150"
+              style={{ color: expanded ? "#B5E853" : "#555", background: "none", border: "none", padding: 0, cursor: "pointer" }}
+              onMouseEnter={e => (e.currentTarget.style.color = "#B5E853")}
+              onMouseLeave={e => (e.currentTarget.style.color = expanded ? "#B5E853" : "#555")}
+            >
+              <ChevronRight
+                size={12}
+                style={{ transform: expanded ? "rotate(90deg)" : "rotate(0deg)", transition: "transform 0.2s" }}
+              />
+              {expanded ? "Ocultar guías" : `Ver las ${realCount} guías`}
+            </button>
+            <a
+              href={`/cluster/${cluster.slug}`}
+              className="flex items-center gap-1 text-xs font-semibold transition-colors duration-150"
+              style={{ color: "#444", textDecoration: "none" }}
+              onMouseEnter={e => (e.currentTarget.style.color = "#B5E853")}
+              onMouseLeave={e => (e.currentTarget.style.color = "#444")}
+            >
+              <ArrowRight size={11} />
+              Ver todas
+            </a>
+          </div>
         )}
       </div>
 
