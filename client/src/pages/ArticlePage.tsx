@@ -1069,9 +1069,9 @@ export default function ArticlePage() {
               <a
                 href="/"
                 className="flex items-center gap-1 text-xs transition-colors duration-200"
-                style={{ color: "#555", textDecoration: "none" }}
+                style={{ color: "#C0C0C0", textDecoration: "none" }}
                 onMouseEnter={e => (e.currentTarget.style.color = "#B5E853")}
-                onMouseLeave={e => (e.currentTarget.style.color = "#555")}
+                onMouseLeave={e => (e.currentTarget.style.color = "#C0C0C0")}
               >
                 <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
@@ -1083,9 +1083,9 @@ export default function ArticlePage() {
               <a
                 href={`/cluster/${article.cluster}`}
                 className="flex items-center gap-1 text-xs transition-colors duration-200"
-                style={{ color: "#555", textDecoration: "none" }}
+                style={{ color: "#C0C0C0", textDecoration: "none" }}
                 onMouseEnter={e => (e.currentTarget.style.color = "#B5E853")}
-                onMouseLeave={e => (e.currentTarget.style.color = "#555")}
+                onMouseLeave={e => (e.currentTarget.style.color = "#C0C0C0")}
               >
                 <Tag size={9} style={{ flexShrink: 0 }} />
                 {clusterLabel}
@@ -1111,7 +1111,7 @@ export default function ArticlePage() {
 
             {/* Descripción */}
             {article.meta_description && (
-              <p className="mb-6 leading-relaxed" style={{ fontSize: 15, color: "#888" }}>{article.meta_description}</p>
+              <p className="mb-6 leading-relaxed" style={{ fontSize: 15, color: "#D0D0D0" }}>{article.meta_description}</p>
             )}
 
             {/* Imagen destacada */}
@@ -1136,12 +1136,12 @@ export default function ArticlePage() {
                     style={{ background: "rgba(181,232,83,0.12)", color: "#B5E853" }}>
                     {(article.author || "E").charAt(0)}
                   </div>
-                  <span className="text-xs font-medium" style={{ color: "#888" }}>{article.author || "Equipo Editorial"}</span>
+                  <span className="text-xs font-medium" style={{ color: "#D0D0D0" }}>{article.author || "Equipo Editorial"}</span>
                 </div>
-                <div className="flex items-center gap-1.5 text-xs" style={{ color: "#555" }}>
+                <div className="flex items-center gap-1.5 text-xs" style={{ color: "#C0C0C0" }}>
                   <Calendar size={11} /><span>{article.date || "Febrero 2026"}</span>
                 </div>
-                <div className="flex items-center gap-1.5 text-xs" style={{ color: "#555" }}>
+                <div className="flex items-center gap-1.5 text-xs" style={{ color: "#C0C0C0" }}>
                   <Clock size={11} /><span>{readTime} min de lectura</span>
                 </div>
               </div>
@@ -1287,7 +1287,7 @@ export default function ArticlePage() {
               style={{ background: "linear-gradient(135deg, #141414 0%, #111 100%)", border: "1px solid #1E1E1E", borderLeft: "4px solid #B5E853" }}>
               <div>
                 <p className="text-sm font-semibold mb-1" style={{ color: "#E8E8E8" }}>¿Buscas medios para tu estrategia de link building?</p>
-                <p className="text-xs" style={{ color: "#666" }}>Más de 20.000 medios verificados con métricas transparentes en Getalink.</p>
+                <p className="text-xs" style={{ color: "#C0C0C0" }}>Más de 20.000 medios verificados con métricas transparentes en Getalink.</p>
               </div>
               <a href="https://www.getalink.com" rel="nofollow" target="_blank"
                 className="btn-primary flex-shrink-0 flex items-center gap-1.5 px-5 py-2.5 rounded-lg text-sm font-semibold">

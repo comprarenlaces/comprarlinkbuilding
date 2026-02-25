@@ -539,7 +539,7 @@ function HeroSection() {
                       <p className="text-xs font-medium leading-snug" style={{ color: "#D8D8D8" }}>
                         {(a.h1 || "").slice(0, 65)}{(a.h1 || "").length > 65 ? "..." : ""}
                       </p>
-                      <p className="text-xs mt-0.5" style={{ color: "#555" }}>
+                      <p className="text-xs mt-0.5" style={{ color: "#C0C0C0" }}>
                         {CLUSTER_LABELS[a.cluster] || a.cluster}
                       </p>
                     </div>
@@ -605,7 +605,7 @@ function HeroSection() {
                       {a.h1 || ""}
                     </p>
                     <div className="flex items-center gap-3">
-                      <span className="text-xs" style={{ color: "#555" }}>{CLUSTER_LABELS[a.cluster] || a.cluster}</span>
+                      <span className="text-xs" style={{ color: "#C0C0C0" }}>{CLUSTER_LABELS[a.cluster] || a.cluster}</span>
                       {a.read_time && <span className="text-xs flex items-center gap-1" style={{ color: "#444" }}><Clock size={9} />{a.read_time}m</span>}
                     </div>
                   </div>
@@ -663,7 +663,7 @@ function ClusterCard({ cluster }: { cluster: typeof CLUSTERS[0] }) {
         <h3 className="font-bold text-sm mb-2 leading-snug" style={{ color: "#E8E8E8" }}>
           {cluster.name}
         </h3>
-        <p className="text-xs leading-relaxed mb-3" style={{ color: "#555" }}>
+        <p className="text-xs leading-relaxed mb-3" style={{ color: "#C0C0C0" }}>
           {cluster.description}
         </p>
         {/* Tags */}
@@ -728,7 +728,7 @@ function ClusterCard({ cluster }: { cluster: typeof CLUSTERS[0] }) {
               onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
             >
               <span style={{ color: "#B5E853", fontSize: "0.6rem", flexShrink: 0 }}>&#9658;</span>
-              <span className="text-xs leading-snug" style={{ color: "#888" }}>
+              <span className="text-xs leading-snug" style={{ color: "#C0C0C0" }}>
                 {(a.h1 || a.meta_title).replace(/^[^\w\s\u00C0-\u024F]+\s*/, '').slice(0, 70)}
               </span>
               {a.read_time && (
@@ -781,7 +781,7 @@ function ClustersSection() {
             >
               11 clústeres temáticos
             </h2>
-            <p className="mt-2 text-sm max-w-xl" style={{ color: "#666" }}>
+            <p className="mt-2 text-sm max-w-xl" style={{ color: "#C8C8C8" }}>
               Todo el conocimiento sobre link building, PR y reputación digital organizado en clústeres semánticos.
               Cada clúster agrupa guías, análisis y recursos especializados.
             </p>
@@ -872,7 +872,7 @@ function GuidesSection() {
             borderLeft: "4px solid #B5E853",
           }}
         >
-          <p className="text-sm leading-relaxed mb-0" style={{ color: "#888" }}>
+          <p className="text-sm leading-relaxed mb-0" style={{ color: "#C8C8C8" }}>
             <strong style={{ color: "#B5E853" }}>"</strong>
             {" "}El link building no se improvisa. Se diseña, se mide y se optimiza. Cada enlace es una señal de confianza,
             y cada señal de confianza es una oportunidad de posicionamiento. Esta web existe para que tomes mejores decisiones
@@ -900,7 +900,7 @@ function CountriesSection() {
             <h2 className="text-3xl font-bold" style={{ color: "#E8E8E8", letterSpacing: "-0.025em" }}>
               Link building por país
             </h2>
-            <p className="mt-2 text-sm max-w-xl" style={{ color: "#666" }}>
+            <p className="mt-2 text-sm max-w-xl" style={{ color: "#C8C8C8" }}>
               Guías específicas para construir autoridad en cada mercado hispanohablante y europeo,
               con medios locales y estrategias adaptadas a cada ecosistema digital.
             </p>
@@ -951,7 +951,7 @@ function LatestGuidesSection() {
             <h2 className="text-3xl font-bold" style={{ color: "#E8E8E8", letterSpacing: "-0.025em" }}>
               Últimas guías publicadas
             </h2>
-            <p className="mt-2 text-sm max-w-xl" style={{ color: "#666" }}>
+            <p className="mt-2 text-sm max-w-xl" style={{ color: "#C8C8C8" }}>
               Contenido editorial actualizado sobre link building, PR digital y reputación de marca.
             </p>
           </div>
@@ -971,7 +971,7 @@ function LatestGuidesSection() {
                 {(article.h1 || article.meta_title).replace(/^[^\w\s]+\s/, '').slice(0, 70)}
               </h3>
               {article.meta_description && (
-                <p className="text-xs leading-relaxed mb-3" style={{ color: "#555" }}>
+                <p className="text-xs leading-relaxed mb-3" style={{ color: "#C0C0C0" }}>
                   {article.meta_description.slice(0, 100)}…
                 </p>
               )}
