@@ -689,7 +689,7 @@ export default function ArticlePage() {
   const article = getArticleBySlug(slug);
 
   const [activeId, setActiveId] = useState("");
-  const [tocCollapsed, setTocCollapsed] = useState(false);
+  const [tocCollapsed, setTocCollapsed] = useState(true);
   const [mobileTocOpen, setMobileTocOpen] = useState(false);
   const [fontSize, setFontSize] = useState(16);
 
@@ -915,12 +915,7 @@ export default function ArticlePage() {
               {article.toc.length > 0 && (
                 <TableOfContents items={article.toc} activeId={activeId} collapsed={tocCollapsed} onToggle={() => setTocCollapsed(!tocCollapsed)} />
               )}
-              <div className="rounded-xl p-4" style={{ background: "#111111", border: "1px solid #1E1E1E" }}>
-                <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: "#555" }}>Tamaño de texto</p>
-                <FontSizeControl size={fontSize} onChange={setFontSize} />
-              </div>
               <SocialShareBlock title={article.meta_title || article.h1} />
-              <StarRating slug={slug} />
               <div className="rounded-xl p-4" style={{ background: "#111111", border: "1px solid #1E1E1E" }}>
                 <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#555" }}>Plataforma recomendada</p>
                 <p className="text-xs mb-3 leading-relaxed" style={{ color: "#444" }}>Medios verificados para ejecutar tu estrategia.</p>
