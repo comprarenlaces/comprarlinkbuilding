@@ -518,7 +518,7 @@ function renderContent(text: string, internalLinks: Article['internal_links']): 
       elements.push(
         <ul key={key++} className="article-list">
           {listItems.map((item, i) => (
-            <li key={i} dangerouslySetInnerHTML={{ __html: formatInline(item) }} />
+            <li key={i} dangerouslySetInnerHTML={{ __html: formatInline(item, linkMap) }} />
           ))}
         </ul>
       );
@@ -534,7 +534,7 @@ function renderContent(text: string, internalLinks: Article['internal_links']): 
         <div key={key++} className="overflow-x-auto my-6">
           <table className="article-table">
             <thead><tr>{headers.map((h, i) => <th key={i}>{h}</th>)}</tr></thead>
-            <tbody>{rows.map((row, ri) => <tr key={ri}>{row.map((cell, ci) => <td key={ci} dangerouslySetInnerHTML={{ __html: formatInline(cell) }} />)}</tr>)}</tbody>
+            <tbody>{rows.map((row, ri) => <tr key={ri}>{row.map((cell, ci) => <td key={ci} dangerouslySetInnerHTML={{ __html: formatInline(cell, linkMap) }} />)}</tr>)}</tbody>
           </table>
         </div>
       );
@@ -573,7 +573,7 @@ function renderContent(text: string, internalLinks: Article['internal_links']): 
     if (trimmed.startsWith('> ') || trimmed.startsWith('>')) {
       const content = trimmed.replace(/^>\s?/, '');
       elements.push(
-        <blockquote key={key++} className="callout-info" dangerouslySetInnerHTML={{ __html: formatInline(content) }} />
+        <blockquote key={key++} className="callout-info" dangerouslySetInnerHTML={{ __html: formatInline(content, linkMap) }} />
       );
       continue;
     }
@@ -581,7 +581,7 @@ function renderContent(text: string, internalLinks: Article['internal_links']): 
     // Párrafo normal
     if (trimmed) {
       elements.push(
-        <p key={key++} className="article-paragraph" dangerouslySetInnerHTML={{ __html: formatInline(trimmed) }} />
+        <p key={key++} className="article-paragraph" dangerouslySetInnerHTML={{ __html: formatInline(trimmed, linkMap) }} />
       );
     }
   }
@@ -592,8 +592,28 @@ function renderContent(text: string, internalLinks: Article['internal_links']): 
   return elements;
 }
 
-function formatInline(text: string): string {
-  return text
+function applyLinkMap(html: string, linkMap: Map<string, string>): string {
+  if (linkMap.size === 0) return html;
+  // Ordenar por longitud descendente para que frases largas tengan prioridad
+  const entries = Array.from(linkMap.entries()).sort((a, b) => b[0].length - a[0].length);
+  // Rastrear qué hrefs ya se han usado (máximo 1 vez por href para no sobreoptimizar)
+  const usedHrefs = new Set<string>();
+  for (const [phrase, href] of entries) {
+    if (usedHrefs.has(href)) continue;
+    // Escapar caracteres especiales de regex
+    const escaped = phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    // Buscar la frase en el texto plano (fuera de etiquetas HTML ya procesadas)
+    const regex = new RegExp(`(?<!<[^>]*)\\b(${escaped})\\b(?![^<]*>)`, 'i');
+    if (regex.test(html)) {
+      html = html.replace(regex, `<a href="${href}" style="color:#B5E853;text-decoration:underline;text-underline-offset:3px;font-weight:500">$1</a>`);
+      usedHrefs.add(href);
+    }
+  }
+  return html;
+}
+
+function formatInline(text: string, linkMap?: Map<string, string>): string {
+  let result = text
     .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
     .replace(/\*([^*]+)\*/g, '<em>$1</em>')
     .replace(/`([^`]+)`/g, '<code style="background:#1A1A1A;color:#B5E853;padding:2px 6px;border-radius:4px;font-size:0.85em">$1</code>')
@@ -604,6 +624,10 @@ function formatInline(text: string): string {
       const target = isInternal ? '' : 'target="_blank"';
       return `<a href="${resolvedHref}" ${rel} ${target} style="color:#B5E853;text-decoration:underline;text-underline-offset:3px">${text}</a>`;
     });
+  if (linkMap && linkMap.size > 0) {
+    result = applyLinkMap(result, linkMap);
+  }
+  return result;
 }
 
 // ─── Acordeón FAQ ───────────────────────────────────────────────────────────
