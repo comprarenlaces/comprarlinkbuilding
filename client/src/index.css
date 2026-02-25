@@ -265,7 +265,7 @@ body {
    ============================================================ */
 
 .article-body {
-  color: #C0C0C0;
+  color: #E8E8E8;
   font-family: 'Open Sans', sans-serif;
   line-height: 1.8;
   width: 100%;
@@ -308,7 +308,7 @@ body {
 /* Párrafos */
 .article-body p {
   margin-bottom: 1.4rem;
-  color: #A8A8A8;
+  color: #E8E8E8;
   text-align: justify;
   text-justify: inter-word;
   hyphens: auto;
@@ -316,8 +316,8 @@ body {
 }
 
 /* Strong / em */
-.article-body strong { color: #D8D8D8; font-weight: 600; }
-.article-body em { color: #B0B0B0; font-style: italic; }
+.article-body strong { color: #FFFFFF; font-weight: 600; }
+.article-body em { color: #D0D0D0; font-style: italic; }
 
 /* Listas */
 .article-body ul,
@@ -330,7 +330,7 @@ body {
   position: relative;
   padding-left: 1.4rem;
   margin-bottom: 0.5rem;
-  color: #A0A0A0;
+  color: #E8E8E8;
   text-align: justify;
   text-justify: inter-word;
 }
@@ -348,7 +348,7 @@ body {
 .article-body ol { list-style: decimal; }
 .article-body ol li {
   margin-bottom: 0.5rem;
-  color: #A0A0A0;
+  color: #E8E8E8;
   padding-left: 0.3rem;
   text-align: justify;
   text-justify: inter-word;
@@ -398,7 +398,7 @@ body {
 .article-body tbody tr:last-child { border-bottom: none; }
 .article-body tbody td {
   padding: 10px 14px;
-  color: #888;
+  color: #D0D0D0;
   vertical-align: middle;
 }
 
@@ -416,21 +416,21 @@ body {
 .callout-info {
   background: rgba(181, 232, 83, 0.05);
   border-left: 3px solid #B5E853;
-  color: #999;
+  color: #D8D8D8;
 }
 .callout-info strong { color: #B5E853; }
 
 .callout-warning {
   background: rgba(232, 168, 56, 0.05);
   border-left: 3px solid #E8A838;
-  color: #999;
+  color: #D8D8D8;
 }
 .callout-warning strong { color: #E8A838; }
 
 .callout-tip {
   background: rgba(56, 168, 232, 0.05);
   border-left: 3px solid #38A8E8;
-  color: #999;
+  color: #D8D8D8;
 }
 .callout-tip strong { color: #38A8E8; }
 
@@ -441,7 +441,7 @@ body {
   border-left: 3px solid #B5E853;
   background: #111111;
   border-radius: 0 8px 8px 0;
-  color: #888;
+  color: #D0D0D0;
   font-style: italic;
 }
 

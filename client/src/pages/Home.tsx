@@ -493,13 +493,13 @@ function HeroSection() {
         {/* Subtítulo */}
         <p
           className="text-base mb-8 max-w-2xl mx-auto fade-in-up fade-in-up-delay-2"
-          style={{ color: "#666", lineHeight: "1.8" }}
+          style={{ color: "#D0D0D0", lineHeight: "1.8" }}
         >
           Guías, estrategias y análisis sobre{" "}
-          <strong style={{ color: "#B0B0B0" }}>link building</strong>,{" "}
-          <strong style={{ color: "#B0B0B0" }}>PR digital</strong>,{" "}
-          <strong style={{ color: "#B0B0B0" }}>reputación de marca</strong> y{" "}
-          <strong style={{ color: "#B0B0B0" }}>autoridad SEO</strong> para profesionales que quieren resultados reales.
+          <strong style={{ color: "#E8E8E8" }}>link building</strong>,{" "}
+          <strong style={{ color: "#E8E8E8" }}>PR digital</strong>,{" "}
+          <strong style={{ color: "#E8E8E8" }}>reputación de marca</strong> y{" "}
+          <strong style={{ color: "#E8E8E8" }}>autoridad SEO</strong> para profesionales que quieren resultados reales.
         </p>
 
         {/* Buscador */}
@@ -833,7 +833,7 @@ function GuidesSection() {
           <h2 className="text-3xl font-bold mb-3" style={{ color: "#E8E8E8", letterSpacing: "-0.025em" }}>
             Qué encontrarás en esta web
           </h2>
-          <p className="text-sm max-w-xl mx-auto" style={{ color: "#666", lineHeight: "1.75" }}>
+          <p className="text-sm max-w-xl mx-auto" style={{ color: "#D0D0D0", lineHeight: "1.75" }}>
             Contenido editorial independiente sobre link building, PR digital, reputación y branding.
             Sin afiliados ocultos, sin contenido patrocinado. Solo conocimiento técnico aplicable.
           </p>
@@ -856,7 +856,7 @@ function GuidesSection() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-sm mb-1.5" style={{ color: "#E8E8E8" }}>{g.title}</h3>
-                  <p className="text-xs leading-relaxed" style={{ color: "#666" }}>{g.desc}</p>
+                  <p className="text-xs leading-relaxed" style={{ color: "#C8C8C8" }}>{g.desc}</p>
                 </div>
               </div>
             );
@@ -926,7 +926,7 @@ function CountriesSection() {
               }}
             >
               <div className="text-2xl mb-2">{country.flag}</div>
-              <div className="text-xs font-medium" style={{ color: "#888" }}>{country.name}</div>
+              <div className="text-xs font-medium" style={{ color: "#D0D0D0" }}>{country.name}</div>
             </a>
           ))}
         </div>
@@ -1068,7 +1068,7 @@ function CTASection() {
           <br />
           <span style={{ color: "#B5E853" }}>autoridad con estrategia?</span>
         </h2>
-        <p className="text-sm mb-8 max-w-xl mx-auto" style={{ color: "#666", lineHeight: "1.75" }}>
+        <p className="text-sm mb-8 max-w-xl mx-auto" style={{ color: "#D0D0D0", lineHeight: "1.75" }}>
           Si buscas ejecutar tu estrategia de link building con medios reales, tráfico verificado
           y soporte humano, <strong style={{ color: "#C8C8C8" }}>Getalink</strong> es la plataforma
           más completa del mercado hispanohablante.

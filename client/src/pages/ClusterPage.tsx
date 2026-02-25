@@ -153,7 +153,7 @@ function ArticleCard({ article }: { article: Article }) {
         </h2>
         {/* Descripción */}
         {article.meta_description && (
-          <p className="text-xs leading-relaxed mb-4 line-clamp-2" style={{ color: "#666" }}>
+          <p className="text-xs leading-relaxed mb-4 line-clamp-2" style={{ color: "#C0C0C0" }}>
             {article.meta_description}
           </p>
         )}
@@ -252,7 +252,7 @@ export default function ClusterPage() {
                 <a href="/#clusteres" className="text-xs transition-colors duration-200" style={{ color: "#444" }}
                   onMouseEnter={e => (e.currentTarget.style.color = "#B5E853")} onMouseLeave={e => (e.currentTarget.style.color = "#444")}>Clústeres</a>
                 <ChevronRight size={10} style={{ color: "#2A2A2A" }} />
-                <span className="text-xs" style={{ color: "#666" }}>{clusterLabel}</span>
+                <span className="text-xs" style={{ color: "#C8C8C8" }}>{clusterLabel}</span>
               </nav>
 
               <div className="flex items-start gap-4 mb-4">
@@ -265,7 +265,7 @@ export default function ClusterPage() {
                 </div>
               </div>
 
-              <p className="max-w-2xl mb-8" style={{ fontSize: 15, color: "#888", lineHeight: 1.7 }}>
+              <p className="max-w-2xl mb-8" style={{ fontSize: 15, color: "#D0D0D0", lineHeight: 1.7 }}>
                 {clusterDesc}
               </p>
 
@@ -373,7 +373,7 @@ export default function ClusterPage() {
               style={{ background: "linear-gradient(135deg, #141414 0%, #111 100%)", border: "1px solid #1E1E1E", borderLeft: "4px solid #B5E853" }}>
               <div>
                 <p className="text-sm font-semibold mb-1" style={{ color: "#E8E8E8" }}>¿Buscas medios para ejecutar tu estrategia?</p>
-                <p className="text-xs" style={{ color: "#666" }}>Más de 20.000 medios verificados con métricas transparentes en Getalink.</p>
+                <p className="text-xs" style={{ color: "#C0C0C0" }}>Más de 20.000 medios verificados con métricas transparentes en Getalink.</p>
               </div>
               <a href="https://www.getalink.com" rel="nofollow" target="_blank"
                 className="btn-primary flex-shrink-0 flex items-center gap-1.5 px-5 py-2.5 rounded-lg text-sm font-semibold">

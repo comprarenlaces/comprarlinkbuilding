@@ -368,7 +368,7 @@ function StarRating({ slug }: { slug: string }) {
       </div>
       {!submitted ? (
         <div>
-          <p className="text-xs mb-3" style={{ color: "#555" }}>¿Te ha resultado útil?</p>
+          <p className="text-xs mb-3" style={{ color: "#C0C0C0" }}>¿Te ha resultado útil?</p>
           <div className="flex items-center gap-1 mb-2">
             {[1,2,3,4,5].map(star => (
               <button key={star} onMouseEnter={() => setHover(star)} onMouseLeave={() => setHover(0)} onClick={() => handleRate(star)}
@@ -425,7 +425,7 @@ function InlineStarRating({ slug }: { slug: string }) {
   return (
     <div className="mt-10 rounded-xl p-6 text-center" style={{ background: "#111111", border: "1px solid #1E1E1E" }}>
       <p className="text-sm font-semibold mb-1" style={{ color: "#E8E8E8" }}>¿Te ha resultado útil este artículo?</p>
-      <p className="text-xs mb-4" style={{ color: "#555" }}>Tu valoración nos ayuda a mejorar el contenido</p>
+      <p className="text-xs mb-4" style={{ color: "#C0C0C0" }}>Tu valoración nos ayuda a mejorar el contenido</p>
       {!submitted ? (
         <>
           <div className="flex items-center justify-center gap-2 mb-3">
@@ -658,7 +658,7 @@ function FaqAccordion({ items }: { items: FaqAccordionItem[] }) {
           {openIndex === i && (
             <div className="px-5 pb-5">
               <div className="w-full h-px mb-4" style={{ background: "rgba(181,232,83,0.1)" }} />
-              <p className="text-sm leading-relaxed" style={{ color: "#888" }}
+              <p className="text-sm leading-relaxed" style={{ color: "#D0D0D0" }}
                 dangerouslySetInnerHTML={{ __html: formatInline(item.answer) }} />
             </div>
           )}
@@ -693,7 +693,7 @@ function RelatedArticles({ cluster, currentSlug, internalLinks }: { cluster: str
         <>
           <div className="flex items-center gap-2 mb-5">
             <BookOpen size={14} style={{ color: "#B5E853" }} />
-            <h3 className="text-sm font-semibold uppercase tracking-widest" style={{ color: "#555" }}>Más guías de este clúster</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-widest" style={{ color: "#888" }}>Más guías de este clúster</h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
             {sameCluster.map((r) => (
@@ -764,7 +764,7 @@ function MostReadSidebar({ currentSlug }: { currentSlug: string }) {
     <div className="rounded-xl p-4" style={{ background: "#111111", border: "1px solid #1E1E1E" }}>
       <div className="flex items-center gap-2 mb-4">
         <BookOpen size={12} style={{ color: "#B5E853" }} />
-        <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: "#555" }}>Guías esenciales</p>
+        <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: "#888" }}>Guías esenciales</p>
       </div>
       <div className="space-y-1">
         {items.map((item, i) => (
@@ -994,7 +994,7 @@ export default function ArticlePage() {
         <div className="max-w-3xl mx-auto px-4 pt-32 pb-20 text-center">
           <p className="text-6xl mb-6" style={{ color: "#B5E853" }}>404</p>
           <h1 className="text-2xl font-bold mb-4" style={{ color: "#E8E8E8" }}>Artículo no encontrado</h1>
-          <p className="text-sm mb-8" style={{ color: "#666" }}>El artículo que buscas no existe o ha sido movido.</p>
+          <p className="text-sm mb-8" style={{ color: "#C0C0C0" }}>El artículo que buscas no existe o ha sido movido.</p>
           <a href="/" className="btn-primary px-6 py-3 rounded-lg text-sm font-semibold inline-flex items-center gap-2">
             Volver al inicio
           </a>
