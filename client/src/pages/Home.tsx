@@ -540,81 +540,103 @@ function StatsBar() {
 
 function ClusterCard({ cluster }: { cluster: typeof CLUSTERS[0] }) {
   const Icon = cluster.icon;
-  const [hovered, setHovered] = useState(false);
+  const [expanded, setExpanded] = useState(false);
+  const articles = getArticlesByCluster(cluster.slug);
+  const realCount = articles.length;
 
   return (
     <div
-      className="rounded-lg p-5 cursor-pointer transition-all duration-200 flex flex-col"
+      className="rounded-lg transition-all duration-200 flex flex-col overflow-hidden"
       style={{
-        background: hovered ? "#181818" : "#141414",
-        border: `1px solid ${hovered ? "#2A2A2A" : "#1E1E1E"}`,
-        borderLeft: `3px solid ${hovered ? "#8CC63F" : "#B5E853"}`,
-        transform: hovered ? "translateY(-3px)" : "translateY(0)",
-        boxShadow: hovered ? "0 10px 30px rgba(181,232,83,0.07)" : "none",
+        background: "#141414",
+        border: "1px solid #1E1E1E",
+        borderLeft: "3px solid #B5E853",
       }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
     >
-      {/* Header */}
-      <div className="flex items-start justify-between mb-3">
-        <div
-          className="w-9 h-9 rounded flex items-center justify-center flex-shrink-0"
-          style={{ background: "rgba(181,232,83,0.1)" }}
-        >
-          <Icon size={16} style={{ color: "#B5E853" }} />
-        </div>
-        <span
-          className="text-xs font-semibold px-2 py-0.5 rounded"
-          style={{ background: "rgba(181,232,83,0.08)", color: "#B5E853", border: "1px solid rgba(181,232,83,0.15)" }}
-        >
-          {cluster.count} guías
-        </span>
-      </div>
-
-      {/* Nombre */}
-      <h3 className="font-bold text-sm mb-2 leading-snug" style={{ color: "#E8E8E8" }}>
-        {cluster.name}
-      </h3>
-
-      {/* Descripción */}
-      <p className="text-xs leading-relaxed mb-4 flex-1" style={{ color: "#666" }}>
-        {cluster.description}
-      </p>
-
-      {/* Artículos destacados */}
-      <div className="mb-4">
-        {getArticlesByCluster(cluster.slug).slice(0, 3).map((a) => (
-          <a key={a.slug} href={`/${a.cluster}/${a.slug}`}
-            className="flex items-start gap-1.5 mb-1.5 group" style={{ textDecoration: "none" }}>
-            <ChevronRight size={10} className="flex-shrink-0 mt-0.5" style={{ color: "#B5E853" }} />
-            <span className="text-xs leading-snug transition-colors duration-150"
-              style={{ color: "#555" }}
-              onMouseEnter={e => (e.currentTarget.style.color = "#B5E853")}
-              onMouseLeave={e => (e.currentTarget.style.color = "#555")}>
-              {(a.h1 || a.meta_title).replace(/^[^\w\s]+\s/, '').slice(0, 60)}
-            </span>
-          </a>
-        ))}
-        {getArticlesByCluster(cluster.slug).length === 0 && cluster.featured.map((f, i) => (
-          <div key={i} className="flex items-start gap-1.5 mb-1.5">
-            <ChevronRight size={10} className="flex-shrink-0 mt-0.5" style={{ color: "#B5E853" }} />
-            <span className="text-xs leading-snug" style={{ color: "#555" }}>{f}</span>
-          </div>
-        ))}
-      </div>
-
-      {/* Tags */}
-      <div className="flex flex-wrap gap-1 mt-auto">
-        {cluster.tags.map(tag => (
-          <span
-            key={tag}
-            className="text-xs px-2 py-0.5 rounded"
-            style={{ background: "#1A1A1A", color: "#444", border: "1px solid #242424" }}
+      {/* Header del clúster */}
+      <div className="p-5">
+        <div className="flex items-start justify-between mb-3">
+          <div
+            className="w-9 h-9 rounded flex items-center justify-center flex-shrink-0"
+            style={{ background: "rgba(181,232,83,0.1)" }}
           >
-            {tag}
+            <Icon size={16} style={{ color: "#B5E853" }} />
+          </div>
+          <span
+            className="text-xs font-semibold px-2 py-0.5 rounded"
+            style={{ background: "rgba(181,232,83,0.08)", color: "#B5E853", border: "1px solid rgba(181,232,83,0.15)" }}
+          >
+            {realCount > 0 ? realCount : cluster.count} guías
           </span>
-        ))}
+        </div>
+        <h3 className="font-bold text-sm mb-2 leading-snug" style={{ color: "#E8E8E8" }}>
+          {cluster.name}
+        </h3>
+        <p className="text-xs leading-relaxed mb-3" style={{ color: "#555" }}>
+          {cluster.description}
+        </p>
+        {/* Tags */}
+        <div className="flex flex-wrap gap-1 mb-4">
+          {cluster.tags.map(tag => (
+            <span key={tag} className="text-xs px-2 py-0.5 rounded"
+              style={{ background: "#1A1A1A", color: "#444", border: "1px solid #242424" }}>
+              {tag}
+            </span>
+          ))}
+        </div>
+        {/* Botón expandir */}
+        {realCount > 0 && (
+          <button
+            onClick={() => setExpanded(!expanded)}
+            className="flex items-center gap-1.5 text-xs font-semibold transition-colors duration-150"
+            style={{ color: expanded ? "#B5E853" : "#555", background: "none", border: "none", padding: 0, cursor: "pointer" }}
+            onMouseEnter={e => (e.currentTarget.style.color = "#B5E853")}
+            onMouseLeave={e => (e.currentTarget.style.color = expanded ? "#B5E853" : "#555")}
+          >
+            <ChevronRight
+              size={12}
+              style={{ transform: expanded ? "rotate(90deg)" : "rotate(0deg)", transition: "transform 0.2s" }}
+            />
+            {expanded ? "Ocultar guías" : `Ver las ${realCount} guías`}
+          </button>
+        )}
       </div>
+
+      {/* Lista de todos los artículos — acordeón */}
+      {expanded && realCount > 0 && (
+        <div
+          style={{
+            borderTop: "1px solid #1E1E1E",
+            background: "#0F0F0F",
+            maxHeight: "320px",
+            overflowY: "auto",
+          }}
+        >
+          {articles.map((a, i) => (
+            <a
+              key={a.slug}
+              href={`/${a.cluster}/${a.slug}`}
+              className="flex items-center gap-2 px-5 py-2.5 transition-colors duration-150"
+              style={{
+                textDecoration: "none",
+                borderBottom: i < articles.length - 1 ? "1px solid #181818" : "none",
+              }}
+              onMouseEnter={e => (e.currentTarget.style.background = "#161616")}
+              onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
+            >
+              <span style={{ color: "#B5E853", fontSize: "0.6rem", flexShrink: 0 }}>&#9658;</span>
+              <span className="text-xs leading-snug" style={{ color: "#888" }}>
+                {(a.h1 || a.meta_title).replace(/^[^\w\s\u00C0-\u024F]+\s*/, '').slice(0, 70)}
+              </span>
+              {a.read_time && (
+                <span className="ml-auto text-xs flex-shrink-0" style={{ color: "#333" }}>
+                  {a.read_time}m
+                </span>
+              )}
+            </a>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
@@ -1064,12 +1086,7 @@ function Footer() {
           style={{ borderTop: "1px solid #141414", color: "#2A2A2A" }}
         >
           <span>© {new Date().getFullYear()} ComprarBacklinks — Contenido editorial independiente</span>
-          <span style={{ color: "#2A2A2A" }}>Potenciado por{" "}
-            <a href="https://www.getalink.com" rel="nofollow" target="_blank" style={{ color: "#3A3A3A" }}
-              onMouseEnter={e => (e.currentTarget.style.color = "#B5E853")}
-              onMouseLeave={e => (e.currentTarget.style.color = "#3A3A3A")}
-            >getalink.com</a>
-          </span>
+
         </div>
       </div>
     </footer>

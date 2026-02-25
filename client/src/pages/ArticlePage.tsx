@@ -794,6 +794,19 @@ export default function ArticlePage() {
               <p className="mb-6 leading-relaxed" style={{ fontSize: 15, color: "#888" }}>{article.meta_description}</p>
             )}
 
+            {/* Imagen destacada */}
+            {article.featuredImage && (
+              <div className="mb-8 rounded-xl overflow-hidden" style={{ border: "1px solid #1E1E1E" }}>
+                <img
+                  src={article.featuredImage}
+                  alt={article.h1 || article.meta_title}
+                  className="w-full object-cover"
+                  style={{ maxHeight: 360, display: "block" }}
+                  loading="lazy"
+                />
+              </div>
+            )}
+
             {/* Meta bar */}
             <div className="flex flex-wrap items-center justify-between gap-4 py-4 mb-8"
               style={{ borderTop: "1px solid #1A1A1A", borderBottom: "1px solid #1A1A1A" }}>
