@@ -557,36 +557,17 @@ function HeroSection() {
           </button>
         </form>
 
-        {/* Etiquetas rápidas — filtros de clúster reales */}
-        <div className="flex flex-wrap justify-center gap-2 mb-10 fade-in-up fade-in-up-delay-3">
-          {["Estrategia", "Tácticas", "Penalizaciones", "Métricas", "Reputación", "Herramientas", "LLMs & IA", "Presupuesto"].map(tag => {
-            const isActive = activeTag === tag;
-            return (
-              <button
-                key={tag}
-                onClick={() => handleTagClick(tag)}
-                className="text-xs px-3 py-1.5 rounded-full border transition-all duration-200"
-                style={{
-                  borderColor: isActive ? "#B5E853" : "#252525",
-                  color: isActive ? "#0D0D0D" : "#555",
-                  background: isActive ? "#B5E853" : "transparent",
-                  fontWeight: isActive ? 600 : 400,
-                }}
-              >
-                {isActive ? `✕ ${tag}` : tag}
-              </button>
-            );
-          })}
-          {activeTag && (
+        {activeTag && (
+          <div className="flex justify-center mb-10">
             <button
               onClick={() => { setActiveTag(null); setArticleResults(null); setQuery(""); }}
               className="text-xs px-3 py-1.5 rounded-full border transition-all duration-200"
               style={{ borderColor: "#333", color: "#666", background: "transparent" }}
             >
-              Limpiar filtro
+              ✕ Limpiar filtro
             </button>
-          )}
-        </div>
+          </div>
+        )}
 
       </div>
 
@@ -1159,9 +1140,9 @@ function Footer() {
                   <a
                     href={`/cluster/${item.slug}`}
                     className="text-xs transition-colors duration-200"
-                    style={{ color: "#3A3A3A" }}
+                    style={{ color: "#E8E8E8" }}
                     onMouseEnter={e => (e.currentTarget.style.color = "#B5E853")}
-                    onMouseLeave={e => (e.currentTarget.style.color = "#3A3A3A")}
+                    onMouseLeave={e => (e.currentTarget.style.color = "#E8E8E8")}
                   >
                     {item.name}
                   </a>
@@ -1181,9 +1162,9 @@ function Footer() {
                   <a
                     href="#paises"
                     className="text-xs transition-colors duration-200"
-                    style={{ color: "#3A3A3A" }}
+                    style={{ color: "#E8E8E8" }}
                     onMouseEnter={e => (e.currentTarget.style.color = "#B5E853")}
-                    onMouseLeave={e => (e.currentTarget.style.color = "#3A3A3A")}
+                    onMouseLeave={e => (e.currentTarget.style.color = "#E8E8E8")}
                   >
                     {item}
                   </a>
@@ -1217,10 +1198,10 @@ function Footer() {
         >
           <span>© {new Date().getFullYear()} ComprarLinkbuilding — Contenido editorial independiente</span>
           <div className="flex items-center gap-4">
-            <a href="/privacidad" className="transition-colors duration-200" style={{ color: "#333" }}
-              onMouseEnter={e => (e.currentTarget.style.color = "#B5E853")} onMouseLeave={e => (e.currentTarget.style.color = "#333")}>Política de Privacidad</a>
-            <a href="/aviso-legal" className="transition-colors duration-200" style={{ color: "#333" }}
-              onMouseEnter={e => (e.currentTarget.style.color = "#B5E853")} onMouseLeave={e => (e.currentTarget.style.color = "#333")}>Aviso Legal</a>
+            <a href="/privacidad" className="transition-colors duration-200" style={{ color: "#E8E8E8" }}
+              onMouseEnter={e => (e.currentTarget.style.color = "#B5E853")} onMouseLeave={e => (e.currentTarget.style.color = "#E8E8E8")}>Política de Privacidad</a>
+            <a href="/aviso-legal" className="transition-colors duration-200" style={{ color: "#E8E8E8" }}
+              onMouseEnter={e => (e.currentTarget.style.color = "#B5E853")} onMouseLeave={e => (e.currentTarget.style.color = "#E8E8E8")}>Aviso Legal</a>
           </div>
         </div>
       </div>
