@@ -605,6 +605,44 @@ function formatInline(text: string): string {
     });
 }
 
+// ─── Acordeón FAQ ───────────────────────────────────────────────────────────
+
+interface FaqAccordionItem { question: string; answer: string; }
+
+function FaqAccordion({ items }: { items: FaqAccordionItem[] }) {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  if (!items || items.length === 0) return null;
+  return (
+    <div className="mt-2 space-y-2">
+      {items.map((item, i) => (
+        <div key={i} className="rounded-xl overflow-hidden transition-all duration-200"
+          style={{ background: openIndex === i ? "#141414" : "#111111", border: `1px solid ${openIndex === i ? "rgba(181,232,83,0.2)" : "#1E1E1E"}` }}>
+          <button
+            onClick={() => setOpenIndex(openIndex === i ? null : i)}
+            className="w-full flex items-center justify-between px-5 py-4 text-left transition-colors duration-150"
+            style={{ background: "transparent" }}
+          >
+            <span className="text-sm font-semibold pr-4" style={{ color: openIndex === i ? "#B5E853" : "#D0D0D0", lineHeight: 1.4 }}>
+              {item.question}
+            </span>
+            <span className="flex-shrink-0 flex items-center justify-center rounded-full transition-all duration-200"
+              style={{ width: 24, height: 24, background: openIndex === i ? "rgba(181,232,83,0.12)" : "#1A1A1A", color: openIndex === i ? "#B5E853" : "#444" }}>
+              {openIndex === i ? <ChevronUp size={13} /> : <ChevronDown size={13} />}
+            </span>
+          </button>
+          {openIndex === i && (
+            <div className="px-5 pb-5">
+              <div className="w-full h-px mb-4" style={{ background: "rgba(181,232,83,0.1)" }} />
+              <p className="text-sm leading-relaxed" style={{ color: "#888" }}
+                dangerouslySetInnerHTML={{ __html: formatInline(item.answer) }} />
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 // ─── Artículos relacionados ──────────────────────────────────────────────────
 
 function RelatedArticles({ cluster, currentSlug }: { cluster: string; currentSlug: string }) {
@@ -861,14 +899,40 @@ export default function ArticlePage() {
 
             {/* Secciones de contenido */}
             <div className="article-body" style={{ fontSize, lineHeight: 1.8 }}>
-              {article.content_sections.map((section) => {
-                const headingId = section.heading ? slugify(section.heading) : '';
+              {article.content_sections.map((section, idx) => {
+                const headingId = section.heading ? slugify(section.heading) : `section-${idx}`;
+
+                // Sección FAQ con acordeón
+                if (section.is_faq && section.content) {
+                  const faqItems: FaqAccordionItem[] = [];
+                  const faqLines = section.content.split('\n\n');
+                  for (const line of faqLines) {
+                    if (line.startsWith('FAQ_ITEM::')) {
+                      try {
+                        const parsed = JSON.parse(line.replace('FAQ_ITEM::', ''));
+                        if (parsed.q && parsed.a) faqItems.push({ question: parsed.q, answer: parsed.a });
+                      } catch {}
+                    }
+                  }
+                  return (
+                    <div key={headingId} className="mt-12 mb-8">
+                      <div className="flex items-center gap-3 mb-6">
+                        <div className="w-1 h-7 rounded-full" style={{ background: "#B5E853" }} />
+                        <h2 id={headingId} className="!mt-0 !mb-0" style={{ color: "#F0F0F0" }}>{section.heading}</h2>
+                      </div>
+                      <FaqAccordion items={faqItems} />
+                    </div>
+                  );
+                }
+
                 return (
                   <div key={headingId}>
                     {section.heading_level === 2 ? (
                       <h2 id={headingId}>{section.heading}</h2>
-                    ) : (
+                    ) : section.heading_level === 3 ? (
                       <h3 id={headingId}>{section.heading}</h3>
+                    ) : (
+                      <h4 id={headingId} style={{ color: "#C8C8C8", fontSize: "1rem", fontWeight: 600, marginTop: "1.25rem", marginBottom: "0.5rem" }}>{section.heading}</h4>
                     )}
                     {renderContent(section.content, article.internal_links || [])}
                   </div>
