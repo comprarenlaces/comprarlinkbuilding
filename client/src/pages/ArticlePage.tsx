@@ -763,7 +763,7 @@ export default function ArticlePage() {
 
       {/* Layout */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-10" style={{ alignItems: "start" }}>
 
           {/* ── Columna principal ── */}
           <main>
@@ -897,15 +897,19 @@ export default function ArticlePage() {
           </main>
 
           {/* ── Sidebar ── */}
-          <aside className="hidden lg:block" style={{ alignSelf: "start" }}>
+          <aside
+            className="hidden lg:block"
+            style={{ alignSelf: "start", position: "sticky", top: "5.5rem" }}
+          >
             <div
-              className="sticky space-y-4"
+              className="space-y-4"
               style={{
-                top: "5rem",
-                maxHeight: "calc(100vh - 6rem)",
+                maxHeight: "calc(100vh - 7rem)",
                 overflowY: "auto",
-                scrollbarWidth: "none",
-                msOverflowStyle: "none",
+                overflowX: "hidden",
+                paddingRight: "2px",
+                scrollbarWidth: "thin",
+                scrollbarColor: "#2A2A2A transparent",
               }}
             >
               {article.toc.length > 0 && (
