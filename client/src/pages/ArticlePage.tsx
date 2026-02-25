@@ -897,8 +897,17 @@ export default function ArticlePage() {
           </main>
 
           {/* ── Sidebar ── */}
-          <aside className="hidden lg:block">
-            <div className="sticky top-20 space-y-4">
+          <aside className="hidden lg:block" style={{ alignSelf: "start" }}>
+            <div
+              className="sticky space-y-4"
+              style={{
+                top: "5rem",
+                maxHeight: "calc(100vh - 6rem)",
+                overflowY: "auto",
+                scrollbarWidth: "none",
+                msOverflowStyle: "none",
+              }}
+            >
               {article.toc.length > 0 && (
                 <TableOfContents items={article.toc} activeId={activeId} collapsed={tocCollapsed} onToggle={() => setTocCollapsed(!tocCollapsed)} />
               )}
