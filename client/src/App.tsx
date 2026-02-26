@@ -1,17 +1,20 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
+import { lazy, Suspense } from "react";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
-import Home from "./pages/Home";
-import ArticlePage from "./pages/ArticlePage";
-import ClusterPage from "./pages/ClusterPage";
-import PrivacyPage from "./pages/PrivacyPage";
-import LegalPage from "./pages/LegalPage";
+
+const Home = lazy(() => import("./pages/Home"));
+const ArticlePage = lazy(() => import("./pages/ArticlePage"));
+const ClusterPage = lazy(() => import("./pages/ClusterPage"));
+const PrivacyPage = lazy(() => import("./pages/PrivacyPage"));
+const LegalPage = lazy(() => import("./pages/LegalPage"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 function Router() {
   return (
+    <Suspense fallback={<div style={{minHeight:'100vh',background:'#0a0a0a'}} />}>
     <Switch>
       <Route path={"/"} component={Home} />
       {/* Páginas legales */}
@@ -24,6 +27,7 @@ function Router() {
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
+    </Suspense>
   );
 }
 

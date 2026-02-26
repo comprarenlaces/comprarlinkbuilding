@@ -166,6 +166,55 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    chunkSizeWarningLimit: 600,
+    target: 'es2020',
+    minify: 'esbuild',
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          // Chunks de datos por clúster para code splitting
+          if (id.includes('/lib/clusters/paises')) return 'data-paises';
+          if (id.includes('/lib/clusters/tacticas-y-metodos')) return 'data-tacticas';
+          if (id.includes('/lib/clusters/sectores')) return 'data-sectores';
+          if (id.includes('/lib/clusters/reputacion-de-marca')) return 'data-reputacion';
+          if (id.includes('/lib/clusters/riesgos-y-penalizaciones')) return 'data-riesgos';
+          if (id.includes('/lib/clusters/metricas-y-medicion')) return 'data-metricas';
+          if (id.includes('/lib/clusters/planificacion-y-presupuesto')) return 'data-planificacion';
+          if (id.includes('/lib/clusters/auditorias-y-analisis')) return 'data-auditorias';
+          if (id.includes('/lib/clusters/herramientas')) return 'data-herramientas';
+          if (id.includes('/lib/clusters/llms-y-busqueda-generativa')) return 'data-llms';
+          if (id.includes('/lib/clusters/estrategia-link-building')) return 'data-estrategia';
+          if (id.includes('/lib/clusters/tendencias-seo')) return 'data-tendencias';
+          if (id.includes('node_modules/react/') || id.includes('node_modules/react-dom/') || id.includes('node_modules/scheduler/')) {
+            return 'react-core';
+          }
+          if (id.includes('node_modules/framer-motion')) {
+            return 'framer-motion';
+          }
+          if (id.includes('node_modules/@radix-ui/react-accordion') || id.includes('node_modules/@radix-ui/react-collapsible')) {
+            return 'radix-accordion';
+          }
+          if (id.includes('node_modules/@radix-ui/react-dialog') || id.includes('node_modules/@radix-ui/react-alert-dialog')) {
+            return 'radix-dialog';
+          }
+          if (id.includes('node_modules/@radix-ui/react-dropdown-menu') || id.includes('node_modules/@radix-ui/react-navigation-menu') || id.includes('node_modules/@radix-ui/react-menubar')) {
+            return 'radix-menus';
+          }
+          if (id.includes('node_modules/@radix-ui')) {
+            return 'radix-misc';
+          }
+          if (id.includes('node_modules/lucide-react')) {
+            return 'lucide';
+          }
+          if (id.includes('node_modules/wouter')) {
+            return 'router';
+          }
+          if (id.includes('node_modules/')) {
+            return 'vendor';
+          }
+        },
+      },
+    },
   },
   server: {
     port: 3000,
